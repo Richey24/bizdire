@@ -1,5 +1,5 @@
 import loginFunctions from "../../services/userHelper.js";
-
+import authStore from "../../modules/store/auth.js";
 
 $(function(){
 
@@ -24,12 +24,15 @@ function logInButtonSubmit() {
 
     loginFunctions.login(email, password)
         .then((data) => {
-            console.log(data)
-
             clearLoginInput()
-            alert("success login")
+           // $(location).prop('href', 'http://localhost:63342/bizdire/index.html');
 
-            //changes should be made to the dashboard to say logged In
+            //TODO:Store data in local storage
+            console.log(data)
+            if(data['mainToken'] && data['email']) {
+                authStore.setUser(data)
+                $(location).prop('href', 'http://localhost:63342/bizdire/index.html')
+            }
 
 
         })

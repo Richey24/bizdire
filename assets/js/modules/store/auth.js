@@ -1,16 +1,12 @@
 
 
-class auth {
+class authStore {
 
-    constructor(user) {
 
-        //set user details
-        if(user['token'] && user['name']) {
-            localStorage.setItem('user', JSON.stringify(user))
-        }
-
+    setUser(user) {
+        console.log('set User')
+        localStorage.setItem('user', JSON.stringify(user))
     }
-
 
     getUserName() {
         console.log(localStorage.getItem("user"));
@@ -18,6 +14,31 @@ class auth {
 
     getToken() {
         console.log(localStorage.getItem("user"));
+
+    }
+
+    getUser() {
+        console.log(localStorage.getItem("user"));
+        return JSON.parse(localStorage.getItem("user"));
+    }
+
+    getEmail() {
+        return JSON.parse(localStorage.getItem("user")).email;
+    }
+
+    isAuthenticated() {
+        let user = JSON.parse(localStorage.getItem('user'));
+
+        if(user!==null){
+            return (user.mainToken && user.email)
+        }else {
+            return false
+        }
+
+    }
+
+    logout() {
+        localStorage.removeItem('user');
     }
 
 
@@ -26,4 +47,4 @@ class auth {
 
 }
 
-export default new auth()
+export default new authStore()
