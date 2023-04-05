@@ -404,11 +404,11 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label class="form-label text-dark">Listing Title</label>
-								<input type="text" class="form-control" placeholder="Add List Name">
+								<input id="listingTitle" type="text" class="form-control" placeholder="Add List Name">
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Category</label>
-								<select class="form-control form-select select2-show-search">
+								<select id="categorySel" class="form-control form-select select2-show-search">
 									<option value="0">Select Category</option>
 									<option value="1">RealEstate</option>
 									<option value="2">Restaurant</option>
@@ -428,15 +428,15 @@
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Your Zip Code</label>
-								<input type="text" class="form-control" placeholder="Add Zip Code">
+								<input id="zipCode" type="text" class="form-control" placeholder="Add Zip Code">
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Phone Number</label>
-								<input type="text" class="form-control" placeholder="Add List Phone Number">
+								<input id="phone" type="text" class="form-control" placeholder="Add List Phone Number">
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Opening Days</label>
-								<select class="form-control select2" data-placeholder="Choose Day" multiple>
+								<select id="daySelect" class="form-control select2" data-placeholder="Choose Day" multiple>
 									<option value="AllDays" Selected>All Days</option>
 									<option value="Sunday">Sunday</option>
 									<option value="Monday">Monday</option>
@@ -451,7 +451,7 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="form-label text-dark">Opening Time</label>
-										<select class="form-control select2-show-search" data-placeholder="Choose Time">
+										<select id="openTimeSelect" class="form-control select2-show-search" data-placeholder="Choose Time">
 											<option value="12">12am</option>
 											<option value="1">1am</option>
 											<option value="2">2am</option>
@@ -482,7 +482,7 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="form-label text-dark">Closing Time</label>
-										<select class="form-control select2-show-search" data-placeholder="Choose Time">
+										<select id="closeTimeSelect" class="form-control select2-show-search" data-placeholder="Choose Time">
 											<option value="12">12am</option>
 											<option value="1">1am</option>
 											<option value="2">2am</option>
@@ -513,7 +513,7 @@
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Description</label>
-								<textarea class="form-control" name="example-textarea-input" rows="6"
+								<textarea id="description" class="form-control" name="example-textarea-input" rows="6"
 									placeholder="text here.."></textarea>
 							</div>
 							<div class="form-group">
@@ -523,7 +523,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="card ">
+					<!--<div class="card ">
 						<div class="card-header">
 							<h3 class="card-title">Personal Information</h3>
 						</div>
@@ -555,7 +555,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>-->
 					<div class="card">
 						<div class="card-header">
 							<h3 class="card-title">Social Media Information</h3>
@@ -567,7 +567,7 @@
 										<i class="fa fa-facebook tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div><!-- input-group-text -->
-								<input class="form-control" placeholder="Facebook URL" type="text">
+								<input id="facebookUrl" class="form-control" placeholder="Facebook URL" type="text">
 							</div>
 							<div class="input-group mb-4">
 								<div class="input-group-text">
@@ -575,7 +575,7 @@
 										<i class="fa fa-twitter tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div><!-- input-group-text -->
-								<input class="form-control" placeholder="Twitter URL" type="text">
+								<input id="twitterURL" class="form-control" placeholder="Twitter URL" type="text">
 							</div>
 							<div class="input-group mb-4">
 								<div class="input-group-text">
@@ -583,7 +583,7 @@
 										<i class="fa fa-google-plus tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div>
-								<input class="form-control" placeholder="GooglePlus URL" type="text">
+								<input  id="googleURL" class="form-control" placeholder="GooglePlus URL" type="text">
 							</div>
 							<div class="input-group mb-4">
 								<div class="input-group-text">
@@ -591,7 +591,7 @@
 										<i class="fa fa-map-marker tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div>
-								<input class="form-control" placeholder="GoogleMap Location URL" type="text">
+								<input id="googleMapUrl" class="form-control" placeholder="GoogleMap Location URL" type="text">
 							</div>
 						</div>
 					</div>
@@ -602,7 +602,7 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label class="form-label">Company Established year</label>
-								<select name="user[year]" class="form-control select2">
+								<select id="yearSelect" name="user[year]" class="form-control select2">
 									<option value="">Year</option>
 									<option value="2020">2023</option>
 									<option value="2020">2022</option>
@@ -733,9 +733,9 @@
 									<option value="1897">1897</option>
 								</select>
 							</div>
-							<div class="form-group">
+							<!--<div class="form-group">
 								<label class="form-label text-dark">Services</label>
-								<select class="form-control select2" data-placeholder="Choose Services" multiple>
+								<select id="serviceSelect" class="form-control select2" data-placeholder="Choose Services" multiple>
 									<option>Select Category</option>
 									<option value="0">All Categories</option>
 									<option value="1">Hotels</option>
@@ -749,10 +749,10 @@
 									<option value="9">Mobile Store</option>
 									<option value="10">College</option>
 								</select>
-							</div>
+							</div>-->
 							<div class="form-group">
 								<label class="form-label text-dark">Payment Methods</label>
-								<select class="form-control select2" data-placeholder="Choose Payment" multiple>
+								<select id="paymentSelect" class="form-control select2" data-placeholder="Choose Payment" multiple>
 									<option value="Cash" Selected>Cash</option>
 									<option value="Net Banking">Net Banking</option>
 									<option value="Visa">Visa</option>
@@ -935,7 +935,7 @@
 						</div>
 					</div> -->
 					<div class="float-end mb-5 mb-lg-0">
-						<a href="javascript:void(0)" class="btn btn-lg btn-success">Submit Now</a>
+						<a id="submit" class="btn btn-lg btn-success">Submit Now</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-12">
@@ -1230,7 +1230,24 @@
 
 	<!-- Custom Js-->
 	<script src="../assets/js/themeColors.js"></script>
-	<script src="../assets/js/custom.js"></script>
+	<script type="module" src="../assets/js/custom.js"></script>
+
+	<!--Axios -->
+	<script src="../assets/js/vendors/axios.min.js"></script>
+
+	<script  type="module" src="../assets/js/modules/store/auth.js"></script>
+
+	<script  type="module" src="../assets/js/modules/store/listing-store.js"></script>
+
+	<script  type="module" src="../assets/js/services/listings-service.js"></script>
+
+	<script  type="module" src="../assets/js/services/user-service.js"></script>
+
+
+	<script type="module" src="../assets/js/pages/addListing/ad-list.js"></script>
+
+
+
 </body>
 
 </html>

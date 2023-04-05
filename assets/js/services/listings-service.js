@@ -1,6 +1,15 @@
-import api from 'assets/js/services/api'
-const API_URL = `${process.env.EXPRESS_SERVER_URL}/listing`
+//import api from 'assets/js/services/api'
+//const API_URL = `${process.env.EXPRESS_SERVER_URL}/listing`
 
+
+const API_URL = `/listing`
+
+const api = axios.create({
+    baseURL: 'http://localhost:5000',
+    headers: {
+        "Content-Type": "application/json",
+    },
+})
 
 class ListingsService {
 
