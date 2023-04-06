@@ -24,14 +24,20 @@ $(function(){
     //save user input
     $('#submit').on('click', (e)=>{
         e.preventDefault()
-        getUserInput()
-        /*listingsService.createList(body)
+        let body= getUserInput()
+        listingsService.createList(body)
           .then((response)=>{
-                console.log(response)
+                return response.data
+            })
+            .then((data)=>{
+                console.log(data)
+                if(data.message === 'Created Successfully') {
+                    $(location).prop('href', 'http://localhost:63342/bizdire/index.html')
+                }
             })
           .catch((error)=>{
                 console.log(error)
-            })*/
+            })
     })
 
     //delete user input
@@ -64,19 +70,23 @@ function getUserInput (){
         title: title.val(),
         category: categorySel.val(),
         zipCode: zipCode.val(),
-        phone: phone.val(),
-        day: daySelect.val(),
-        openTime: openTimeSelect.val(),
-        closeTime: closeTimeSelect.val(),
+        phoneNumber: phone.val(),
+        openingDays: daySelect.val(),
+        openingTime: openTimeSelect.val(),
+        closingTime: closeTimeSelect.val(),
         description: description.val(),
         image: image.val(),
         facebookUrl: facebookUrl.val(),
         twitterUrl: twitterURL.val(),
-        googleUrl: googleURL.val(),
+        googlePlusUrl: googleURL.val(),
         googleMapUrl: googleMapUrl.val(),
-        year: yearSelect.val(),
-        payment: paymentSelect.val()
+        establishedYear: yearSelect.val(),
+        paymentMethod: paymentSelect.val(),
+        userID:"6424f914a23ccef0ec4c74a4",
+        publish:true
     }
     console.log(body)
+
+    return body;
 }
 
