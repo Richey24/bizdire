@@ -1,3 +1,5 @@
+import authStore from "./modules/store/auth.js";
+
 (function () {
 	"use strict";
 
@@ -151,6 +153,33 @@
 	});
 
 
+	$(document).ready(function () {
+		console.log("document ready");
+	});
+
+
+
+	//check if user is authenticated
+	if(authStore.isAuthenticated()){
+		//redirect to home page
+		//window.location.href = "/bizdire/index.html";
+		hideRegisterDetails()
+		displayUserDetails()
+
+		console.log("user logged in")
+	}else {
+		//redirect to login page
+		//window.location.href = "/bizdire/login.html";
+	}
+
+	//add logout function
+	$('#logout').click(function(){
+		authStore.logout();
+		window.location.href = "/bizdire/login.html";
+	})
+
+
+
 })();
 
 
@@ -195,3 +224,35 @@ if (bodyRtl) {
 // ---------------End RTL VERSION-----------------//
 
 /*-----------End Switcher js--------------*/
+
+
+
+$(function(){
+
+	//check if user logged in
+
+	console.log("custom loaded")
+
+
+})
+
+
+
+/*-----------User Display Functions----------------*/
+function hideRegisterDetails() {
+	//get element details
+	console.log($('.top-bar-right .custom li'));
+	$('.top-bar-right .custom li a')[0].style = 'display:none'
+	$('.top-bar-right .custom li a')[1].style = 'display:none'
+
+}
+
+
+function displayUserDetails() {
+	$('.top-bar-right .custom li a')[2].style = 'display:block'
+	console.log(authStore.getEmail());
+	console.log( $('#userEmailSpan'));
+	$('#userEmailSpan').text(authStore.getEmail())
+}
+
+

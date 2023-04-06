@@ -1,0 +1,16 @@
+{
+  "RealEstate": 1,
+  "Restaurant": 2,
+  "Health & Fitness": 3,
+  "Travel": 4,
+  "Computer": 5,
+  "Electronics": 6,
+  "Jobs": 7,
+  "Beauty & Spa": 8,
+  "Clothing": 9,
+  "Home & Furinture": 10,
+  "Vechicles": 11,
+  "Education": 12,
+  "Services": 13,
+  "Events": 14
+}

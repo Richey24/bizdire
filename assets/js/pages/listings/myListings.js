@@ -1,4 +1,3 @@
-import authStore from "../../modules/store/auth.js";
 
 $(function(){
 

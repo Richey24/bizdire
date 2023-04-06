@@ -404,39 +404,49 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label class="form-label text-dark">Listing Title</label>
-								<input type="text" class="form-control" placeholder="Add List Name">
+								<input id="listingTitle" type="text" class="form-control" placeholder="Add List Name">
+								<h5 id="titleCheck" style="color: red;">
+									**Title cannot be empty
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Category</label>
-								<select class="form-control form-select select2-show-search">
-									<option value="0">Select Category</option>
-									<option value="1">RealEstate</option>
-									<option value="2">Restaurant</option>
-									<option value="3">Health & Fitness</option>
-									<option value="4">Travel</option>
-									<option value="5">Computer</option>
-									<option value="6">Electronics</option>
-									<option value="7">Jobs</option>
-									<option value="8">Beauty & Spa</option>
-									<option value="9">Clothing</option>
-									<option value="10">Home & Furinture</option>
-									<option value="11">Vechicles</option>
-									<option value="12">Education</option>
-									<option value="13">Services</option>
-									<option value="14">Events</option>
+								<select id="categorySel" class="form-control form-select select2-show-search">
+									<option value="0">All Categories</option>
+									<option value="Study & Education">Study & Education</option>
+									<option value="Hotel & RealEstate">Hotel & RealEstate</option>
+									<option value="Animal & Pets">Animal & Pets</option>
+									<option value="AutoMobile">AutoMobile</option>
+									<option value="Beauty & Spa">Beauty & Spa</option>
+									<option value="Fashion / Clothing">Fashion / Clothing</option>
+									<option value="Fashion / Clothing">Home & Furniture</option>
+									<option value="Electronics">Electronics</option>
+									<option value="Rentals">Rentals</option>
+									<option value="Entertainment">Entertainment</option>
+									<option value="Professional Services">Professional Services</option>
+									<option value="Home Services">Home Services</option>
 								</select>
+								<h5 id="categoryCheck" style="color: red;">
+									**Must Select a Category
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Your Zip Code</label>
-								<input type="text" class="form-control" placeholder="Add Zip Code">
+								<input id="zipCode" type="text" class="form-control" placeholder="Add Zip Code">
+								<h5 id="zipcodeCheck" style="color: red;">
+									**Zip Code cannot be empty
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Phone Number</label>
-								<input type="text" class="form-control" placeholder="Add List Phone Number">
+								<input id="phone" type="text" class="form-control" placeholder="Add List Phone Number">
+								<h5 id="phoneCheck" style="color: red;">
+									**Phone Number is missing
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Opening Days</label>
-								<select class="form-control select2" data-placeholder="Choose Day" multiple>
+								<select id="daySelect" class="form-control select2" data-placeholder="Choose Day" multiple>
 									<option value="AllDays" Selected>All Days</option>
 									<option value="Sunday">Sunday</option>
 									<option value="Monday">Monday</option>
@@ -446,12 +456,15 @@
 									<option value="Friday">Friday</option>
 									<option value="Saturday">Saturday</option>
 								</select>
+								<h5 id="openingDayCheck" style="color: red;">
+									**Must Select an opening Day
+								</h5>
 							</div>
 							<div class="row">
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="form-label text-dark">Opening Time</label>
-										<select class="form-control select2-show-search" data-placeholder="Choose Time">
+										<select id="openTimeSelect" class="form-control select2-show-search" data-placeholder="Choose Time">
 											<option value="12">12am</option>
 											<option value="1">1am</option>
 											<option value="2">2am</option>
@@ -482,7 +495,7 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="form-label text-dark">Closing Time</label>
-										<select class="form-control select2-show-search" data-placeholder="Choose Time">
+										<select id="closeTimeSelect" class="form-control select2-show-search" data-placeholder="Choose Time">
 											<option value="12">12am</option>
 											<option value="1">1am</option>
 											<option value="2">2am</option>
@@ -513,8 +526,11 @@
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Description</label>
-								<textarea class="form-control" name="example-textarea-input" rows="6"
+								<textarea id="description" class="form-control" name="example-textarea-input" rows="6"
 									placeholder="text here.."></textarea>
+								<h5 id="descriptionCheck" style="color: red;">
+									**Description cannot be empty
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Image Upload</label>
@@ -523,7 +539,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="card ">
+					<!--<div class="card ">
 						<div class="card-header">
 							<h3 class="card-title">Personal Information</h3>
 						</div>
@@ -555,7 +571,7 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div>-->
 					<div class="card">
 						<div class="card-header">
 							<h3 class="card-title">Social Media Information</h3>
@@ -567,7 +583,7 @@
 										<i class="fa fa-facebook tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div><!-- input-group-text -->
-								<input class="form-control" placeholder="Facebook URL" type="text">
+								<input id="facebookUrl" class="form-control" placeholder="Facebook URL" type="text">
 							</div>
 							<div class="input-group mb-4">
 								<div class="input-group-text">
@@ -575,7 +591,7 @@
 										<i class="fa fa-twitter tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div><!-- input-group-text -->
-								<input class="form-control" placeholder="Twitter URL" type="text">
+								<input id="twitterURL" class="form-control" placeholder="Twitter URL" type="text">
 							</div>
 							<div class="input-group mb-4">
 								<div class="input-group-text">
@@ -583,7 +599,7 @@
 										<i class="fa fa-google-plus tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div>
-								<input class="form-control" placeholder="GooglePlus URL" type="text">
+								<input  id="googleURL" class="form-control" placeholder="GooglePlus URL" type="text">
 							</div>
 							<div class="input-group mb-4">
 								<div class="input-group-text">
@@ -591,7 +607,7 @@
 										<i class="fa fa-map-marker tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div>
-								<input class="form-control" placeholder="GoogleMap Location URL" type="text">
+								<input id="googleMapUrl" class="form-control" placeholder="GoogleMap Location URL" type="text">
 							</div>
 						</div>
 					</div>
@@ -602,7 +618,7 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label class="form-label">Company Established year</label>
-								<select name="user[year]" class="form-control select2">
+								<select id="yearSelect" name="user[year]" class="form-control select2">
 									<option value="">Year</option>
 									<option value="2020">2023</option>
 									<option value="2020">2022</option>
@@ -733,9 +749,9 @@
 									<option value="1897">1897</option>
 								</select>
 							</div>
-							<div class="form-group">
+							<!--<div class="form-group">
 								<label class="form-label text-dark">Services</label>
-								<select class="form-control select2" data-placeholder="Choose Services" multiple>
+								<select id="serviceSelect" class="form-control select2" data-placeholder="Choose Services" multiple>
 									<option>Select Category</option>
 									<option value="0">All Categories</option>
 									<option value="1">Hotels</option>
@@ -749,10 +765,10 @@
 									<option value="9">Mobile Store</option>
 									<option value="10">College</option>
 								</select>
-							</div>
+							</div>-->
 							<div class="form-group">
 								<label class="form-label text-dark">Payment Methods</label>
-								<select class="form-control select2" data-placeholder="Choose Payment" multiple>
+								<select id="paymentSelect" class="form-control select2" data-placeholder="Choose Payment" multiple>
 									<option value="Cash" Selected>Cash</option>
 									<option value="Net Banking">Net Banking</option>
 									<option value="Visa">Visa</option>
@@ -761,6 +777,9 @@
 									<option value="Americal Express">Americal Express</option>
 									<option value="Online Transaction">Online Transaction</option>
 								</select>
+								<h5 id="paymentCheck" style="color: red;">
+									**Payment Method cannot be empty
+								</h5>
 							</div>
 							<!-- <div class="form-group">
 								<label class="form-label">Fax</label>
@@ -935,7 +954,7 @@
 						</div>
 					</div> -->
 					<div class="float-end mb-5 mb-lg-0">
-						<a href="javascript:void(0)" class="btn btn-lg btn-success">Submit Now</a>
+						<a id="submit" class="btn btn-lg btn-success">Submit Now</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-12">
@@ -1230,7 +1249,24 @@
 
 	<!-- Custom Js-->
 	<script src="../assets/js/themeColors.js"></script>
-	<script src="../assets/js/custom.js"></script>
+	<script type="module" src="../assets/js/custom.js"></script>
+
+	<!--Axios -->
+	<script src="../assets/js/vendors/axios.min.js"></script>
+
+	<script  type="module" src="../assets/js/modules/store/auth.js"></script>
+
+	<script  type="module" src="../assets/js/modules/store/listing-store.js"></script>
+
+	<script  type="module" src="../assets/js/services/listings-service.js"></script>
+
+	<script  type="module" src="../assets/js/services/user-service.js"></script>
+
+
+	<script type="module" src="../assets/js/pages/addListing/ad-list.js"></script>
+
+
+
 </body>
 
 </html>
