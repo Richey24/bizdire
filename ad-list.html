@@ -405,6 +405,9 @@
 							<div class="form-group">
 								<label class="form-label text-dark">Listing Title</label>
 								<input id="listingTitle" type="text" class="form-control" placeholder="Add List Name">
+								<h5 id="titleCheck" style="color: red;">
+									**Title cannot be empty
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Category</label>
@@ -423,14 +426,23 @@
 									<option value="Professional Services">Professional Services</option>
 									<option value="Home Services">Home Services</option>
 								</select>
+								<h5 id="categoryCheck" style="color: red;">
+									**Must Select a Category
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Your Zip Code</label>
 								<input id="zipCode" type="text" class="form-control" placeholder="Add Zip Code">
+								<h5 id="zipcodeCheck" style="color: red;">
+									**Zip Code cannot be empty
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Phone Number</label>
 								<input id="phone" type="text" class="form-control" placeholder="Add List Phone Number">
+								<h5 id="phoneCheck" style="color: red;">
+									**Phone Number is missing
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Opening Days</label>
@@ -444,6 +456,9 @@
 									<option value="Friday">Friday</option>
 									<option value="Saturday">Saturday</option>
 								</select>
+								<h5 id="openingDayCheck" style="color: red;">
+									**Must Select an opening Day
+								</h5>
 							</div>
 							<div class="row">
 								<div class="col-sm-6">
@@ -513,6 +528,9 @@
 								<label class="form-label text-dark">Description</label>
 								<textarea id="description" class="form-control" name="example-textarea-input" rows="6"
 									placeholder="text here.."></textarea>
+								<h5 id="descriptionCheck" style="color: red;">
+									**Description cannot be empty
+								</h5>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Image Upload</label>
@@ -759,6 +777,9 @@
 									<option value="Americal Express">Americal Express</option>
 									<option value="Online Transaction">Online Transaction</option>
 								</select>
+								<h5 id="paymentCheck" style="color: red;">
+									**Payment Method cannot be empty
+								</h5>
 							</div>
 							<!-- <div class="form-group">
 								<label class="form-label">Fax</label>
