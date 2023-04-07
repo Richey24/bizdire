@@ -34,7 +34,7 @@ class ListingsService {
 
 
     getByParams(params) {
-        return api.get(`${API_URL}/get/params`, {params} )
+        return api.post(`${API_URL}/get/params`, params )
     }
 
 
