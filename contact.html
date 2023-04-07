@@ -379,20 +379,20 @@
 							<div class="wrapper wrapper2">
 								<div class="card mb-0 overflow-hidden">
 									<div class="card-body">
-										<form>
+										<form id="contactForm">
 											<div class="form-group">
-												<input type="text" class="form-control" id="name1"
+												<input type="text" name="name" class="form-control" id="name1"
 													placeholder="Your Name" required>
 											</div>
 											<div class="form-group">
-												<input type="email" class="form-control" id="email"
+												<input type="email" name="email" class="form-control" id="email"
 													placeholder="Email Address" required>
 											</div>
 											<div class="form-group">
-												<textarea class="form-control" name="example-textarea-input" rows="6"
+												<textarea class="form-control" name="message" rows="6"
 													placeholder="Message" required></textarea>
 											</div>
-											<button type="submit" class="btn btn-primary btn-block">Send
+											<button id="submitBtn" type="submit" class="btn btn-primary btn-block">Send
 												Message</button>
 										</form>
 									</div>
@@ -625,6 +625,31 @@
 	<!-- Custom Js-->
 	<script src="../assets/js/themeColors.js"></script>
 	<script src="../assets/js/custom.js"></script>
+
+	<script>
+		document.getElementById("contactForm").addEventListener("submit", async (e) => {
+			e.preventDefault()
+			document.getElementById("submitBtn").innerHTML = "Loading..."
+			const body = {
+				name: e.target.name.value,
+				email: e.target.email.value,
+				message: e.target.message.value
+			}
+			const res = await fetch("https://bizdire.azurewebsites.net/contact", {
+				method: "POST",
+				body: JSON.stringify(body),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				}
+			})
+			if (res.status === 200) {
+				document.getElementById("submitBtn").innerHTML = "Message Sent"
+			}
+			setTimeout(() => {
+				document.getElementById("submitBtn").innerHTML = "Send Message"
+			}, 5000)
+		})
+	</script>
 </body>
 
 </html>
