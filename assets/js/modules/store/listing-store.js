@@ -2,9 +2,9 @@
 
 
 class listingStore {
-    getAll() {
-
-    }
+   getAll(){
+       return JSON.parse(localStorage.getItem('listing'))
+   }
 
     get(id) {
 
@@ -22,7 +22,11 @@ class listingStore {
 
     }
 
+    setListings(listing) {
+        localStorage.setItem('listing', JSON.stringify(listing))
+    }
+
 
 }
 
-export default listingStore;
+export default new listingStore();

@@ -1,5 +1,6 @@
 import locationService from "../../services/location-service.js";
 import listingsService from "../../services/listings-service.js";
+import listingStore from "../../modules/store/listing-store.js";
 
 $(function(){
 
@@ -19,6 +20,8 @@ $(function(){
           })
         .then((data)=>{
             console.log(data)
+            listingStore.setListings(data)
+            $(location).prop('href', 'http://localhost:63342/bizdire/business-list.html')
         })
             .catch((error)=>{
                 console.log(error)
