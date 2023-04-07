@@ -846,13 +846,23 @@
 
 		document.getElementById("dashForm").addEventListener("submit", async (e) => {
 			e.preventDefault()
+			document.getElementById("zipCode").style.border = ""
+			document.getElementById("email").style.border = ""
+			document.getElementById("phoneNumber").style.border = ""
 			const regex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
 			if (!e.target.email.value.includes("@")) {
 				document.getElementById("email").focus()
+				document.getElementById("email").style.border = "1px solid red"
 				return
 			}
 			if (!regex.test(e.target.phoneNumber.value)) {
 				document.getElementById("phoneNumber").focus()
+				document.getElementById("phoneNumber").style.border = "1px solid red"
+				return
+			}
+			if (e.target.zipCode.value.length < 5 || isNaN(e.target.zipCode.value)) {
+				document.getElementById("zipCode").focus()
+				document.getElementById("zipCode").style.border = "1px solid red"
 				return
 			}
 			document.getElementById("updateBtn").innerHTML = "Loading..."
