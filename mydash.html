@@ -827,7 +827,7 @@
 		const getUser = async () => {
 			const res = await fetch("https://bizdire.azurewebsites.net/user/get/642e3b811d2b9c9e59ad650a", {
 				headers: {
-					"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmUzYjgxMWQyYjljOWU1OWFkNjUwYSIsImlhdCI6MTY4MDgyNjYyNCwiZXhwIjoxNjgwODYyNjI0fQ.2mSQ4yf8AfiUUgTh5A7J6rLxJ5uItClmcD5xYLmI2Ew",
+					"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmUzYjgxMWQyYjljOWU1OWFkNjUwYSIsImlhdCI6MTY4MDg4MzE3OCwiZXhwIjoxNjgwOTE5MTc4fQ.6-bKdtRK7NKk8ecYIfAPOwyDrrnV1p_xVPRZlE3S0yw",
 				}
 			})
 			const rep = await res.json()
@@ -879,7 +879,7 @@
 				method: "PUT",
 				body: body,
 				headers: {
-					"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmUzYjgxMWQyYjljOWU1OWFkNjUwYSIsImlhdCI6MTY4MDgyNjYyNCwiZXhwIjoxNjgwODYyNjI0fQ.2mSQ4yf8AfiUUgTh5A7J6rLxJ5uItClmcD5xYLmI2Ew"
+					"Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MmUzYjgxMWQyYjljOWU1OWFkNjUwYSIsImlhdCI6MTY4MDg4MzE3OCwiZXhwIjoxNjgwOTE5MTc4fQ.6-bKdtRK7NKk8ecYIfAPOwyDrrnV1p_xVPRZlE3S0yw"
 				}
 			})
 			if (res.status === 200) {
