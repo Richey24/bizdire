@@ -357,7 +357,7 @@
 
 	<!--Sliders Section-->
 	<section>
-		<div class="banner-1 cover-image sptb-2 sptb-tab " data-bs-image-src="../assets/images/black-hands.jpg">
+		<div class="banner-1 cover-image sptb-2 sptb-tab " data-bs-image-src="../assets/images/black-hands.jpeg">
 			<div class="header-text text-1 mb-0">
 				<div class="container">
 					<div class="text-center text-white mb-7">
@@ -1799,8 +1799,16 @@
 									<i class="icon icon-docs"></i>
 								</div>
 								<h5>Total Listings</h5>
-								<h2 class="counter mb-0">17,846</h2>
+								<h2 id="totalLists" class="counter mb-0">1100</h2>
 							</div>
+							<script>
+								const getListings = async () => {
+									const res = await fetch("https://bizdire.azurewebsites.net/listing/get/all")
+									const rep = await res.json()
+									document.getElementById("totalLists").innerHTML = rep.length
+								}
+								getListings()
+							</script>
 						</div>
 						<div class="col-lg-3 col-md-6">
 							<div class="counter-status status-1 md-lg-0">
@@ -1817,8 +1825,16 @@
 									<i class="icon icon-people"></i>
 								</div>
 								<h5> Our Clients</h5>
-								<h2 class="counter mb-0">7,569</h2>
+								<h2 class="counter mb-0" id="totalUser">7,569</h2>
 							</div>
+							<script>
+								const getUsers = async () => {
+									const res = await fetch("https://bizdire.azurewebsites.net/user/get/noofuser")
+									const rep = await res.json()
+									document.getElementById("totalUser").innerHTML = rep.noOfUser
+								}
+								getUsers()
+							</script>
 						</div>
 						<div class="col-lg-3 col-md-6">
 							<div class="counter-status status mb-0">
@@ -1861,10 +1877,10 @@
 									</svg>
 									<!-- User Icon Svg -->
 								</div>
-								<h4 class="mb-4 fs-20">Exsiting User</h4>
+								<h4 class="mb-4 fs-20">Existing User</h4>
 								<p>it look like readable English. Many desktop publishing packages and web page editors
 									now use Lorem Ipsum as their default model text</p>
-								<a href="javascript:void(0)" class="btn btn-primary text-white px-6">Login</a>
+								<a href="login.html" class="btn btn-primary text-white px-6">Login</a>
 							</div>
 						</div>
 					</div>
@@ -1897,7 +1913,7 @@
 								<h4 class="mb-4 fs-20">New User</h4>
 								<p>it look like readable English. Many desktop publishing packages and web page editors
 									now use Lorem Ipsum as their default model text</p>
-								<a href="javascript:void(0)" class="btn btn-primary text-white px-6">Register</a>
+								<a href="register.html" class="btn btn-primary text-white px-6">Register</a>
 							</div>
 						</div>
 					</div>
@@ -2987,9 +3003,12 @@
 			});
 		}
 
+
+
 		window.addEventListener("load", async () => {
 			await getCategory()
 			await getLocation()
+			// await getListings()
 		})
 	</script>
 
