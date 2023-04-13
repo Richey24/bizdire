@@ -26,7 +26,8 @@
 	<link href="../assets/css/icons.css" rel="stylesheet" />
 
 	<style>
-		#small-categories {
+		.small-categories,
+		.showcaseList {
 			display: flex;
 			overflow: scroll;
 			column-gap: 20px;
@@ -34,13 +35,32 @@
 			scrollbar-width: none;
 		}
 
-		#small-categories::-webkit-scrollbar {
+		.small-categories::-webkit-scrollbar,
+		.showcaseList::-webkit-scrollbar {
 			display: none;
 		}
 
-		#small-categories>div {
+		.small-categories>div {
 			flex-shrink: 0;
 			width: 300px;
+		}
+
+		.showcaseList>div {
+			flex-shrink: 0;
+			width: 100%;
+		}
+
+		.popularImage {
+			height: 200px;
+		}
+
+		.popularDesc {
+			display: -webkit-box;
+			max-width: 200px;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			height: 45px;
 		}
 	</style>
 
@@ -296,10 +316,10 @@
 										</a>
 									</div>
 								</li>
-								<li>
+								<!-- <li>
 									<a href="myfavorite.html" class="text-dark"><i class="fa fa-heart me-1"></i>
 										<span>My favorities</span></a>
-								</li>
+								</li> -->
 							</ul>
 						</div>
 					</div>
@@ -344,7 +364,7 @@
 						</li>
 
 						<li><a href="javascript:void(0)">Categories <span class="fa fa-caret-down m-0"></span></a>
-							<ul class="sub-menu">
+							<ul id="headCat" class="sub-menu">
 								<li><a href="business.html">Educational</a></li>
 								<li><a href="business.html">Meditation</a></li>
 								<li><a href="business.html">RealEstate</a></li>
@@ -433,7 +453,7 @@
 	<!--Categories-->
 	<section class="categories">
 		<div class="container">
-			<div id="small-categories" class="">
+			<div id="small-categories" class="small-categories">
 				<div class="item">
 					<div class="card mb-0 overflow-hidden">
 						<div class="card-body">
@@ -900,7 +920,6 @@
 				document.getElementById("small-categories").appendChild(div)
 			}, 4000)
 		}
-		getCat()
 	</script>
 
 	<!--Featured Listings-->
@@ -910,7 +929,7 @@
 				<h2>Popular Listings</h2>
 				<p>Trending businesses to watch out for.</p>
 			</div>
-			<div id="myCarousel2" class="owl-carousel owl-carousel-icons2">
+			<div id="popularList" class="small-categories">
 				<!-- Wrapper for carousel items -->
 
 				<div class="item">
@@ -1161,6 +1180,77 @@
 			</div>
 		</div>
 	</section>
+
+	<script>
+		const getListing = async () => {
+			const popular = document.getElementById("popularList")
+			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/all")
+			const rep = await res.json()
+			const sortedArr = rep.sort((a, b) => b.views - a.views)
+			popular.innerHTML = ""
+			document.getElementById("footerPop").innerHTML = ""
+			sortedArr.slice(0, 10).forEach((re, i) => {
+				const div = document.createElement("div")
+				const li = document.createElement("li")
+				li.innerHTML = `<a href="javascript:void(0)"><i class="fa fa-angle-double-right me-2 text-secondary"></i>${re.title}</a>`
+				document.getElementById("footerPop").appendChild(li)
+				div.className = "item"
+				div.innerHTML = `
+							<div class="card mb-0 overflow-hidden">
+						<div class="arrow-ribbon bg-success">Open</div>
+						<div class="item-card7-imgs">
+							<a href="business.html" class="absolute-link"></a>
+							<img class="popularImage" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/j3.jpg"}" alt="img" class="cover-image">
+						</div>
+						<div class="item-card7-overlaytext">
+							<a href="business.html" class="text-white"> ${re.category} </a>
+						</div>
+						<div class="card-body">
+							<div class="item-card7-desc">
+								<div class="item-card7-text">
+									<a href="business.html" class="text-dark">
+										<h4 class="">${re.title}</h4>
+									</a>
+								</div>
+								<ul class="item-cards7-ic mb-0">
+									<li><a href="javascript:void(0)"><span class=""><i class="icon icon-eye me-1"></i>
+												${re.views}
+												Views</span></a></li>
+									<li><a href="javascript:void(0)" class="icons"><i
+												class="icon icon-location-pin text-muted me-1"></i>
+											${re.state}</a></li>
+									<li class="mb-md-0"><a href="javascript:void(0)" class="icons"><i
+												class="icon icon-event text-muted me-1"></i> 1 hour ago</a></li>
+									<li class="mb-0"><a href="javascript:void(0)" class="icons"><i
+												class="icon icon-phone text-muted me-1"></i> ${re.phoneNumber || ""} </a></li>
+								</ul>
+								<p class="popularDesc" class="mb-0">${re.description || ""}</p>
+							</div>
+						</div>
+						<div class="card-footer">
+							<div class="footerimg d-flex mt-0 mb-0">
+								<div class="d-flex footerimg-l mb-0">
+									<img src="${re.userImage || "../assets/images/faces/female/17.jpg"}" alt="image"
+										class="avatar brround  me-2">
+									<h5 class="time-title text-muted p-0 leading-normal mt-2 mb-0">${re.userName || ""}<i
+											class="icon icon-check text-success fs-12 ms-1" data-bs-toggle="tooltip"
+											data-bs-placement="top" title="verified"></i></h5>
+								</div>
+							</div>
+						</div>
+					</div>
+				`
+				popular.appendChild(div)
+			})
+			setInterval(() => {
+				popular.scrollLeft += 400
+				const div = popular.firstElementChild
+				popular.firstElementChild.remove()
+				popular.appendChild(div)
+			}, 4000)
+		}
+	</script>
+
 	<!--/Featured Listings-->
 	<!--Featured Listings-->
 	<section class="sptb bg-patterns bg-white">
@@ -1169,7 +1259,7 @@
 				<h2>Featured Listings</h2>
 				<p>Explore Top Rated Businesses.</p>
 			</div>
-			<div id="myCarousel2" class="owl-carousel owl-carousel-icons2">
+			<div id="featuredList" class="small-categories">
 				<!-- Wrapper for carousel items -->
 
 				<div class="item">
@@ -1420,17 +1510,84 @@
 			</div>
 		</div>
 	</section>
+
+	<script>
+		const getFeatured = async () => {
+			const popular = document.getElementById("featuredList")
+			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/all")
+			const rep = await res.json()
+			const filterArr = rep.filter((re) => re.featured === true)
+			popular.innerHTML = ""
+			filterArr.forEach((re) => {
+				const div = document.createElement("div")
+				div.className = "item"
+				div.innerHTML = `
+								<div class="card mb-0 overflow-hidden">
+							<div class="arrow-ribbon bg-success">Open</div>
+							<div class="item-card7-imgs">
+								<a href="business.html" class="absolute-link"></a>
+								<img class="popularImage" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/j3.jpg"}" alt="img" class="cover-image">
+							</div>
+							<div class="item-card7-overlaytext">
+								<a href="business.html" class="text-white"> ${re.category} </a>
+							</div>
+							<div class="card-body">
+								<div class="item-card7-desc">
+									<div class="item-card7-text">
+										<a href="business.html" class="text-dark">
+											<h4 class="">${re.title}</h4>
+										</a>
+									</div>
+									<ul class="item-cards7-ic mb-0">
+										<li><a href="javascript:void(0)"><span class=""><i class="icon icon-eye me-1"></i>
+													${re.views}
+													Views</span></a></li>
+										<li><a href="javascript:void(0)" class="icons"><i
+													class="icon icon-location-pin text-muted me-1"></i>
+												${re.state}</a></li>
+										<li class="mb-md-0"><a href="javascript:void(0)" class="icons"><i
+													class="icon icon-event text-muted me-1"></i> 1 hour ago</a></li>
+										<li class="mb-0"><a href="javascript:void(0)" class="icons"><i
+													class="icon icon-phone text-muted me-1"></i> ${re.phoneNumber || ""} </a></li>
+									</ul>
+									<p class="popularDesc" class="mb-0">${re.description || ""}</p>
+								</div>
+							</div>
+							<div class="card-footer">
+								<div class="footerimg d-flex mt-0 mb-0">
+									<div class="d-flex footerimg-l mb-0">
+										<img src="${re.userImage || "../assets/images/faces/female/17.jpg"}" alt="image"
+											class="avatar brround  me-2">
+										<h5 class="time-title text-muted p-0 leading-normal mt-2 mb-0">${re.userName || ""}<i
+												class="icon icon-check text-success fs-12 ms-1" data-bs-toggle="tooltip"
+												data-bs-placement="top" title="verified"></i></h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					`
+				popular.appendChild(div)
+			})
+			setInterval(() => {
+				popular.scrollLeft += 400
+				const div = popular.firstElementChild
+				popular.firstElementChild.remove()
+				popular.appendChild(div)
+			}, 4000)
+		}
+	</script>
+
 	<!--/Featured Listings-->
 
 	<section class="sptb">
 		<div class="container">
 			<div class="section-title center-block text-center">
 				<h2>Business Showcase</h2>
-				<p>Showcasing Excellence in Business.s</p>
+				<p>Showcasing Excellence in Businesses</p>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<div id="myCarousel" class="owl-carousel testimonial-owl-carousel">
+					<div id="showcaseList" class="showcaseList">
 						<div class="item card mb-0 overflow-hidden">
 							<div class="row g-0">
 								<div class="col-lg-6">
@@ -1575,6 +1732,44 @@
 		</div>
 	</section>
 
+	<script>
+		const getShowcase = async () => {
+			const popular = document.getElementById("showcaseList")
+			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/all")
+			const rep = await res.json()
+			const filterArr = rep.filter((re) => re.showcase === true)
+			popular.innerHTML = ""
+			filterArr.forEach((re) => {
+				const div = document.createElement("div")
+				div.className = "item card mb-0 overflow-hidden"
+				div.innerHTML = `
+								<div class="row g-0">
+								<div class="col-lg-6">
+									<div class="h-100">
+										<img style="height: 385px" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/b4.jpg"}" alt="img"
+											class="w-100 ">
+									</div>
+								</div>
+								<div class="col-lg-6">
+									<div class="card-body p-7">
+										<h2>${re.title}</h2>
+										<p class="fs-16 mt-4">${re.description || ""}</p>
+										<a class="btn btn-lg btn-secondary px-6" href="javascript:void(0)">View
+											Listings</a>
+									</div>
+								</div>
+							</div>
+						`
+				popular.appendChild(div)
+			})
+			setInterval(() => {
+				const div = popular.firstElementChild
+				popular.firstElementChild.remove()
+				popular.appendChild(div)
+			}, 4000)
+		}
+	</script>
+
 	<!--Latest Listings-->
 	<section class="sptb bg-white">
 		<div class="container">
@@ -1582,7 +1777,7 @@
 				<h2>Latest Listings</h2>
 				<p>Check Out These Newcomers</p>
 			</div>
-			<div id="myCarousel1" class="owl-carousel owl-carousel-icons2">
+			<div id="latestList" class="small-categories">
 				<div class="item">
 					<div class="card mb-0 overflow-hidden">
 						<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i
@@ -1843,6 +2038,66 @@
 			</div>
 		</div>
 	</section>
+
+	<script>
+		const getLatest = async () => {
+			const popular = document.getElementById("latestList")
+			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/all")
+			const rep = await res.json()
+			const latest = rep.slice(rep.length - 10)
+			popular.innerHTML = ""
+			latest.forEach((re) => {
+				const div = document.createElement("div")
+				div.className = "item"
+				div.innerHTML = `
+					<div class="card mb-0 overflow-hidden">
+						<div class="power-ribbon power-ribbon-top-left text-warning"><span class="bg-warning"><i
+									class="fa fa-bolt"></i></span></div>
+						<div class="item-card2-img">
+							<a href="business.html" class="absolute-link"></a>
+							<img class="popularImage" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/f1.jpg"}" alt="img" class="cover-image">
+							<div class="item-card2-icons">
+								<a href="business.html" class="item-card2-icons-l"><i class="fa fa-cutlery"></i></a>
+								<a href="javascript:void(0)" class="item-card2-icons-r"><i
+										class="fa fa fa-heart-o"></i></a>
+							</div>
+							<div class="blog--category">${re.category}</div>
+						</div>
+						<div class="card-body pb-0">
+							<div class="item-card2">
+								<div class="item-card2-desc">
+									<div class="item-card2-text">
+										<a href="business.html" class="text-dark">
+											<h4 class="mb-0">${re.title}</h4>
+										</a>
+									</div>
+									<div class="pt-3">
+										<a href="mb-1">
+											<p class="pb-0 pt-0 mb-2 mt-2"><i class="fa fa-map-marker me-2"></i>${re.city}, ${re.state}</p>
+										</a>
+										<a href="mb-1">
+											<p class="pb-0 pt-0 mb-2 mt-2"><i class="fa fa-phone me-2"></i>${re.phoneNumber || ""}</p>
+										</a>
+										<p class="pb-0 pt-0 mb-2 mt-2"><i class="fa fa-clock-o me-2"></i>${re.openingTime || "8am"} - ${re.closingTime || "9pm"}<a>
+												<span class="badge badge-success ms-2 fs-13">Open Now</span></a></p>
+									</div>
+									<p class="popularDesc">${re.description || ""} </p>
+								</div>
+							</div>
+						</div>
+					</div>
+					`
+				popular.appendChild(div)
+			})
+			setInterval(() => {
+				popular.scrollLeft += 400
+				const div = popular.firstElementChild
+				popular.firstElementChild.remove()
+				popular.appendChild(div)
+			}, 4000)
+		}
+	</script>
+
 	<!--Latest Listings-->
 
 	<!--Section-->
@@ -1873,6 +2128,7 @@
 									document.getElementById("totalLists").innerHTML = rep.length
 								}
 								getListings()
+
 							</script>
 						</div>
 						<div class="col-lg-3 col-md-6">
@@ -1881,9 +2137,20 @@
 									<i class="icon icon-rocket"></i>
 								</div>
 								<h5>Featured Listings</h5>
-								<h2 class="counter mb-0">5,463</h2>
+								<h2 class="mb-0" id="featNum">5,463</h2>
+								<script>
+									const getFeatNum = async () => {
+										const res = await fetch("https://bizdire.azurewebsites.net/listing/get/all")
+										const rep = await res.json()
+										const filterArr = rep.filter((re) => re.featured === true)
+										document.getElementById("featNum").innerHTML = filterArr.length
+									}
+
+									getFeatNum()
+								</script>
 							</div>
 						</div>
+
 						<div class="col-lg-3 col-md-6">
 							<div class="counter-status mb-md-0">
 								<div class="counter-icon">
@@ -1927,7 +2194,7 @@
 			<div class="card overflow-hidden">
 				<div class="row g-0 row-deck">
 					<div class="col-md-6">
-						<div class="bg-light p-0 box-shadow2">
+						<div style="width: 100%;" class="bg-light p-0 box-shadow2">
 							<div class="card-body text-center">
 								<div class="bg-white icon-bg  icon-service text-purple mb-4 service-card-svg">
 									<!--User Icon Svg -->
@@ -1950,7 +2217,7 @@
 					</div>
 					<div class="col-md-6">
 						<div class="bg-white p-0 mt-5 mt-md-0 box-shadow2">
-							<div class="card-body text-center">
+							<div style="padding-left: 80px;" class="card-body text-center">
 								<div class="bg-light icon-bg  icon-service text-purple mb-4 service-card-svg">
 									<!--User Icon Svg -->
 									<svg height="482pt" viewBox="-15 0 482 482.60407" width="482pt"
@@ -2713,7 +2980,7 @@
 	<!--/Our Customers Says-->
 
 	<!--post section-->
-	<section>
+	<!-- <section>
 		<div class="sptb">
 			<div class="content-text mb-0">
 				<div class="container">
@@ -2741,11 +3008,11 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!--/post section-->
 
 	<!--Blogs-->
-	<section class="sptb bg-white">
+	<!-- <section class="sptb bg-white">
 		<div class="container">
 			<div class="section-title center-block text-center">
 				<h2>Best Rated Locations</h2>
@@ -2826,7 +3093,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!--Blogs-->
 
 	<!--Section-->
@@ -2842,7 +3109,7 @@
 						<div class="col-xl-3 col-lg-6 col-md-12">
 							<h6>Categories</h6>
 							<ul class="list-unstyled mb-0">
-								<li>
+								<li id="footerCat">
 									<a href="javascript:void(0)"
 										class="btn footer-btn-outline btn-sm btn-pill mb-1">RealEstate</a>
 									<a href="javascript:void(0)"
@@ -2862,7 +3129,7 @@
 						</div>
 						<div class="col-xl-3 col-lg-6 col-md-12">
 							<h6>Popular Listings</h6>
-							<ul class="list-unstyled mb-0">
+							<ul id="footerPop" class="list-unstyled mb-0">
 								<li><a href="javascript:void(0)"><i
 											class="fa fa-angle-double-right me-2 text-secondary"></i> Educational
 										college</a></li>
@@ -2881,38 +3148,27 @@
 							<h6 class="mt-6 mt-xl-0">Contact</h6>
 							<ul class="list-unstyled mb-0">
 								<li>
-									<a href="javascript:void(0)"><i class="fa fa-home me-3 text-secondary"></i> New
-										York, NY 10012,
-										US-52014</a>
+									<a href="javascript:void(0)"><i class="fa fa-home me-3 text-secondary"></i>P.O. Box
+										880515, San Diego, CSA 92111</a>
 								</li>
 								<li>
 									<a href="javascript:void(0)"><i
 											class="fa fa-envelope me-3 fs-12 text-secondary"></i>
-										info12323@example.com</a>
+										info@dreamtechlabs.net</a>
 								</li>
 								<li>
-									<a href="javascript:void(0)"><i class="fa fa-phone me-3 text-secondary"></i> + 01
-										234 567 88, + 01
-										234 567 88</a>
+									<a href="javascript:void(0)"><i class="fa fa-phone me-3 text-secondary"></i>01 858
+										384 6488</a>
 								</li>
 								<li>
-									<a href="javascript:void(0)"><i class="fa fa-print me-3 text-secondary"></i> + 01
-										234 567 89, + 01
-										234 567 89</a>
+									<a href="javascript:void(0)"><i class="fa fa-print me-3 text-secondary"></i>01 858
+										384 6488</a>
 								</li>
 							</ul>
 						</div>
 						<div class="col-xl-3 col-lg-6 col-md-12">
-							<h6 class="mb-2 mt-6 mt-xl-0">Subscribe</h6>
-							<div class="input-group">
-								<input type="text" class="form-control br-ts-3  br-bs-3" placeholder="Email">
-								<div class="input-group-text p-0 border-0">
-									<button type="button"
-										class="btn btn-secondary br-te-3 br-be-3 br-ts-0 br-bs-0 px-5">
-										Subscribe
-									</button>
-								</div>
-							</div>
+							<img style="width: 130px; height: 130px;" src="../assets/images/brand/logo.svg"
+								class="header-brand-img desktop-logo" alt="Bizdire logo">
 
 						</div>
 					</div>
@@ -2931,7 +3187,8 @@
 				<div class="container">
 					<div class="row d-flex">
 						<div class="col-lg-12 col-sm-12  mt-2 mb-2 text-center ">
-							Copyright © 2022<a href="javascript:void(0)" class="fs-14 text-secondary mx-2">Bizdire</a>
+							Copyright © 2023<a href="javascript:void(0)"
+								class="fs-14 text-secondary mx-2">iBiz.World</a>
 						</div>
 						<div class="col-lg-12 col-sm-12 text-center mb-2 mt-2">
 							<ul class="social-icons mb-0">
@@ -3049,11 +3306,21 @@
 			const res = await fetch("https://bizdire.azurewebsites.net/category/get/all")
 			const rep = await res.json()
 			document.getElementById("catOptions").innerHTML = ""
+			document.getElementById("headCat").innerHTML = ""
+			document.getElementById("footerCat").innerHTML = ""
 			rep.forEach((re, i) => {
 				const opt = document.createElement("option")
+				const li = document.createElement("li")
+				const a = document.createElement("a")
+				a.href = "javascript:void(0)"
+				a.className = "btn footer-btn-outline btn-sm btn-pill mb-1"
+				a.innerHTML = re.category
+				document.getElementById("footerCat").appendChild(a)
+				li.innerHTML = `<a href="business.html">${re.category}</a>`
 				opt.value = i
 				opt.innerHTML = re.category
 				document.getElementById("catOptions").appendChild(opt)
+				document.getElementById("headCat").appendChild(li)
 			})
 		}
 
@@ -3068,11 +3335,13 @@
 
 
 
-		window.addEventListener("load", async () => {
-			await getCategory()
-			await getLocation()
-			// await getCat()
-		})
+		getCategory()
+		getLocation()
+		getCat()
+		getListing()
+		getFeatured()
+		getLatest()
+		getShowcase()
 	</script>
 
 </body>
