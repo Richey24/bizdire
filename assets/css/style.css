@@ -5,7 +5,7 @@
 Project        :   Bizdire - Medical Directory HTML Template
 Version        :   V.1
 Create Date    :   07/11/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Larry Lynch 
 Author         :   Spruko
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support		   :   support@spruko.com
@@ -1653,7 +1653,7 @@ Project        :   Bizdire - Business Directory and classifieds premium html5 CS
 Version        :   V.1
 Create Date    :   19/02/20
 Last Update    :   19/02/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Larry Lynch 
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support		   :   support@spruko.com
@@ -6557,8 +6557,8 @@ body {
     -webkit-text-size-adjust: none;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
-    -webkit-font-feature-settings: "liga"0;
-    font-feature-settings: "liga"0;
+    -webkit-font-feature-settings: "liga" 0;
+    font-feature-settings: "liga" 0;
     height: 100%;
     overflow-y: scroll;
     position: relative;
@@ -10100,7 +10100,7 @@ Project        :   Bizdire - Business Directory and classifieds premium html5 CS
 Version        :   V.1
 Create Date    :   19/02/20
 Last Update    :   19/02/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Larry Lynch 
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support		   :   support@spruko.com
@@ -11943,7 +11943,7 @@ button.close {
     }
 
     abbr[title]::after {
-        content: " ("attr(title) ")";
+        content: " (" attr(title) ")";
     }
 
     pre {
@@ -19537,7 +19537,7 @@ Project        :   Bizdire - Business Directory and classifieds premium html5 CS
 Version        :   V.1
 Create Date    :   19/02/20
 Last Update    :   19/02/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Larry Lynch 
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support		   :   support@spruko.com
@@ -31064,7 +31064,7 @@ Project        :   Bizdire - Business Directory and classifieds premium html5 CS
 Version        :   V.1
 Create Date    :   19/02/20
 Last Update    :   19/02/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Larry Lynch 
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support		   :   support@spruko.com
@@ -32148,7 +32148,7 @@ Project        :   Bizdire - Business Directory and classifieds premium html5 CS
 Version        :   V.1
 Create Date    :   19/02/20
 Last Update    :   19/02/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Larry Lynch 
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support		   :   support@spruko.com
@@ -37414,7 +37414,7 @@ Project        :   Bizdire - Business Directory and classifieds premium html5 CS
 Version        :   V.1
 Create Date    :   19/02/20
 Last Update    :   19/02/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Larry Lynch 
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support		   :   support@spruko.com
@@ -46793,7 +46793,7 @@ select.form-control.select-sm {
 Project        :   Boot Carousel Slider - Bootstrap Carousel Slider (No Jquery Dependency)  
 Version        :   V.1.0
 Create Date    :   09/05/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Larry Lynch 
 Author         :   SPRUKO™
 Author URL     :   https://themeforest.net/user/spruko
 Support	       :   support@spruko.com
@@ -65070,4 +65070,5 @@ a.icon:hover {
 .w-lg {
     min-width: 150px;
 }
+
 /*# sourceMappingURL=style.css.map */

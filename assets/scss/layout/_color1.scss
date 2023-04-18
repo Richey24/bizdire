@@ -1,11 +1,11 @@
 /*------------------------------------------------------------------
 [Color1 Stylesheet]
 
-Project        :   Bizdire - Business Directory and classifieds premium html5 CSS template
+Project        :   iBiz.world
 Version        :   V.1
 Create Date    :   19/02/20
 Last Update    :   19/02/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Larry Lynch 
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support		   :   support@spruko.com
@@ -45,6 +45,7 @@ a {
 }
 
 a.bg-primary {
+
     &:hover,
     &:focus {
         background-color: $primary1 !important;
@@ -52,6 +53,7 @@ a.bg-primary {
 }
 
 button.bg-primary {
+
     &:hover,
     &:focus {
         background-color: $primary1 !important;
@@ -92,6 +94,7 @@ button.bg-primary {
     }
 
     &:not(:disabled):not(.disabled) {
+
         &:active,
         &.active {
             color: $white;
@@ -101,20 +104,21 @@ button.bg-primary {
     }
 }
 
-.show > .btn-secondary.dropdown-toggle {
+.show>.btn-secondary.dropdown-toggle {
     color: $white;
     background-color: $secondary;
     border-color: $secondary;
 }
 
 .btn-secondary:not(:disabled):not(.disabled) {
+
     &:active:focus,
     &.active:focus {
         box-shadow: 0 0 0 2px $secondary-shadow;
     }
 }
 
-.show > .btn-secondary.dropdown-toggle:focus {
+.show>.btn-secondary.dropdown-toggle:focus {
     box-shadow: 0 0 0 2px $secondary-shadow;
 }
 
@@ -142,6 +146,7 @@ button.bg-primary {
     }
 
     &:not(:disabled):not(.disabled) {
+
         &:active,
         &.active {
             color: $white;
@@ -151,20 +156,21 @@ button.bg-primary {
     }
 }
 
-.show > .btn-outline-secondary.dropdown-toggle {
+.show>.btn-outline-secondary.dropdown-toggle {
     color: $white;
     background-color: $secondary;
     border-color: $secondary;
 }
 
 .btn-outline-secondary:not(:disabled):not(.disabled) {
+
     &:active:focus,
     &.active:focus {
         box-shadow: 0 0 0 2px $secondary-shadow;
     }
 }
 
-.show > .btn-outline-secondary.dropdown-toggle:focus {
+.show>.btn-outline-secondary.dropdown-toggle:focus {
     box-shadow: 0 0 0 2px $secondary-shadow;
 }
 
@@ -187,6 +193,7 @@ button.bg-primary {
     background-color: $secondary;
 
     &[href] {
+
         &:hover,
         &:focus {
             color: $white;
@@ -205,6 +212,7 @@ button.bg-primary {
 }
 
 a.bg-secondary {
+
     &:hover,
     &:focus {
         background-color: $secondary !important;
@@ -212,6 +220,7 @@ a.bg-secondary {
 }
 
 button.bg-secondary {
+
     &:hover,
     &:focus {
         background-color: $secondary !important;
@@ -227,6 +236,7 @@ button.bg-secondary {
 }
 
 a.text-secondary {
+
     &:hover,
     &:focus {
         color: $secondary-hover !important;
@@ -254,21 +264,21 @@ a.text-secondary {
     border: 6px solid $secondary;
 }
 
-.custom-control-input:checked ~ .custom-control-label::before {
+.custom-control-input:checked~.custom-control-label::before {
     background-color: $primary1;
 }
 
 .form-checkbox .custom-control-input {
-    &:checked ~ .custom-control-label::before {
+    &:checked~.custom-control-label::before {
         background-color: $primary1;
     }
 
-    &:indeterminate ~ .custom-control-label::before {
+    &:indeterminate~.custom-control-label::before {
         background-color: $secondary;
     }
 }
 
-.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+.custom-radio .custom-control-input:checked~.custom-control-label::before {
     background-color: $primary1;
 }
 
@@ -282,6 +292,7 @@ a.text-secondary {
 }
 
 .form-range {
+
     &::-webkit-slider-thumb,
     &::-moz-range-thumb,
     &::-ms-thumb {
@@ -294,8 +305,9 @@ a.text-secondary {
 }
 
 .nav-pills {
+
     .nav-link.active,
-    .show > .nav-link {
+    .show>.nav-link {
         background-color: $secondary;
     }
 }
@@ -311,6 +323,7 @@ a.text-secondary {
 
 .range.range-secondary {
     input[type="range"] {
+
         &::-webkit-slider-thumb,
         &::-moz-slider-thumb {
             background-color: $secondary;
@@ -327,13 +340,14 @@ a.text-secondary {
 }
 
 .nav-tabs .nav-item1 .nav-link {
+
     &:hover:not(.disabled),
     &.active {
         background: $secondary;
     }
 }
 
-.panel.price > .panel-heading {
+.panel.price>.panel-heading {
     background: $secondary;
     color: $white;
     background: $secondary;
@@ -355,6 +369,7 @@ a.text-secondary {
 }
 
 .navtab-wizard.nav-tabs .nav-link {
+
     &.active,
     &:hover {
         color: $secondary;
@@ -372,6 +387,7 @@ a.text-secondary {
     }
 
     .nav-link {
+
         &:hover,
         &:focus,
         &.active {
@@ -398,7 +414,7 @@ a.text-secondary {
 .expanel.expanel-secondary {
     border-color: $secondary !important;
 
-    > .expanel-heading {
+    >.expanel-heading {
         color: $white !important;
         background-color: $secondary !important;
         border-color: $secondary !important;
@@ -463,14 +479,14 @@ a.chip:hover {
 }
 
 .selectgroup-input {
-    &:checked + .selectgroup-button {
+    &:checked+.selectgroup-button {
         border-color: $secondary;
         z-index: 1;
         color: $secondary;
         background: $white;
     }
 
-    &:focus + .selectgroup-button {
+    &:focus+.selectgroup-button {
         border-color: $secondary;
         z-index: 2;
         color: $secondary;
@@ -479,24 +495,22 @@ a.chip:hover {
 }
 
 .form-switch-input {
-    &:checked ~ .form-switch-indicator {
+    &:checked~.form-switch-indicator {
         background: $primary1;
     }
 }
 
-.imagecheck-input:focus ~ .imagecheck-figure {
+.imagecheck-input:focus~.imagecheck-figure {
     border-color: transparent;
     box-shadow: 0 0 0 2px transparent;
 }
 
 .imagecheck-figure:before {
-    background: $secondary
-        url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E")
-        no-repeat center (center / 50%) 50%;
+    background: $secondary url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3E%3Cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3E%3C/svg%3E") no-repeat center (center / 50%) 50%;
     color: $white;
 }
 
-.colorinput-input:focus ~ .colorinput-color {
+.colorinput-input:focus~.colorinput-color {
     border-color: $secondary;
 }
 
@@ -529,6 +543,7 @@ a.chip:hover {
 }
 
 .rating-stars .rating-stars-container .rating-star {
+
     &.is--active .fa-heart,
     &.is--hover .fa-heart {
         color: $secondary;
@@ -554,6 +569,7 @@ a.chip:hover {
     }
 
     .choice {
+
         &:hover .icon,
         &.active .icon {
             border-color: $secondary !important;
@@ -569,6 +585,7 @@ a.chip:hover {
         }
 
         tr .day {
+
             &.today.event,
             &.my-today.event {
                 background: $secondary;
@@ -615,7 +632,7 @@ a.chip:hover {
         background: $gradient-color;
     }
 
-    ul li.active > a {
+    ul li.active>a {
         color: $secondary;
 
         &:hover {
@@ -673,6 +690,7 @@ a.chip:hover {
 .footer-main a:hover,
 .footer-links a:hover {
     color: $secondary !important;
+
     i {
         color: $white;
     }
@@ -700,6 +718,7 @@ a.chip:hover {
 }
 
 .header-links li a {
+
     &.active,
     &:hover {
         background: $secondary;
@@ -765,7 +784,7 @@ a.chip:hover {
     color: $primary1 !important;
 }
 
-.owl-nav > div i {
+.owl-nav>div i {
     color: $secondary;
 }
 
@@ -781,9 +800,10 @@ a.chip:hover {
     border: 3px solid $secondary;
 }
 
-.horizontalMenu > .horizontalMenu-list > li {
+.horizontalMenu>.horizontalMenu-list>li {
     > {
         .horizontal-megamenu .menu_form input {
+
             &[type="submit"],
             &[type="button"] {
                 background-color: $secondary;
@@ -797,7 +817,7 @@ a.chip:hover {
         }
     }
 
-    &:hover > a {
+    &:hover>a {
         background-color: $secondary;
         color: $white !important;
 
@@ -807,15 +827,16 @@ a.chip:hover {
         }
     }
 
-    > ul.sub-menu > li {
-        &:hover > a {
+    >ul.sub-menu>li {
+        &:hover>a {
             background-color: $secondary !important;
             color: $white !important;
         }
 
-        > ul.sub-menu > li {
-            &:hover > a,
-            > ul.sub-menu > li:hover a {
+        >ul.sub-menu>li {
+
+            &:hover>a,
+            >ul.sub-menu>li:hover a {
                 background-color: $secondary !important;
                 color: $white !important;
             }
@@ -828,6 +849,7 @@ code {
 }
 
 #gdpr-cookie-message {
+
     h4,
     h5 {
         color: $secondary;
@@ -874,37 +896,41 @@ button#gdpr-cookie-advanced {
     }
 
     .side-menu li {
-        &.active > a,
+
+        &.active>a,
         a.active {
             color: $primary1 !important;
         }
     }
 
-    .slide-menu li.active > a {
+    .slide-menu li.active>a {
         color: $primary1;
     }
 
     .side-menu li {
+
         ul li a:hover,
         a:hover,
-        &.active > a,
+        &.active>a,
         a.active {
             color: $primary1;
         }
     }
 
-    .slide-menu li.active > a,
+    .slide-menu li.active>a,
     .side-menu li a:hover {
         color: $primary1 !important;
     }
 }
 
 .my-dash {
-    &.app-sidebar .side-menu li.active > a,
+
+    &.app-sidebar .side-menu li.active>a,
     &.app-sidebar .side-menu li a.active {
         color: $secondary !important;
     }
-    &.app-sidebar .slide-menu li.active > a,
+
+    &.app-sidebar .slide-menu li.active>a,
     &.app-sidebar .side-menu li a:hover {
         color: $secondary !important;
     }
@@ -921,13 +947,13 @@ button#gdpr-cookie-advanced {
     border: 2px solid $primary1;
 }
 
-.wrapper > h1 span {
+.wrapper>h1 span {
     border-bottom: 2px solid $secondary;
     color: $secondary;
 }
 
 .tab_wrapper {
-    > ul li.active {
+    >ul li.active {
         border-color: $secondary;
         background: $secondary;
         color: $white;
@@ -950,20 +976,21 @@ button#gdpr-cookie-advanced {
         }
     }
 
-    &.left_side > ul li.active:after,
-    &.right_side > ul li.active:after {
+    &.left_side>ul li.active:after,
+    &.right_side>ul li.active:after {
         background: $secondary;
     }
 }
 
 .addui-slider .addui-slider-track {
+
     .addui-slider-range,
     .addui-slider-handle:after {
         background: $secondary;
     }
 }
 
-.accordionjs .acc_section.acc_active > .acc_head {
+.accordionjs .acc_section.acc_active>.acc_head {
     background: $secondary !important;
 }
 
@@ -1025,12 +1052,12 @@ form.convFormDynamic button.submit {
         color: $secondary;
     }
 
-    .close-button > *:hover {
+    .close-button>*:hover {
         color: $secondary;
     }
 }
 
-.horizontalMenu > .horizontalMenu-list > li > .horizontal-megamenu .link-list li a:hover {
+.horizontalMenu>.horizontalMenu-list>li>.horizontal-megamenu .link-list li a:hover {
     color: $secondary !important;
 }
 
@@ -1048,17 +1075,19 @@ form.convFormDynamic button.submit {
 }
 
 .pretty {
-    input:checked ~ .state.p-secondary label:after,
+
+    input:checked~.state.p-secondary label:after,
     &.p-toggle .state.p-secondary label:after {
         background-color: $secondary !important;
     }
 
-    input:checked ~ .state.p-secondary-o label:before,
+    input:checked~.state.p-secondary-o label:before,
     &.p-toggle .state.p-secondary-o label:before {
         border-color: $secondary;
     }
 
-    input:checked ~ .state.p-secondary-o {
+    input:checked~.state.p-secondary-o {
+
         .icon1,
         .svg,
         svg {
@@ -1068,6 +1097,7 @@ form.convFormDynamic button.submit {
     }
 
     &.p-toggle .state.p-secondary-o {
+
         .icon1,
         .svg,
         svg {
@@ -1076,16 +1106,16 @@ form.convFormDynamic button.submit {
         }
     }
 
-    &.p-default:not(.p-fill) input:checked ~ .state.p-secondary-o label:after {
+    &.p-default:not(.p-fill) input:checked~.state.p-secondary-o label:after {
         background-color: $secondary !important;
     }
 
     &.p-switch {
-        input:checked ~ .state.p-secondary:before {
+        input:checked~.state.p-secondary:before {
             border-color: $secondary;
         }
 
-        &.p-fill input:checked ~ .state.p-secondary:before {
+        &.p-fill input:checked~.state.p-secondary:before {
             background-color: $secondary !important;
         }
     }
@@ -1131,11 +1161,12 @@ form.convFormDynamic button.submit {
     box-shadow: 0 0 0 2px $shadow-1;
 }
 
-.custom-control-input:focus ~ .custom-control-label::before {
+.custom-control-input:focus~.custom-control-label::before {
     box-shadow: 0 0 0 1px $white1, 0 0 0 2px $shadow-1;
 }
 
 .form-range {
+
     &::-webkit-slider-thumb:focus,
     &::-moz-range-thumb:focus,
     &::-ms-thumb:focus {
@@ -1199,6 +1230,7 @@ form.convFormDynamic button.submit {
 }
 
 a.bg-primary {
+
     &:hover,
     &:focus {
         background-color: $primary1 !important;
@@ -1206,6 +1238,7 @@ a.bg-primary {
 }
 
 button.bg-primary {
+
     &:hover,
     &:focus {
         background-color: $primary1 !important;
@@ -1237,6 +1270,7 @@ button.bg-primary {
     }
 
     &:not(:disabled):not(.disabled) {
+
         &:active,
         &.active {
             color: $white;
@@ -1246,7 +1280,7 @@ button.bg-primary {
     }
 }
 
-.show > .btn-primary.dropdown-toggle {
+.show>.btn-primary.dropdown-toggle {
     color: $white;
     background-color: $primary1;
     border-color: $primary1;
@@ -1255,8 +1289,9 @@ button.bg-primary {
 .accent-2 {
     border-top: 2px solid $secondary;
 }
+
 @media (min-width: 992px) {
-    .sticky-wrapper.is-sticky .horizontalMenu > .horizontalMenu-list > li > a.active {
+    .sticky-wrapper.is-sticky .horizontalMenu>.horizontalMenu-list>li>a.active {
         background-color: $secondary;
         color: $white;
     }
@@ -1271,9 +1306,10 @@ button.bg-primary {
     color: $white;
 }
 
-.sticky-wrapper.relative.banners .horizontalMenu > .horizontalMenu-list > li {
-    > a.active,
-    &:hover > a {
+.sticky-wrapper.relative.banners .horizontalMenu>.horizontalMenu-list>li {
+
+    >a.active,
+    &:hover>a {
         background-color: $secondary;
     }
 }
@@ -1283,6 +1319,7 @@ button.bg-primary {
 }
 
 .pricingTable {
+
     &:hover,
     &.advance-pricing {
         border: 1px solid $secondary;
@@ -1355,7 +1392,7 @@ button.bg-primary {
 }
 
 @media (max-width: 991px) {
-    .horizontalMenu > .horizontalMenu-list > li > a.active {
+    .horizontalMenu>.horizontalMenu-list>li>a.active {
         background-color: $secondary;
         color: $white;
     }
@@ -1391,7 +1428,7 @@ button.bg-primary {
     }
 }
 
-.sticky-wrapper.absolute.banners .horizontalMenu > .horizontalMenu-list > li > a.active {
+.sticky-wrapper.absolute.banners .horizontalMenu>.horizontalMenu-list>li>a.active {
     background-color: $secondary;
     color: $white !important;
 }
@@ -1436,6 +1473,7 @@ button.bg-primary {
 }
 
 .was-validated {
+
     .form-select:invalid,
     .form-control:invalid {
         border-color: $secondary;
@@ -1449,6 +1487,7 @@ button.bg-primary {
 }
 
 .was-validated {
+
     .form-select:invalid:focus,
     .form-control:invalid:focus {
         border-color: $secondary;
@@ -1456,20 +1495,20 @@ button.bg-primary {
     }
 }
 
-.form-check-input.is-invalid ~ .form-check-label,
-.was-validated .form-check-input:invalid ~ .form-check-label,
-.custom-control-input.is-invalid ~ .custom-control-label,
-.was-validated .custom-control-input:invalid ~ .custom-control-label {
+.form-check-input.is-invalid~.form-check-label,
+.was-validated .form-check-input:invalid~.form-check-label,
+.custom-control-input.is-invalid~.custom-control-label,
+.was-validated .custom-control-input:invalid~.custom-control-label {
     color: $secondary;
 }
 
-.form-file-input.is-invalid ~ .form-file-label,
-.was-validated .form-file-input:invalid ~ .form-file-label {
+.form-file-input.is-invalid~.form-file-label,
+.was-validated .form-file-input:invalid~.form-file-label {
     border-color: $secondary;
 }
 
 @media (min-width: 992px) {
-    .sticky-wrapper.is-sticky .horizontalMenu > .horizontalMenu-list > li > a.active {
+    .sticky-wrapper.is-sticky .horizontalMenu>.horizontalMenu-list>li>a.active {
         background-color: $secondary;
         color: $white;
     }
@@ -1489,15 +1528,16 @@ button.bg-primary {
 }
 
 @media (max-width: 991px) {
-    .horizontalMenu > .horizontalMenu-list > li > a.active {
+    .horizontalMenu>.horizontalMenu-list>li>a.active {
         background-color: $secondary;
         color: $white;
     }
 }
 
-.sticky-wrapper.absolute.banners .horizontalMenu > .horizontalMenu-list > li {
-    &:hover > a,
-    > a.active {
+.sticky-wrapper.absolute.banners .horizontalMenu>.horizontalMenu-list>li {
+
+    &:hover>a,
+    >a.active {
         background-color: $secondary;
         color: $white !important;
     }
@@ -1591,7 +1631,7 @@ button.bg-primary {
     }
 }
 
-.custom-control-input:checked ~ .custom-control-label::before {
+.custom-control-input:checked~.custom-control-label::before {
     color: $white;
     border-color: $primary1;
     background-color: $primary1;
@@ -1613,6 +1653,7 @@ button.bg-primary {
     background-color: $primary1;
 
     &[href] {
+
         &:focus,
         &:hover {
             color: $white;
@@ -1632,6 +1673,7 @@ button.bg-primary {
 }
 
 a.bg-primary {
+
     &:focus,
     &:hover {
         background-color: $primary1 !important;
@@ -1639,6 +1681,7 @@ a.bg-primary {
 }
 
 button.bg-primary {
+
     &:focus,
     &:hover {
         background-color: $primary1 !important;
@@ -1650,6 +1693,7 @@ button.bg-primary {
 }
 
 a.text-primary {
+
     &:focus,
     &:hover {
         color: $primary1 !important;
@@ -1708,6 +1752,7 @@ button#ihavecookiesBtn {
     }
 
     &:not(:disabled):not(.disabled) {
+
         &.active,
         &:active {
             color: $white;
@@ -1717,20 +1762,21 @@ button#ihavecookiesBtn {
     }
 }
 
-.show > .btn-primary.dropdown-toggle {
+.show>.btn-primary.dropdown-toggle {
     color: $white;
     background-color: $primary1;
     border-color: $primary1;
 }
 
 .btn-primary:not(:disabled):not(.disabled) {
+
     &.active:focus,
     &:active:focus {
         box-shadow: 0 0 0 2px rgba($primary1, 0.26);
     }
 }
 
-.show > .btn-primary.dropdown-toggle:focus {
+.show>.btn-primary.dropdown-toggle:focus {
     box-shadow: 0 0 0 2px rgba($primary1, 0.26);
 }
 
@@ -1743,7 +1789,7 @@ button#ihavecookiesBtn {
     background: $secondary;
 }
 
-.header-style03 .horizontalMenu > .horizontalMenu-list > li > a.active,
+.header-style03 .horizontalMenu>.horizontalMenu-list>li>a.active,
 .item-card7-icons a:hover {
     background-color: $secondary;
     color: $white;
@@ -1753,7 +1799,7 @@ button#ihavecookiesBtn {
     background: $gradient;
 }
 
-.xdsoft_autocomplete .xdsoft_autocomplete_dropdown > div.active {
+.xdsoft_autocomplete .xdsoft_autocomplete_dropdown>div.active {
     background: rgba($primary1, 0.1);
 }
 
@@ -1769,12 +1815,15 @@ footer .footer-btn-outline:hover {
 }
 
 .label.label-primary {
+
     &.arrowed-in:before,
     &.arrowed:before {
         border-right-color: $secondary !important;
     }
 }
+
 .rtl .label.label-primary {
+
     &.arrowed-in:before,
     &.arrowed:before {
         border-left-color: $secondary !important;
@@ -1793,7 +1842,7 @@ footer .footer-btn-outline:hover {
     border-color: $primary1;
 }
 
-.btn.dropdown-toggle.btn-primary ~ .dropdown-menu .dropdown-plus-title {
+.btn.dropdown-toggle.btn-primary~.dropdown-menu .dropdown-plus-title {
     border-color: $primary1 !important;
 }
 
@@ -1802,20 +1851,23 @@ footer .footer-btn-outline:hover {
     background: $secondary-transparent;
 }
 
-.horizontalMenu > .horizontalMenu-list > li > {
-    ul.sub-menu > li.active a,
+.horizontalMenu>.horizontalMenu-list>li> {
+
+    ul.sub-menu>li.active a,
     .horizontal-megamenu .link-list li.active a {
         color: $secondary !important;
     }
 }
 
 #commentForm {
+
     .navtab-wizard.nav-tabs .nav-link.active,
     .navtab-wizard.nav-tabs .nav-link:hover {
         color: $white;
         background: $secondary;
     }
 }
+
 .form-control {
     &.example-file-input-custom {
         &::after {
@@ -1824,15 +1876,18 @@ footer .footer-btn-outline:hover {
         }
     }
 }
-.horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > a.active {
+
+.horizontalMenu>.horizontalMenu-list>li>ul.sub-menu>li>a.active {
     background-color: var(--secondary-color);
     color: $white !important;
 }
+
 .select2-container--default .select2-results__option[aria-selected="true"] {
     background-color: $secondary;
 }
-.btn-check:active + .btn-outline-primary,
-.btn-check:checked + .btn-outline-primary,
+
+.btn-check:active+.btn-outline-primary,
+.btn-check:checked+.btn-outline-primary,
 .btn-outline-primary.active,
 .btn-outline-primary.dropdown-toggle.show,
 .btn-outline-primary:active {
@@ -1840,6 +1895,7 @@ footer .footer-btn-outline:hover {
     background-color: $primary1;
     border-color: $primary1;
 }
+
 #headerMenuCollapse1,
 #headerMenuCollapse2,
 #headerMenuCollapse3,
@@ -1849,38 +1905,46 @@ footer .footer-btn-outline:hover {
             background-color: $primary1;
             color: $white;
         }
+
         .nav-link:hover:not(.disabled) {
             background: $primary1 !important;
         }
     }
 }
+
 #basicwizard,
 #btnwizard,
 #progressbarwizard {
+
     .navtab-wizard.nav-tabs .nav-link.active,
     .navtab-wizard.nav-tabs .nav-link:hover {
         color: $white;
         background: $secondary;
     }
 }
+
 #usa_map svg .jqvmap-region,
 #german svg .jqvmap-region,
 #russia svg .jqvmap-region {
     fill: $primary1;
 }
-.horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > ul.sub-menu > li:hover > a i,
-.horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li:hover a i {
+
+.horizontalMenu>.horizontalMenu-list>li>ul.sub-menu>li>ul.sub-menu>li:hover>a i,
+.horizontalMenu>.horizontalMenu-list>li>ul.sub-menu>li>ul.sub-menu>li>ul.sub-menu>li:hover a i {
     color: $white !important;
 }
+
 li.ui-timepicker-selected {
     background: $primary1 !important;
 }
+
 .ui-timepicker-list li:hover,
 .ui-timepicker-list .ui-timepicker-selected:hover {
     background: $primary1 !important;
 }
-.horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > ul.sub-menu > li:hover > a.active,
-.horizontalMenu > .horizontalMenu-list > li > ul.sub-menu > li > ul.sub-menu > li > ul.sub-menu > li:hover a.active {
+
+.horizontalMenu>.horizontalMenu-list>li>ul.sub-menu>li>ul.sub-menu>li:hover>a.active,
+.horizontalMenu>.horizontalMenu-list>li>ul.sub-menu>li>ul.sub-menu>li>ul.sub-menu>li:hover a.active {
     background-color: $secondary !important;
     color: $white !important;
 }
