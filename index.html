@@ -69,6 +69,20 @@
 			height: 0px !important; */
 			display: none;
 		}
+
+		.reTitle {
+			display: -webkit-box;
+			max-width: 200px;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+			height: 20px;
+		}
+
+		#searchRes {
+			display: flex;
+			width: 100%;
+		}
 	</style>
 
 </head>
@@ -965,7 +979,7 @@
 		<h2>No business found, try to broaden your search</h2>
 	</section>
 	<br>
-	<section class="sptb bg-patterns bg-white">
+	<section id="popularSection" class="sptb bg-patterns bg-white">
 		<div class="container">
 			<div class="section-title center-block text-center">
 				<h2>Popular Listings</h2>
@@ -1251,7 +1265,7 @@
 							<div class="item-card7-desc">
 								<div class="item-card7-text">
 									<a href="business.html?id=${re._id}" class="text-dark">
-										<h4 class="">${re.title}</h4>
+										<h4 class="reTitle">${re.title}</h4>
 									</a>
 								</div>
 								<ul class="item-cards7-ic mb-0">
@@ -1295,7 +1309,7 @@
 
 	<!--/Featured Listings-->
 	<!--Featured Listings-->
-	<section class="sptb bg-patterns bg-white">
+	<section id="featSection" class="sptb bg-patterns bg-white">
 		<div class="container">
 			<div class="section-title center-block text-center">
 				<h2>Featured Listings</h2>
@@ -1577,7 +1591,7 @@
 								<div class="item-card7-desc">
 									<div class="item-card7-text">
 										<a href="business.html?id=${re._id}" class="text-dark">
-											<h4 class="">${re.title}</h4>
+											<h4 class="reTitle">${re.title}</h4>
 										</a>
 									</div>
 									<ul class="item-cards7-ic mb-0">
@@ -2110,7 +2124,7 @@
 								<div class="item-card2-desc">
 									<div class="item-card2-text">
 										<a href="business.html?id=${re._id}" class="text-dark">
-											<h4 class="mb-0">${re.title}</h4>
+											<h4 class="reTitle">${re.title}</h4>
 										</a>
 									</div>
 									<div class="pt-3">
@@ -3335,9 +3349,84 @@
 			})
 			const rep = await res.json()
 			if (rep.length < 1) {
+				document.getElementById("noList").innerHTML = `<h2>No business found, try to broaden your search</h2>`
 				document.getElementById("noList").style.display = "block"
 				document.getElementById("scrollDiv").scrollIntoView()
+				return
 			}
+			document.getElementById("noList").style.display = "block"
+			document.getElementById("noList").innerHTML = `<h3> ${rep.length} Listing found </h3>`
+			document.getElementById("scrollDiv").scrollIntoView()
+			document.getElementById("popularSection").style.display = "none"
+			document.getElementById("featSection").style.display = "none"
+			rep.forEach((re) => {
+				const div = document.createElement("div")
+				div.style.width = "80%"
+				div.style.margin = "0 auto"
+				div.innerHTML = `
+													<div class="card overflow-hidden">
+														<div id="searchRes" class="h-100">
+															<div class="item-card9-img">
+																<div class="item-card9-imgs">
+																	<a href="business.html?id=${re._id}"></a>
+																	<img style="height: 200px; width: 600px" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/v1.jpg"}"
+																		alt="img" class="cover-image">
+																</div>
+																<div class="item-cardreview-absolute bg-primary">${re.category}</div>
+															</div>
+															<div style="text-align: left" class="card border-0 mb-0">
+																<div class="card-body">
+																	<div class="item-card9">
+																		<a href="business.html?id=${re._id}" class="text-dark">
+																			<h4 class="font-weight-semibold mt-1 mb-1">${re.title}<i
+																					class="fa fa-exclamation-circle text-warning ms-1"
+																					data-bs-toggle="tooltip"
+																					data-bs-placement="top" title=""
+																					data-bs-original-title="Not Verified"></i>
+																			</h4>
+																		</a>
+																		<div class="mt-2 mb-2">
+																			<a href="javascript:void(0)"
+																				class="mt-1 mb-1 me-3 text-dark"><i
+																					class="fa fa-globe me-1"></i>USA</a>
+																			<a href="javascript:void(0)"
+																				class="mt-1 mb-1 me-1 text-muted"><i
+																					class="fa fa-map-marker me-1"></i>${re.city}, ${re.state}</a>
+																		</div>
+																		<p class="mb-0 leading-tight"><span
+																				class="font-weight-semibold text-dark">
+																				Timings : </span> ${re.openingTime || ""} - ${re.closingTime || ""}</p>
+																	</div>
+																</div>
+																<div class="card-footer pt-2 pb-2">
+																	<div class="item-card9-footer d-sm-flex">
+																		<div class="item-card9-cost">
+																			<div
+																				class="text-dark font-weight-normal mb-0 mt-0 item-card2-desc">
+																				<a class="" href="mailto:${re.email}"
+																					data-bs-toggle="modal"
+																					data-bs-target="#contact"><i
+																						class="fa fa-envelope"></i></a>
+																				<a class="" href="${re.phoneNumber}"
+																					data-bs-toggle="tooltip"
+																					data-bs-placement="top" title=""
+																					data-bs-original-title=""><i
+																						class="fa fa-phone"></i></a>
+																						<a class="" href="${re.website}"
+																				data-bs-toggle="tooltip"
+																				data-bs-placement="top" title=""
+																				data-bs-original-title="${re.website}"><i
+																					class="fa fa-globe"></i></a>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+					`
+				document.getElementById("noList").appendChild(div)
+			})
 			console.log(rep);
 		})
 

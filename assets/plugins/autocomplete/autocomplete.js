@@ -8,7 +8,7 @@ var keywords = [
 	'Greek food',
 	'African cuisine',
 	'Brazilian food',
-	'Jamaica foood',
+	'Jamaica food',
 	'Japanese food',
 	'Soul food',
 	'seafood',
