@@ -317,17 +317,7 @@
 							</ul>
 						</li>
 
-						<li><a href="javascript:void(0)">Categories <span class="fa fa-caret-down m-0"></span></a>
-							<ul id="headCat" class="sub-menu">
-								<li><a href="business.html">Educational</a></li>
-								<li><a href="business-2.html">Meditation</a></li>
-								<li><a href="business-3.html">RealEstate</a></li>
-								<li><a href="business-4.html">Restaurant</a></li>
-								<li><a href="business-5.html">Backery</a></li>
-								<li><a href="business-6.html">Beauty & Spa</a></li>
-								<li><a href="business-right.html">Automobiles</a></li>
-							</ul>
-						</li>
+
 						<li><a href="contact.html"> Contact Us <span class="wsarrow"></span></a></li>
 						<li class="d-lg-none mt-5 pb-5 mt-lg-0">
 							<span><a class="btn btn-orange" href="ad-list.html">Add Listing</a></span>
@@ -356,7 +346,8 @@
 					<div class="row">
 						<div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
 							<div class="text-center text-white ">
-								<h1 class=""><span class="font-weight-bold">16,25,365</span> listings available</h1>
+								<h1 class=""><span id="noOfList" class="font-weight-bold">16,25,365</span> listings
+									available</h1>
 							</div>
 							<div class="search-background px-4 py-3 mt-4">
 								<div class="form row row-sm">
@@ -367,7 +358,7 @@
 									<div class="form-group col-xl-4 col-lg-4 select2-lg  col-md-12 mb-0 border-white">
 										<select class="form-control select2-show-search w-100"
 											data-placeholder="Select">
-											<optgroup label="Categories">
+											<optgroup id="optGroup" label="Categories">
 												<option>Select</option>
 												<option value="1">AutoMobile</option>
 												<option value="2">Real Estate</option>
@@ -422,12 +413,12 @@
 							<div class="item2-gl business-list-01">
 								<div class="">
 									<div class="bg-white p-5 item2-gl-nav d-md-flex">
-										<h6 class="mb-0 mt-3">Showing 1 to 10 of 30 entries</h6>
+										<h6 id="entries" class="mb-0 mt-3">Showing 1 to 10 of 30 entries</h6>
 										<ul class="nav item2-gl-menu ms-auto mt-1">
 											<li class=""><a href="#tab-11" class="active show" data-bs-toggle="tab"
 													title="List style"><i class="fa fa-list"></i></a></li>
-											<li><a href="#tab-12" data-bs-toggle="tab" class="" title="Grid"><i
-														class="fa fa-th"></i></a></li>
+											<!-- <li><a href="#tab-12" data-bs-toggle="tab" class="" title="Grid"><i
+														class="fa fa-th"></i></a></li> -->
 										</ul>
 										<div class="d-sm-flex">
 											<label class="me-2 mt-2 mb-sm-1 sort-label">Sort By:</label>
@@ -448,11 +439,11 @@
 														class="selectgroup-input">
 													<span class="selectgroup-button">Latest</span>
 												</label>
-												<label class="selectgroup-item mb-0">
+												<!-- <label class="selectgroup-item mb-0">
 													<input type="radio" name="value" value="Rating"
 														class="selectgroup-input">
 													<span class="selectgroup-button">Rating</span>
-												</label>
+												</label> -->
 											</div>
 										</div>
 									</div>
@@ -1581,7 +1572,7 @@
 								</div>
 							</div>
 							<div class="center-block text-center">
-								<ul class="pagination mb-5">
+								<ul id="pagination" class="pagination mb-5">
 									<li class="page-item page-prev disabled">
 										<a class="page-link" href="javascript:void(0)" tabindex="-1">Prev</a>
 									</li>
@@ -1619,7 +1610,7 @@
 						</div>
 						<div class="card-body">
 							<div class="" id="container">
-								<div class="filter-product-checkboxs">
+								<div id="checkBox" class="filter-product-checkboxs">
 									<label class="custom-control form-checkbox mb-3">
 										<input type="checkbox" class="custom-control-input" name="checkbox1"
 											value="option1">
@@ -1727,7 +1718,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="card-header border-top">
+						<!-- <div class="card-header border-top">
 							<h3 class="card-title">Posted By</h3>
 						</div>
 						<div class="card-body">
@@ -1754,7 +1745,7 @@
 									</span>
 								</label>
 							</div>
-						</div>
+						</div> -->
 						<div class="card-footer">
 							<a href="javascript:void(0)" class="btn btn-primary btn-block">Apply Filter</a>
 						</div>
@@ -1998,6 +1989,125 @@
 	<!-- Custom Js-->
 	<script src="../assets/js/themeColors.js"></script>
 	<script src="../assets/js/custom.js"></script>
+
+	<script>
+
+		const insertDiv = (arr) => {
+			const tab11 = document.getElementById("tab-11")
+			tab11.innerHTML = ""
+			arr.forEach((re) => {
+				tab11.innerHTML += `
+									<div class="card overflow-hidden">
+											<div style="display: flex;">
+												<div class="item-card9-img">
+													<div class="item-card9-imgs">
+														<a href="business.html"></a>
+														<img src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/h4.jpg"}" alt="img"
+															class="cover-image">
+													</div>
+													<div class="item-cardreview-absolute bg-secondary">${re.category}</div>
+												</div>
+												<div class="card border-0 mb-0">
+													<div class="card-body h-100">
+														<div class="item-card9">
+															<a href="business.html?id=${re._id}" class="text-dark">
+																<h4 class="font-weight-semibold mt-1 mb-1">${re.title}<i
+																		class="fa fa-exclamation-circle text-warning ms-1"
+																		data-bs-toggle="tooltip" data-bs-placement="top"
+																		title=""
+																		data-bs-original-title="Not Verified"></i></h4>
+															</a>
+															<div class="mt-2 mb-2">
+																<a href="javascript:void(0)"
+																	class="mt-1 mb-1 me-3 text-dark"><i
+																		class="fa fa-globe me-1"></i> ${re.state}</a>
+																<a href="javascript:void(0)"
+																	class="mt-1 mb-1 me-1 text-muted"><i
+																		class="fa fa-map-marker me-1"></i>${re.city}</a>
+															</div>
+															<p class="mb-0 leading-tight"><span
+																	class="font-weight-semibold text-dark"> Timings :
+																</span> ${re.openingTime} - ${re.closingTime}</p>
+														</div>
+													</div>
+													<div class="card-footer pt-2 pb-2">
+														<div class="item-card9-footer d-sm-flex">
+															<div class="item-card9-cost">
+																<div
+																	class="text-dark font-weight-normal mb-0 mt-0 item-card2-desc">
+																	<a class="" href="mailto:${re.email}"
+																		data-bs-toggle="modal"
+																		data-bs-target="#contact"><i
+																			class="fa fa-envelope"></i></a>
+																	<a class="" href="${re.phoneNumber}"
+																		data-bs-toggle="tooltip" data-bs-placement="top"
+																		title="" data-bs-original-title="458-965-856"><i
+																			class="fa fa-phone"></i></a>
+																	<a class="" href="${re.website}"
+																		data-bs-toggle="tooltip" data-bs-placement="top"
+																		title=""
+																		data-bs-original-title="${re.website}"><i
+																			class="fa fa-globe"></i></a>
+																</div>
+															</div>
+															<div class="ms-auto mt-3 mt-sm-0">
+																<div
+																	class="text-dark font-weight-normal mb-0 mt-0 item-card2-desc">
+																	<a href="javascript:void(0)"><i
+																			class="fa fa-map-signs"></i> Get
+																		Directions</a>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+				`
+			})
+		}
+
+		const getAllListing = async () => {
+			const noOfList = document.getElementById("noOfList")
+			const entries = document.getElementById("entries")
+			const pagination = document.getElementById("pagination")
+			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/all")
+			const rep = await res.json()
+			noOfList.innerHTML = rep.length
+			entries.innerHTML = `Showing 1 to 10 of ${rep.length} entries`
+			insertDiv(rep)
+			pagination.innerHTML = `<li class="page-item page-prev disabled">
+										<a class="page-link" href="javascript:void(0)" tabindex="-1">Prev</a>
+									</li>`
+			for (let i = 0; i < array.length; i++) {
+
+			}
+			console.log(Math.ceil(rep.length / 10));
+		}
+		const getCategory = async () => {
+			const optGroup = document.getElementById("optGroup")
+			const checkBox = document.getElementById("checkBox")
+			const res = await fetch("https://bizdire.azurewebsites.net/category/get/all")
+			const rep = await res.json()
+			optGroup.innerHTML = `<option>Select</option>`
+			checkBox.innerHTML = ""
+			rep.forEach((re, i) => {
+				optGroup.innerHTML += `<option value="${re.category}">${re.category}</option>`
+				checkBox.innerHTML += `
+						<label class="custom-control form-checkbox mb-3">
+							<input type="checkbox" class="custom-control-input" name="checkbox${i + 1}" value="${re.category}">
+								<span class="custom-control-label">
+										<a href="javascript:void(0)" class="text-dark">${re.category}<span class="label label-primary float-end">${re.noOfListings || 0}</span></a>
+								</span>
+						</label>
+				`
+			})
+		}
+		getCategory()
+		getAllListing()
+	</script>
+
 </body>
 
 </html>
