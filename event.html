@@ -308,7 +308,7 @@
 						<li><a href="about.html">About Us </a></li>
 						<li><a href="javascript:void(0)">Pages <span class="fa fa-caret-down m-0"></span></a>
 							<ul class="sub-menu">
-								<li><a href="business-list.html">Business List</a></li>
+								<li><a href="event.html">Events List</a></li>
 								<li><a href="categories.html">Categories</a></li>
 								<li><a href="mydash.html">My Dashboard</a></li>
 								<li><a href="mylistings.html">Listings</a></li>
@@ -322,11 +322,18 @@
 						<li class="d-lg-none mt-5 pb-5 mt-lg-0">
 							<span><a class="btn btn-orange" href="ad-list.html">Add Listing</a></span>
 						</li>
+						<li class="d-lg-none mt-5 pb-5 mt-lg-0">
+							<span><a class="btn btn-orange" href="ad-event.html">Add Events</a></span>
+						</li>
 					</ul>
-					<ul class="mb-0">
+					<ul style="display: flex; column-gap: 10px;" class="mb-0">
 						<li class="mt-2 d-none d-lg-flex">
 							<span><a class="btn btn-secondary ad-post" href="ad-list.html"><i
 										class="fa fa-plus text-white"></i> Add Listing</a></span>
+						</li>
+						<li class="mt-2 d-none d-lg-flex">
+							<span><a class="btn btn-secondary ad-post" href="ad-event.html"><i
+										class="fa fa-plus text-white"></i> Add Event</a></span>
 						</li>
 					</ul>
 				</nav>
@@ -346,19 +353,19 @@
 					<div class="row">
 						<div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
 							<div class="text-center text-white ">
-								<h1 class=""><span id="noOfList" class="font-weight-bold">16,25,365</span> listings
-									available</h1>
+								<h1 class=""><span id="noOfList" class="font-weight-bold">16,25,365</span> Events
+									Available</h1>
 							</div>
 							<div class="search-background px-4 py-3 mt-4">
 								<div class="form row row-sm">
 									<div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
 										<input type="text" class="form-control input-lg border-white" id="text"
-											placeholder="Search Products">
+											placeholder="Search Events">
 									</div>
 									<div class="form-group col-xl-4 col-lg-4 select2-lg  col-md-12 mb-0 border-white">
 										<select class="form-control select2-show-search w-100"
 											data-placeholder="Select">
-											<optgroup id="optGroup" label="Categories">
+											<optgroup id="optGroup" label="Location">
 												<option>Select</option>
 												<option value="1">AutoMobile</option>
 												<option value="2">Real Estate</option>
@@ -417,28 +424,28 @@
 										<ul class="nav item2-gl-menu ms-auto mt-1">
 											<li class=""><a href="#tab-11" class="active show" data-bs-toggle="tab"
 													title="List style"><i class="fa fa-list"></i></a></li>
-											<!-- <li><a href="#tab-12" data-bs-toggle="tab" class="" title="Grid"><i
-														class="fa fa-th"></i></a></li> -->
+											<li><a href="#tab-12" data-bs-toggle="tab" class="" title="Grid"><i
+														class="fa fa-th"></i></a></li>
 										</ul>
 										<div class="d-sm-flex">
 											<label class="me-2 mt-2 mb-sm-1 sort-label">Sort By:</label>
 											<div class="selectgroup">
 												<label class="selectgroup-item mb-md-0">
-													<input type="radio" name="value" value="All"
-														class="selectgroup-input" checked="">
-													<span class="selectgroup-button d-md-flex">All <i
-															class="fa fa-sort ms-2 mt-1"></i></span>
-												</label>
-												<label class="selectgroup-item mb-md-0">
 													<input type="radio" name="value" value="Distance"
 														class="selectgroup-input">
-													<span class="selectgroup-button">Distance</span>
+													<span class="selectgroup-button">All</span>
 												</label>
-												<label class="selectgroup-item mb-1">
+												<label class="selectgroup-item mb-md-0">
+													<input type="radio" name="value" value="All"
+														class="selectgroup-input" checked="">
+													<span class="selectgroup-button d-md-flex">Events near me<i
+															class="fa fa-sort ms-2 mt-1"></i></span>
+												</label>
+												<!-- <label class="selectgroup-item mb-1">
 													<input type="radio" name="value" value="Latest"
 														class="selectgroup-input">
 													<span class="selectgroup-button">Latest</span>
-												</label>
+												</label> -->
 												<!-- <label class="selectgroup-item mb-0">
 													<input type="radio" name="value" value="Rating"
 														class="selectgroup-input">
@@ -495,7 +502,12 @@
 																	Modern Colorny, NY 10012</a>
 															</div>
 															<p class="mb-0 leading-tight"><span
-																	class="font-weight-semibold text-dark"> Timings :
+																	class="font-weight-semibold text-dark"> Date Of
+																	Event :
+																</span> 10am - 10pm</p>
+															<p class="mb-0 leading-tight"><span
+																	class="font-weight-semibold text-dark"> Time Of
+																	Event :
 																</span> 10am - 10pm</p>
 														</div>
 													</div>
@@ -1591,7 +1603,7 @@
 				</div>
 
 				<!--Right Side Content-->
-				<div class="col-xl-3 col-lg-3 col-md-12">
+				<!-- <div class="col-xl-3 col-lg-3 col-md-12">
 					<div class="card">
 						<div class="card-body">
 							<div class="input-group">
@@ -1718,7 +1730,7 @@
 								</div>
 							</div>
 						</div>
-						<!-- <div class="card-header border-top">
+						<div class="card-header border-top">
 							<h3 class="card-title">Posted By</h3>
 						</div>
 						<div class="card-body">
@@ -1745,12 +1757,12 @@
 									</span>
 								</label>
 							</div>
-						</div> -->
+						</div>
 						<div class="card-footer">
 							<a href="javascript:void(0)" class="btn btn-primary btn-block">Apply Filter</a>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!--/Right Side Content-->
 			</div>
 		</div>
@@ -1839,7 +1851,7 @@
 				<div class="container">
 					<div class="p-2 text-center footer-links">
 						<a href="about.html" class="btn btn-link">About Us</a>
-						<a href="business-list.html" class="btn btn-link">Listing Categories</a>
+						<a href="event.html" class="btn btn-link">Listing Categories</a>
 						<a href="contact.html" class="btn btn-link">Contact Us</a>
 					</div>
 				</div>
@@ -2104,8 +2116,8 @@
 				`
 			})
 		}
-		getCategory()
-		getAllListing()
+		// getCategory()
+		// getAllListing()
 	</script>
 
 </body>
