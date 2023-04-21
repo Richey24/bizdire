@@ -2336,7 +2336,7 @@
 						</div>
 						<div class="tab-content">
 							<div class="tab-pane active" id="tab-1">
-								<div class="row">
+								<div id="allEvent" class="row">
 									<div class="col-xl-4 col-lg-4 col-md-12">
 										<div class="card mb-xl-0 overflow-hidden">
 											<div class="item-card8-img  br-te-4 br-ts-4">
@@ -2453,7 +2453,7 @@
 								</div>
 							</div>
 							<div class="tab-pane" id="tab-2">
-								<div class="row">
+								<div id="eventNearMe" class="row">
 									<div class="col-xl-4 col-lg-4 col-md-12">
 										<div class="card mb-xl-0 overflow-hidden">
 											<div class="item-card8-img  br-te-4 br-ts-4">
@@ -3340,6 +3340,7 @@
 			});
 		}
 
+		// search listing
 		document.getElementById("searchForm").addEventListener("submit", async (e) => {
 			e.preventDefault()
 			const body = {
@@ -3439,8 +3440,78 @@
 			console.log(rep);
 		})
 
+		// calculate distance with lat and long
+
+		function calcDistance(lat1, lon1, lat2, lon2) {
+			const R = 6371; // Radius of the earth in km
+			const dLat = deg2rad(lat2 - lat1);  // deg2rad below
+			const dLon = deg2rad(lon2 - lon1);
+			const a =
+				Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+				Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+				Math.sin(dLon / 2) * Math.sin(dLon / 2);
+			const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+			const d = R * c; // Distance in km
+			return d;
+		}
+
+		function deg2rad(deg) {
+			return deg * (Math.PI / 180);
+		}
 
 
+		// get Event
+		const getEvent = async () => {
+			const allEvent = document.getElementById("allEvent")
+			const eventNearMe = document.getElementById("eventNearMe")
+			const res = await fetch("https://bizdire.azurewebsites.net/event/get/all")
+			const rep = await res.json()
+			allEvent.innerHTML = ""
+			eventNearMe.innerHTML = ""
+			const physicalEvent = rep.filter((re) => re.locationType === "physical")
+			const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, "36.07940000", "-118.45510000") > 2000)
+			console.log(nearToMe);
+			console.log(calcDistance(physicalEvent[0].lat, physicalEvent[0].long, "36.07940000", "-118.45510000"));
+			rep.slice(0, 3).forEach((re) => {
+				allEvent.innerHTML += `
+					<div class="col-xl-4 col-lg-4 col-md-12">
+										<div class="card mb-xl-0 overflow-hidden">
+											<div class="item-card8-img  br-te-4 br-ts-4">
+												<img style="height: 300px;" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/f2.jpg"}" alt="img"
+													class="cover-image">
+											</div>
+											<div class="item-card8-overlaytext">
+												<h6 style="text-transform: capitalize;" class="mb-0">${re.locationType}</h6>
+											</div>
+											<div class="card-body">
+												<div class="item-card8-desc">
+													<p class="text-muted mb-2">${re.dateOfEvent[0]} - ${re.dateOfEvent[1]}</p>
+													<p class="text-muted mb-2">${re.timeOfEvent[0]} - ${re.timeOfEvent[1]}</p>
+													<h4 class="font-weight-semibold">${re.eventName}</h4>
+													<p class="mb-0 popularDesc">${re.description}</p>
+												</div>
+											</div>
+											<div class="card-footer">
+												<div class="footerimg d-flex mt-0 mb-0">
+													<div class="d-flex footerimg-l mb-0">
+														<img src="${re.userImage ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.userImage}` : "../assets/images/products/products/19.jpg"}" alt="image"
+															class="avatar brround  me-2">
+														<h5 class="time-title text-muted p-0 leading-normal mt-2 mb-0">
+															${re.userName}<i class="icon icon-check text-success fs-12 ms-1"
+																data-bs-toggle="tooltip" data-bs-placement="top"
+																title="" data-bs-original-title="verified"></i></h5>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+				`
+			})
+			console.log(rep);
+		}
+
+
+		getEvent()
 		getCategory()
 		getLocation()
 		getCat()
