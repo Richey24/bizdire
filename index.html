@@ -3441,7 +3441,8 @@
 			console.log(nearToMe);
 			rep.slice(0, 3).forEach((re) => {
 				allEvent.innerHTML += `
-					<div class="col-xl-4 col-lg-4 col-md-12">
+					<div style="cursor: pointer;" class="col-xl-4 col-lg-4 col-md-12">
+						<a href="event-description.html?id=${re._id}">
 										<div class="card mb-xl-0 overflow-hidden">
 											<div class="item-card8-img  br-te-4 br-ts-4">
 												<img style="height: 300px;" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/f2.jpg"}" alt="img"
@@ -3471,6 +3472,7 @@
 												</div>
 											</div>
 										</div>
+										</a>
 									</div>
 				`
 			})
