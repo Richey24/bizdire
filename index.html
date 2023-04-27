@@ -280,27 +280,7 @@
 											<option value="ZW">Zimbabwe</option>
 										</select>
 									</li>
-									<li class="dropdown me-5">
-										<a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown"><span>
-												Language <i class="fa fa-caret-down text-muted"></i></span> </a>
-										<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-											<a href="javascript:void(0)" class="dropdown-item">
-												English
-											</a>
-											<a class="dropdown-item" href="javascript:void(0)">
-												Arabic
-											</a>
-											<a class="dropdown-item" href="javascript:void(0)">
-												German
-											</a>
-											<a href="javascript:void(0)" class="dropdown-item">
-												Greek
-											</a>
-											<a href="javascript:void(0)" class="dropdown-item">
-												Spanish
-											</a>
-										</div>
-									</li>
+
 
 								</ul>
 							</div>
@@ -373,25 +353,13 @@
 						<li><a href="javascript:void(0)">Pages <span class="fa fa-caret-down m-0"></span></a>
 							<ul class="sub-menu">
 								<li><a href="event.html">Events List</a></li>
-								<li><a href="categories.html">Categories</a></li>
+
 								<li><a href="mydash.html">My Dashboard</a></li>
 								<li><a href="mylistings.html">Listings</a></li>
-								<li><a href="myfavorite.html">Favorite Listings</a></li>
-								<li><a href="manged.html">Manged Listings</a></li>
+
 							</ul>
 						</li>
 
-						<li><a href="javascript:void(0)">Categories <span class="fa fa-caret-down m-0"></span></a>
-							<ul id="headCat" class="sub-menu">
-								<li><a href="business.html">Educational</a></li>
-								<li><a href="business.html">Meditation</a></li>
-								<li><a href="business.html">RealEstate</a></li>
-								<li><a href="business.html">Restaurant</a></li>
-								<li><a href="business.html">Backery</a></li>
-								<li><a href="business.html">Beauty & Spa</a></li>
-								<li><a href="business.html">Automobiles</a></li>
-							</ul>
-						</li>
 						<li><a href="contact.html"> Contact Us <span class="wsarrow"></span></a></li>
 						<li class="d-lg-none mt-5 pb-5 mt-lg-0">
 							<span><a class="btn btn-orange" href="ad-list.html">Add Listing</a></span>
@@ -3469,11 +3437,45 @@
 			allEvent.innerHTML = ""
 			eventNearMe.innerHTML = ""
 			const physicalEvent = rep.filter((re) => re.locationType === "physical")
-			const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, "36.07940000", "-118.45510000") > 2000)
+			const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, "36.07940000", "-118.45510000") < 2000)
 			console.log(nearToMe);
-			console.log(calcDistance(physicalEvent[0].lat, physicalEvent[0].long, "36.07940000", "-118.45510000"));
 			rep.slice(0, 3).forEach((re) => {
 				allEvent.innerHTML += `
+					<div class="col-xl-4 col-lg-4 col-md-12">
+										<div class="card mb-xl-0 overflow-hidden">
+											<div class="item-card8-img  br-te-4 br-ts-4">
+												<img style="height: 300px;" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/f2.jpg"}" alt="img"
+													class="cover-image">
+											</div>
+											<div class="item-card8-overlaytext">
+												<h6 style="text-transform: capitalize;" class="mb-0">${re.locationType}</h6>
+											</div>
+											<div class="card-body">
+												<div class="item-card8-desc">
+													<p class="text-muted mb-2">${re.dateOfEvent[0]} - ${re.dateOfEvent[1]}</p>
+													<p class="text-muted mb-2">${re.timeOfEvent[0]} - ${re.timeOfEvent[1]}</p>
+													<h4 class="font-weight-semibold">${re.eventName}</h4>
+													<p class="mb-0 popularDesc">${re.description}</p>
+												</div>
+											</div>
+											<div class="card-footer">
+												<div class="footerimg d-flex mt-0 mb-0">
+													<div class="d-flex footerimg-l mb-0">
+														<img src="${re.userImage ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.userImage}` : "../assets/images/products/products/19.jpg"}" alt="image"
+															class="avatar brround  me-2">
+														<h5 class="time-title text-muted p-0 leading-normal mt-2 mb-0">
+															${re.userName}<i class="icon icon-check text-success fs-12 ms-1"
+																data-bs-toggle="tooltip" data-bs-placement="top"
+																title="" data-bs-original-title="verified"></i></h5>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+				`
+			})
+			nearToMe.slice(0, 3).forEach((re) => {
+				eventNearMe.innerHTML += `
 					<div class="col-xl-4 col-lg-4 col-md-12">
 										<div class="card mb-xl-0 overflow-hidden">
 											<div class="item-card8-img  br-te-4 br-ts-4">
