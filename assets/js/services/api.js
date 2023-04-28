@@ -1,5 +1,5 @@
 const instance = axios.create({
-    baseURL: 'https://catfact.ninja',
+    baseURL: 'https://bizdire.azurewebsites.net',
     headers: {
         "Content-Type": "application/json",
     },

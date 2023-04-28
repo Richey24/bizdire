@@ -5,7 +5,7 @@
 const API_URL = `/listing`
 
 const api = axios.create({
-    baseURL: 'http://localhost:5000',
+    baseURL: 'https://bizdire.azurewebsites.net',
     headers: {
         "Content-Type": "application/json",
     },
@@ -15,12 +15,16 @@ class ListingsService {
 
 
     createList(body) {
-        return api.post(`${API_URL}/create`, body )
+        return api.post(`${API_URL}/create`, body, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
     }
 
 
-    deleteList(id){
-        return api.delete(`${API_URL}/delete/`, {params:{id:id}} )
+    deleteList(id) {
+        return api.delete(`${API_URL}/delete/`, { params: { id: id } })
     }
 
     getAll() {
@@ -29,17 +33,17 @@ class ListingsService {
 
 
     getById(id) {
-        return api.get(`${API_URL}/get/one/`, {params:{id:id}} )
+        return api.get(`${API_URL}/get/one/`, { params: { id: id } })
     }
 
 
     getByParams(params) {
-        return api.get(`${API_URL}/get/params`, {params} )
+        return api.get(`${API_URL}/get/params`, { params })
     }
 
 
     updateList(id, body) {
-        return api.put(`${API_URL}/update/`, {params:{id:id, }, body:body} )
+        return api.put(`${API_URL}/update/`, { params: { id: id, }, body: body })
     }
 
 }

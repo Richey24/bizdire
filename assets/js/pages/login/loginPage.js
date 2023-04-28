@@ -1,10 +1,10 @@
 import loginFunctions from "../../services/userHelper.js";
 import authStore from "../../modules/store/auth.js";
 
-$(function(){
+$(function () {
 
     //submit button event
-    $(".submit").click(()=> {
+    $(".submit").click(() => {
 
         //call login functions
         logInButtonSubmit()
@@ -25,13 +25,13 @@ function logInButtonSubmit() {
     loginFunctions.login(email, password)
         .then((data) => {
             clearLoginInput()
-           // $(location).prop('href', 'http://localhost:63342/bizdire/index.html');
+            // $(location).prop('href', 'http://localhost:63342/bizdire/index.html');
 
             //TODO:Store data in local storage
             console.log(data)
-            if(data['mainToken'] && data['email']) {
+            if (data['mainToken'] && data['email']) {
                 authStore.setUser(data)
-                $(location).prop('href', 'http://localhost:63342/bizdire/index.html')
+                $(location).prop('href', '/index.html')
             }
 
 
@@ -43,7 +43,7 @@ function logInButtonSubmit() {
 }
 
 
-function clearLoginInput(){
+function clearLoginInput() {
     $('input[type=email]').val("")
     $('input[type=password]').val("")
 }

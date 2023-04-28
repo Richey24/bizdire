@@ -289,11 +289,11 @@
 					<div class="col-xl-5 col-lg-5 col-sm-8 col-5">
 						<div class="top-bar-right">
 							<ul class="custom ">
-								<li>
+								<li id="theReg">
 									<a href="register.html" class="text-dark"><i class="fa fa-user me-1"></i>
 										<span>Register</span></a>
 								</li>
-								<li>
+								<li id="theLog">
 									<a href="login.html" class="text-dark"><i class="fa fa-sign-in me-1"></i>
 										<span>Login</span></a>
 								</li>
@@ -302,8 +302,9 @@
 										<span id="userEmailSpan">User Email</span></a>
 								</li>
 								<li class="dropdown">
-									<a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown"><i
-											class="fa fa-home me-1"></i><span> My Dashboard</span></a>
+									<a id="myDash" href="javascript:void(0)" class="text-dark"
+										data-bs-toggle="dropdown"><i class="fa fa-home me-1"></i><span> My
+											Dashboard</span></a>
 									<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
 										<a href="mydash.html" class="dropdown-item">
 											<i class="dropdown-icon icon icon-user"></i> My Profile
@@ -354,21 +355,21 @@
 							<ul class="sub-menu">
 								<li><a href="event.html">Events List</a></li>
 
-								<li><a href="mydash.html">My Dashboard</a></li>
+								<li id="secondDash"><a href="mydash.html">My Dashboard</a></li>
 								<li><a href="mylistings.html">Listings</a></li>
 
 							</ul>
 						</li>
 
 						<li><a href="contact.html"> Contact Us <span class="wsarrow"></span></a></li>
-						<li class="d-lg-none mt-5 pb-5 mt-lg-0">
+						<li id="addList" class="d-lg-none mt-5 pb-5 mt-lg-0">
 							<span><a class="btn btn-orange" href="ad-list.html">Add Listing</a></span>
 						</li>
-						<li class="d-lg-none mt-5 pb-5 mt-lg-0">
+						<li id="addEvent" class="d-lg-none mt-5 pb-5 mt-lg-0">
 							<span><a class="btn btn-orange" href="ad-event.html">Add Events</a></span>
 						</li>
 					</ul>
-					<ul style="display: flex; column-gap: 10px;" class="mb-0">
+					<ul id="mobileAdd" style="display: flex; column-gap: 10px;" class="mb-0">
 						<li class="mt-2 d-none d-lg-flex">
 							<span><a class="btn btn-secondary ad-post" href="ad-list.html"><i
 										class="fa fa-plus text-white"></i> Add Listing</a></span>
@@ -2143,7 +2144,7 @@
 			data-bs-image-src="../assets/images/banners/banner5.jpg">
 			<div class="content-text mb-0 text-white info">
 				<div class="container">
-					<div class="row text-center">
+					<div style="justify-content: center;" class="row text-center">
 						<div class="col-lg-3 col-md-6">
 							<div class="counter-status status md-lg-0">
 								<div class="counter-icon text-secondary">
@@ -2199,7 +2200,7 @@
 								getUsers()
 							</script>
 						</div>
-						<div class="col-lg-3 col-md-6">
+						<!-- <div class="col-lg-3 col-md-6">
 							<div class="counter-status status mb-0">
 								<div class="counter-icon text-success">
 									<i class="icon icon-emotsmile"></i>
@@ -2207,7 +2208,7 @@
 								<h5>Happy Customers</h5>
 								<h2 class="counter mb-0">7,253</h2>
 							</div>
-						</div>
+						</div> -->
 					</div>
 				</div>
 			</div>
@@ -2298,7 +2299,8 @@
 							<div class="col-12">
 								<ul class="nav items-blog-tab-menu">
 									<li class=""><a href="#tab-1" class="active show" data-bs-toggle="tab">All</a></li>
-									<li><a href="#tab-2" data-bs-toggle="tab" class="">Events Near Me</a></li>
+									<li id="nearMe"><a href="#tab-2" data-bs-toggle="tab" class="">Events Near Me</a>
+									</li>
 								</ul>
 							</div>
 						</div>
@@ -3438,7 +3440,6 @@
 			eventNearMe.innerHTML = ""
 			const physicalEvent = rep.filter((re) => re.locationType === "physical")
 			const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, "36.07940000", "-118.45510000") < 2000)
-			console.log(nearToMe);
 			rep.slice(0, 3).forEach((re) => {
 				allEvent.innerHTML += `
 					<div style="cursor: pointer;" class="col-xl-4 col-lg-4 col-md-12">
@@ -3511,7 +3512,6 @@
 									</div>
 				`
 			})
-			console.log(rep);
 		}
 
 
