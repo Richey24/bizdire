@@ -394,8 +394,8 @@
 			<div class="header-text text-1 mb-0">
 				<div class="container">
 					<div class="text-center text-white mb-7">
-						<h1 class="mb-1">Welcome To The Israelite Business Directory</h1>
-						<p>A free service promoting self-reliance by increasing the circulation of money among us</p>
+						<h1 class="mb-1">The Israelite Business Directory</h1>
+						<p>A free service promoting our self-reliance</p>
 					</div>
 					<div class="row">
 						<div class="col-xl-10 col-lg-12 col-md-12 d-block mx-auto">
@@ -3278,7 +3278,6 @@
 			const res = await fetch("https://bizdire.azurewebsites.net/category/get/all")
 			const rep = await res.json()
 			document.getElementById("catOptions").innerHTML = ""
-			document.getElementById("headCat").innerHTML = ""
 			document.getElementById("footerCat").innerHTML = ""
 			const opt = document.createElement("option")
 			opt.value = ""
@@ -3297,7 +3296,6 @@
 				opt.value = re.category
 				opt.innerHTML = re.category
 				document.getElementById("catOptions").appendChild(opt)
-				document.getElementById("headCat").appendChild(li)
 			})
 		}
 

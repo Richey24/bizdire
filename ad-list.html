@@ -349,11 +349,11 @@
 			<div class="header-text mb-0">
 				<div class="container">
 					<div class="text-center text-white">
-						<h1>Ad Listing</h1>
+						<h1>Add Listing</h1>
 						<ol class="breadcrumb text-center">
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
-							<li class="breadcrumb-item active text-white" aria-current="page">Ad Listing</li>
+							<li class="breadcrumb-item active text-white" aria-current="page">Add Listing</li>
 						</ol>
 					</div>
 				</div>
@@ -413,6 +413,15 @@
 								<h5 id="phoneCheck" style="color: red;">
 									**Phone Number is missing
 								</h5>
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Email Address</label>
+								<input id="email" type="email" class="form-control"
+									placeholder="Add List Email Address">
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Website</label>
+								<input id="website" type="url" class="form-control" placeholder="Add List Website">
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Opening Days</label>
@@ -1216,6 +1225,25 @@
 
 	<script type="module" src="../assets/js/pages/header.js"></script>
 
+	<script>
+		const getCategory = async () => {
+			const res = await fetch("https://bizdire.azurewebsites.net/category/get/all")
+			const rep = await res.json()
+			document.getElementById("categorySel").innerHTML = ""
+			const opt = document.createElement("option")
+			opt.value = ""
+			opt.innerHTML = ""
+			document.getElementById("categorySel").appendChild(opt)
+
+			rep.forEach((re, i) => {
+				const opt = document.createElement("option")
+				opt.value = re.category
+				opt.innerHTML = re.category
+				document.getElementById("categorySel").appendChild(opt)
+			})
+		}
+		getCategory()
+	</script>
 
 </body>
 

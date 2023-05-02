@@ -105,6 +105,8 @@ function getUserInput() {
     let categorySel = $('#categorySel')
     let zipCode = $('#zipCode')
     let phone = $('#phone')
+    let email = $('#email')
+    let website = $('#website')
     let daySelect = $('#daySelect')
     let openTimeSelect = $('#openTimeSelect')
     let closeTimeSelect = $('#closeTimeSelect')
@@ -122,18 +124,22 @@ function getUserInput() {
     body.append('category', categorySel.val())
     body.append('zipcode', zipCode.val())
     body.append('phoneNumber', phone.val())
+    body.append('email', email.val())
+    body.append('website', website.val())
     body.append('openingDays', daySelect.val())
     body.append('openingTime', openTimeSelect.val())
     body.append('closingTime', closeTimeSelect.val())
     body.append('description', description.val())
-    body.append('image', image.prop('files')[0], 'image')
+    if (image.prop('files')[0]) {
+        body.append('image', image.prop('files')[0], 'image')
+    }
     body.append('facebookUrl', facebookUrl.val())
     body.append('twitterUrl', twitterURL.val())
     body.append('googlePlusUrl', googleURL.val())
     body.append('googleMapUrl', googleMapUrl.val())
     body.append('establishedYear', yearSelect.val())
     body.append('paymentMethod', paymentSelect.val())
-    body.append('userID', "6424f914a23ccef0ec4c74a4")
+    body.append('userID', JSON.parse(localStorage.getItem("user"))._id)
     body.append('publish', true)
     return body;
 }
