@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+    <!-- META DATA -->
+    <meta charset="UTF-8">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="iBiz.world">
+    <meta name="author" content="Larry Lynch">
+    <meta name="keywords"
+        content="A free service promoting self-reliance by increasing the circulation of money among us">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Title -->
+    <title>iBiz.world</title>
+
+    <!-- Bootstrap Css -->
+    <link id="style" href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Dashboard Css -->
+    <link href="../assets/css/style.css" rel="stylesheet" />
+
+    <!-- Font-awesome  Css -->
+    <link href="../assets/css/icons.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <!--Loader-->
+    <div id="global-loader">
+        <img src="../assets/images/products/products/loader.png" class="loader-img floating" alt="">
+    </div>
+
+    <!--Topbar-->
+    <div class="header-main">
+        <div class="top-bar p-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-7 col-sm-4 col-7">
+                        <div class="top-bar-left d-flex">
+                            <div class="clearfix">
+                                <ul class="socials d-lg-none">
+                                    <li>
+                                        <a class="social-icon text-dark" href="javascript:void(0)"><i
+                                                class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="social-icon text-dark" href="javascript:void(0)"><i
+                                                class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="social-icon text-dark" href="javascript:void(0)"><i
+                                                class="fa fa-linkedin"></i></a>
+                                    </li>
+                                    <li>
+                                        <a class="social-icon text-dark" href="javascript:void(0)"><i
+                                                class="fa fa-google-plus"></i></a>
+                                    </li>
+                                </ul>
+                                <div class="header-search-logo d-none d-lg-block ">
+                                    <a href="index.html" class="d-flex logo-height logo-svg header-logo">
+                                        <img style="width: 50px; height: 50px;" src="../assets/images/brand/logo.svg"
+                                            class="header-brand-img desktop-logo" alt="Bizdire logo">
+                                        <img src="../assets/images/brand/logo.svg" class="header-brand-img desktop-dark"
+                                            alt="Bizdire logo">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="clearfix">
+                                <ul class="contact border-start">
+                                    <li class="me-5 d-lg-none">
+                                        <a href="javascript:void(0)" class="callnumber text-dark"><span><i
+                                                    class="fa fa-phone me-1"></i>:
+                                                +425 345 8765</span></a>
+                                    </li>
+                                    <li class="select-country me-5">
+                                        <select class="form-control select2-flag-search"
+                                            data-placeholder="Select Country">
+                                            <option value="UM">United States of America</option>
+                                            <option value="AF">Afghanistan</option>
+                                            <option value="AL">Albania</option>
+                                            <option value="AD">Andorra</option>
+                                            <option value="AG">Antigua and Barbuda</option>
+                                            <option value="AU">Australia</option>
+                                            <option value="AM">Armenia</option>
+                                            <option value="AO">Angola</option>
+                                            <option value="AR">Argentina</option>
+                                            <option value="AT">Austria</option>
+                                            <option value="AZ">Azerbaijan</option>
+                                            <option value="BA">Bosnia and Herzegovina</option>
+                                            <option value="BB">Barbados</option>
+                                            <option value="BD">Bangladesh</option>
+                                            <option value="BE">Belgium</option>
+                                            <option value="BF">Burkina Faso</option>
+                                            <option value="BG">Bulgaria</option>
+                                            <option value="BH">Bahrain</option>
+                                            <option value="BJ">Benin</option>
+                                            <option value="BN">Brunei</option>
+                                            <option value="BO">Bolivia</option>
+                                            <option value="BT">Bhutan</option>
+                                            <option value="BY">Belarus</option>
+                                            <option value="CD">Congo</option>
+                                            <option value="CA">Canada</option>
+                                            <option value="CF">Central African Republic</option>
+                                            <option value="CI">Cote d'Ivoire</option>
+                                            <option value="CL">Chile</option>
+                                            <option value="CM">Cameroon</option>
+                                            <option value="CN">China</option>
+                                            <option value="CO">Colombia</option>
+                                            <option value="CU">Cuba</option>
+                                            <option value="CV">Cabo Verde</option>
+                                            <option value="CY">Cyprus</option>
+                                            <option value="DJ">Djibouti</option>
+                                            <option value="DK">Denmark</option>
+                                            <option value="DM">Dominica</option>
+                                            <option value="DO">Dominican Republic</option>
+                                            <option value="EC">Ecuador</option>
+                                            <option value="EE">Estonia</option>
+                                            <option value="ER">Eritrea</option>
+                                            <option value="ET">Ethiopia</option>
+                                            <option value="FI">Finland</option>
+                                            <option value="FJ">Fiji</option>
+                                            <option value="FR">France</option>
+                                            <option value="GA">Gabon</option>
+                                            <option value="GD">Grenada</option>
+                                            <option value="GE">Georgia</option>
+                                            <option value="GH">Ghana</option>
+                                            <option value="GH">Ghana</option>
+                                            <option value="HN">Honduras</option>
+                                            <option value="HT">Haiti</option>
+                                            <option value="HU">Hungary</option>
+                                            <option value="ID">Indonesia</option>
+                                            <option value="IE">Ireland</option>
+                                            <option value="IL">Israel</option>
+                                            <option value="IN">India</option>
+                                            <option value="IQ">Iraq</option>
+                                            <option value="IR">Iran</option>
+                                            <option value="IS">Iceland</option>
+                                            <option value="IT">Italy</option>
+                                            <option value="JM">Jamaica</option>
+                                            <option value="JO">Jordan</option>
+                                            <option value="JP">Japan</option>
+                                            <option value="KE">Kenya</option>
+                                            <option value="KG">Kyrgyzstan</option>
+                                            <option value="KI">Kiribati</option>
+                                            <option value="KW">Kuwait</option>
+                                            <option value="KZ">Kazakhstan</option>
+                                            <option value="LA">Laos</option>
+                                            <option value="LB">Lebanons</option>
+                                            <option value="LI">Liechtenstein</option>
+                                            <option value="LR">Liberia</option>
+                                            <option value="LS">Lesotho</option>
+                                            <option value="LT">Lithuania</option>
+                                            <option value="LU">Luxembourg</option>
+                                            <option value="LV">Latvia</option>
+                                            <option value="LY">Libya</option>
+                                            <option value="MA">Morocco</option>
+                                            <option value="MC">Monaco</option>
+                                            <option value="MD">Moldova</option>
+                                            <option value="ME">Montenegro</option>
+                                            <option value="MG">Madagascar</option>
+                                            <option value="MH">Marshall Islands</option>
+                                            <option value="MK">Macedonia (FYROM)</option>
+                                            <option value="ML">Mali</option>
+                                            <option value="MM">Myanmar (formerly Burma)</option>
+                                            <option value="MN">Mongolia</option>
+                                            <option value="MR">Mauritania</option>
+                                            <option value="MT">Malta</option>
+                                            <option value="MV">Maldives</option>
+                                            <option value="MW">Malawi</option>
+                                            <option value="MX">Mexico</option>
+                                            <option value="MZ">Mozambique</option>
+                                            <option value="NA">Namibia</option>
+                                            <option value="NG">Nigeria</option>
+                                            <option value="NO">Norway</option>
+                                            <option value="NP">Nepal</option>
+                                            <option value="NR">Nauru</option>
+                                            <option value="NZ">New Zealand</option>
+                                            <option value="OM">Oman</option>
+                                            <option value="PA">Panama</option>
+                                            <option value="PF">Paraguay</option>
+                                            <option value="PG">Papua New Guinea</option>
+                                            <option value="PH">Philippines</option>
+                                            <option value="PK">Pakistan</option>
+                                            <option value="PL">Poland</option>
+                                            <option value="QA">Qatar</option>
+                                            <option value="RO">Romania</option>
+                                            <option value="RU">Russia</option>
+                                            <option value="RW">Rwanda</option>
+                                            <option value="SA">Saudi Arabia</option>
+                                            <option value="SB">Solomon Islands</option>
+                                            <option value="SC">Seychelles</option>
+                                            <option value="SD">Sudan</option>
+                                            <option value="SE">Sweden</option>
+                                            <option value="SG">Singapore</option>
+                                            <option value="TG">Togo</option>
+                                            <option value="TH">Thailand</option>
+                                            <option value="TJ">Tajikistan</option>
+                                            <option value="TL">Timor-Leste</option>
+                                            <option value="TM">Turkmenistan</option>
+                                            <option value="TN">Tunisia</option>
+                                            <option value="TO">Tonga</option>
+                                            <option value="TR">Turkey</option>
+                                            <option value="TT">Trinidad and Tobago</option>
+                                            <option value="TW">Taiwan</option>
+                                            <option value="UA">Ukraine</option>
+                                            <option value="UG">Uganda</option>
+                                            <option value="UY">Uruguay</option>
+                                            <option value="UZ">Uzbekistan</option>
+                                            <option value="VA">Vatican City (Holy See)</option>
+                                            <option value="VE">Venezuela</option>
+                                            <option value="VN">Vietnam</option>
+                                            <option value="VU">Vanuatu</option>
+                                            <option value="YE">Yemen</option>
+                                            <option value="ZM">Zambia</option>
+                                            <option value="ZW">Zimbabwe</option>
+                                        </select>
+                                    </li>
+                                    <li class="dropdown me-5">
+                                        <a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown"><span>
+                                                Language <i class="fa fa-caret-down text-muted"></i></span> </a>
+                                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                English
+                                            </a>
+                                            <a class="dropdown-item" href="javascript:void(0)">
+                                                Arabic
+                                            </a>
+                                            <a class="dropdown-item" href="javascript:void(0)">
+                                                German
+                                            </a>
+                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                Greek
+                                            </a>
+                                            <a href="javascript:void(0)" class="dropdown-item">
+                                                Spanish
+                                            </a>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-sm-8 col-5">
+                        <div class="top-bar-right">
+                            <ul class="custom ">
+                                <li>
+                                    <a href="register.html" class="text-dark"><i class="fa fa-user me-1"></i>
+                                        <span>Register</span></a>
+                                </li>
+                                <li>
+                                    <a href="login.html" class="text-dark"><i class="fa fa-sign-in me-1"></i>
+                                        <span>Login</span></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown"><i
+                                            class="fa fa-home me-1"></i><span> My Dashboard</span></a>
+                                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                        <a href="mydash.html" class="dropdown-item">
+                                            <i class="dropdown-icon icon icon-user"></i> My Profile
+                                        </a>
+
+                                        <a href="settings.html" class="dropdown-item">
+                                            <i class="dropdown-icon  icon icon-settings"></i> Account Settings
+                                        </a>
+                                        <a class="dropdown-item" href="login.html">
+                                            <i class="dropdown-icon icon icon-power"></i> Log out
+                                        </a>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Header -->
+        <div class="sticky">
+            <div class="horizontal-header clearfix ">
+                <div class="container">
+                    <a id="horizontal-navtoggle" class="animated-arrow"><span></span></a>
+                    <span class="smllogo"><a href="index.html" class="d-flex logo-height mobile-logo logo-svg">
+                            <img src="../assets/images/brand/logo.png" class="header-brand-img desktop-logo"
+                                alt="Bizdire logo">
+                            <img src="../assets/images/brand/logo1.png" class="header-brand-img desktop-dark"
+                                alt="Bizdire logo">
+                    </span>
+                    <a href="ad-list.html" class="callusbtn"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- /Mobile Header -->
+
+        <div class="horizontal-main bg-dark-transparent clearfix">
+            <div class=" header-style horizontal-mainwrapper container clearfix">
+                <!--Nav-->
+                <nav class="horizontalMenu clearfix d-md-flex">
+                    <ul class="horizontalMenu-list">
+                        <li><a href="index.html">Home</a></li>
+
+                        <li><a href="about.html">About Us </a></li>
+                        <li><a href="javascript:void(0)">Pages <span class="fa fa-caret-down m-0"></span></a>
+                            <ul class="sub-menu">
+                                <li><a href="event.html">Events List</a></li>
+
+                                <li><a href="mydash.html">My Dashboard</a></li>
+                                <li><a href="mylistings.html">Listings</a></li>
+
+                            </ul>
+                        </li>
+
+                        <li><a href="contact.html"> Contact Us <span class="wsarrow"></span></a></li>
+                        <li class="d-lg-none mt-5 pb-5 mt-lg-0">
+                            <span><a class="btn btn-orange" href="ad-list.html">Add Listing</a></span>
+                        </li>
+                        <li class="d-lg-none mt-5 pb-5 mt-lg-0">
+                            <span><a class="btn btn-orange" href="ad-event.html">Add Events</a></span>
+                        </li>
+                    </ul>
+                    <ul style="display: flex; column-gap: 10px;" class="mb-0">
+                        <li class="mt-2 d-none d-lg-flex">
+                            <span><a class="btn btn-secondary ad-post" href="ad-list.html"><i
+                                        class="fa fa-plus text-white"></i> Add Listing</a></span>
+                        </li>
+                        <li class="mt-2 d-none d-lg-flex">
+                            <span><a class="btn btn-secondary ad-post" href="ad-event.html"><i
+                                        class="fa fa-plus text-white"></i> Add Event</a></span>
+                        </li>
+                    </ul>
+                </nav>
+                <!--Nav-->
+            </div>
+            <div class="body-progress-container">
+                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" id="myBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!--Sliders Section-->
+    <section>
+        <div class="bannerimg cover-image bg-background3" data-bs-image-src="../assets/images/banners/banner2.jpg">
+            <div class="header-text mb-0">
+                <div class="container">
+                    <div class="text-center text-white">
+                        <h1>Add Event</h1>
+                        <ol class="breadcrumb text-center">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Add Event</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/Sliders Section-->
+
+    <!--Add posts-section-->
+    <section class="sptb">
+        <div class="container">
+            <form id="addEvent" class="row ">
+                <div class="col-lg-8 col-md-12">
+                    <div class="card ">
+                        <div class="card-header ">
+                            <h3 class="card-title">Add Event</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="form-label text-dark">Listing Title</label>
+                                <input required id="listingTitle" name="eventName" type="text" class="form-control"
+                                    placeholder="Add Event Name">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label text-dark">Location Type</label>
+                                <select style="width: 100%; height: 40px; padding: 0 10px;" id="categorySel"
+                                    name="locationType">
+                                    <option value="Physical Address">Physical Address</option>
+                                    <option value="Online Meeting">Online Meeting</option>
+                                </select>
+                            </div>
+                            <div id="zipCode" class="form-group">
+                                <label class="form-label text-dark">Your Zip Code</label>
+                                <input id="zipCode" name="zipCode" type="text" class="form-control"
+                                    placeholder="Add Zip Code">
+                            </div>
+                            <div style="display: none;" id="meetingLink" class="form-group">
+                                <label class="form-label text-dark">Meeting Link</label>
+                                <input id="meetingLink" name="meetingLink" type="text" class="form-control"
+                                    placeholder="Add Meeting Link">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label text-dark">Phone Number</label>
+                                <input id="phone" name="phoneNumber" type="text" class="form-control"
+                                    placeholder="Add Event Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label text-dark">Email</label>
+                                <input id="phone" name="email" type="text" class="form-control"
+                                    placeholder="Add Event Email Address">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label text-dark">Cost</label>
+                                <input id="cost" name="cost" type="text" class="form-control"
+                                    placeholder="Add Event Cost">
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="form-label text-dark">Starting Day</label>
+                                        <input style="width: 100%; height: 40px; padding-left: 10px;" type="date"
+                                            name="startingDate" id="openingDate">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="form-label text-dark">Ending Day</label>
+                                        <input style="width: 100%; height: 40px; padding-left: 10px;" type="date"
+                                            name="endingDate" id="openingDate">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="form-label text-dark">Starting Time</label>
+                                        <select id="openTimeSelect" name="startingTime"
+                                            class="form-control select2-show-search" data-placeholder="Choose Time">
+                                            <option value="12am">12am</option>
+                                            <option value="1am">1am</option>
+                                            <option value="2am">2am</option>
+                                            <option value="3am">3am</option>
+                                            <option value="4am">4am</option>
+                                            <option value="5am">5am</option>
+                                            <option value="6am">6am</option>
+                                            <option value="7am">7am</option>
+                                            <option value="8am">8am</option>
+                                            <option value="9am">9am</option>
+                                            <option value="10am">10am</option>
+                                            <option value="11am">11am</option>
+                                            <option value="12pm">12pm</option>
+                                            <option value="1pm">1pm</option>
+                                            <option value="2pm">2pm</option>
+                                            <option value="3pm">3pm</option>
+                                            <option value="4pm">4pm</option>
+                                            <option value="5pm">5pm</option>
+                                            <option value="6pm">6pm</option>
+                                            <option value="7pm">7pm</option>
+                                            <option value="8pm">8pm</option>
+                                            <option value="9pm">9pm</option>
+                                            <option value="10pm">10pm</option>
+                                            <option value="11pm">11pm</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label class="form-label text-dark">Closing Time</label>
+                                        <select id="closeTimeSelect" name="closingTime"
+                                            class="form-control select2-show-search" data-placeholder="Choose Time">
+                                            <option value="12am">12am</option>
+                                            <option value="1am">1am</option>
+                                            <option value="2am">2am</option>
+                                            <option value="3am">3am</option>
+                                            <option value="4am">4am</option>
+                                            <option value="5am">5am</option>
+                                            <option value="6am">6am</option>
+                                            <option value="7am">7am</option>
+                                            <option value="8am">8am</option>
+                                            <option value="9am">9am</option>
+                                            <option value="10am">10am</option>
+                                            <option value="11am">11am</option>
+                                            <option value="12pm">12pm</option>
+                                            <option value="1pm">1pm</option>
+                                            <option value="2pm">2pm</option>
+                                            <option value="3pm">3pm</option>
+                                            <option value="4pm">4pm</option>
+                                            <option value="5pm">5pm</option>
+                                            <option value="6pm">6pm</option>
+                                            <option value="7pm">7pm</option>
+                                            <option value="8pm">8pm</option>
+                                            <option value="9pm">9pm</option>
+                                            <option value="10pm">10pm</option>
+                                            <option value="11pm">11pm</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label text-dark">Description</label>
+                                <textarea id="description" class="form-control" name="description" rows="6"
+                                    placeholder="text here.."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label text-dark">Upload Image For The Event</label>
+                                <input id="eventImage" type="file" name="eventImage"
+                                    accept=".jpg, .png, image/jpeg, image/png">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="float-end mb-5 mb-lg-0">
+                        <button id="submitBtn" type="submit" class="btn btn-lg btn-success">Submit Now</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </section>
+    <!--/Add posts-section-->
+
+    <!-- Newsletter-->
+
+    <!--/Newsletter-->
+
+    <!--Footer Section-->
+    <section>
+        <footer class="bg-dark-purple text-white">
+            <div class="footer-main border-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-6 col-md-12">
+                            <h6>Categories</h6>
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="javascript:void(0)"
+                                        class="btn footer-btn-outline btn-sm btn-pill mb-1">RealEstate</a>
+                                    <a href="javascript:void(0)"
+                                        class="btn footer-btn-outline btn-sm btn-pill mb-1">Spa</a>
+                                    <a href="javascript:void(0)"
+                                        class="btn footer-btn-outline btn-sm btn-pill mb-1">Education</a>
+                                    <a href="javascript:void(0)"
+                                        class="btn footer-btn-outline btn-sm btn-pill mb-1">Mediation</a>
+                                    <a href="javascript:void(0)"
+                                        class="btn footer-btn-outline btn-sm btn-pill mb-1">Restaurent</a>
+                                    <a href="javascript:void(0)"
+                                        class="btn footer-btn-outline btn-sm btn-pill mb-1">Backery</a>
+                                    <a href="javascript:void(0)"
+                                        class="btn footer-btn-outline btn-sm btn-pill mb-1">Automobiles</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-12">
+                            <h6>Popular Listings</h6>
+                            <ul class="list-unstyled mb-0">
+                                <li><a href="javascript:void(0)"><i
+                                            class="fa fa-angle-double-right me-2 text-secondary"></i> Educational
+                                        college</a></li>
+                                <li><a href="javascript:void(0)"><i
+                                            class="fa fa-angle-double-right me-2 text-secondary"></i> Free Lancer for
+                                        Web Developer</a></li>
+                                <li><a href="javascript:void(0)"><i
+                                            class="fa fa-angle-double-right me-2 text-secondary"></i> 2BHK Flat In
+                                        Hyderabad</a></li>
+                                <li><a href="javascript:void(0)"><i
+                                            class="fa fa-angle-double-right me-2 text-secondary"></i> Best Restaurants
+                                        in Hyderabad</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-12">
+                            <h6 class="mt-6 mt-xl-0">Contact</h6>
+                            <ul class="list-unstyled mb-0">
+                                <li>
+                                    <a href="javascript:void(0)"><i class="fa fa-home me-3 text-secondary"></i>P.O. Box
+                                        880515, San Diego, CSA 92111</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><i
+                                            class="fa fa-envelope me-3 fs-12 text-secondary"></i>
+                                        info@dreamtechlabs.net</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><i class="fa fa-phone me-3 text-secondary"></i>01 858
+                                        384 6488</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><i class="fa fa-print me-3 text-secondary"></i>01 858
+                                        384 6488</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xl-3 col-lg-6 col-md-12">
+                            <img style="width: 130px; height: 130px;" src="../assets/images/brand/logo.svg"
+                                class="header-brand-img desktop-logo" alt="Bizdire logo">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-dark-purple text-white p-0 border-bottom">
+                <div class="container">
+                    <div class="p-2 text-center footer-links">
+                        <a href="about.html" class="btn btn-link">About Us</a>
+                        <a href="event.html" class="btn btn-link">Listing Categories</a>
+                        <a href="contact.html" class="btn btn-link">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-dark-purple text-white-50 p-3">
+                <div class="container">
+                    <div class="row d-flex">
+                        <div class="col-lg-12 col-sm-12  mt-2 mb-2 text-center ">
+                            Copyright © 2023<a href="javascript:void(0)"
+                                class="fs-14 text-secondary mx-2">iBiz.World</a>.
+
+                        </div>
+                        <div class="col-lg-12 col-sm-12 text-center mb-2 mt-2">
+                            <ul class="social-icons mb-0">
+                                <li>
+                                    <a class="social-icon" href="javascript:void(0)"><i class="fa fa-facebook"></i></a>
+                                </li>
+                                <li>
+                                    <a class="social-icon" href="javascript:void(0)"><i class="fa fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a class="social-icon" href="javascript:void(0)"><i class="fa fa-rss"></i></a>
+                                </li>
+                                <li>
+                                    <a class="social-icon" href="javascript:void(0)"><i class="fa fa-youtube"></i></a>
+                                </li>
+                                <li>
+                                    <a class="social-icon" href="javascript:void(0)"><i class="fa fa-linkedin"></i></a>
+                                </li>
+                                <li>
+                                    <a class="social-icon" href="javascript:void(0)"><i
+                                            class="fa fa-google-plus"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </section>
+    <!--Footer Section-->
+
+    <!-- Back to top -->
+    <a href="#top" id="back-to-top"><i class="fa fa-rocket"></i></a>
+
+    <!-- JQuery js-->
+    <script src="../assets/js/vendors/jquery.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!--JQuery Sparkline Js-->
+    <script src="../assets/js/vendors/jquery.sparkline.min.js"></script>
+
+    <!-- Circle Progress Js-->
+    <script src="../assets/js/vendors/circle-progress.min.js"></script>
+
+    <!-- Star Rating-2 Js-->
+    <script src="../assets/plugins/ratings-2/jquery.star-rating.js"></script>
+    <script src="../assets/plugins/ratings-2/star-rating.js"></script>
+
+    <!--Owl Carousel js -->
+    <script src="../assets/plugins/owl-carousel/owl.carousel.js"></script>
+    <script src="../assets/js/owl-carousel.js"></script>
+
+    <!--Horizontal Menu-->
+    <script src="../assets/plugins/horizontal/horizontal-menu/horizontal.js"></script>
+
+    <!--JQuery TouchSwipe js-->
+    <script src="../assets/js/jquery.touchSwipe.min.js"></script>
+
+    <!--Select2 js -->
+    <script src="../assets/plugins/select2/select2.full.min.js"></script>
+    <script src="../assets/js/select2.js"></script>
+
+    <!-- Cookie js -->
+    <script src="../assets/plugins/cookie/jquery.ihavecookies.js"></script>
+    <script src="../assets/plugins/cookie/cookie.js"></script>
+
+    <!--Auto Complete js -->
+    <script src="../assets/plugins/autocomplete/jquery.autocomplete.js"></script>
+    <script src="../assets/plugins/autocomplete/autocomplete.js"></script>
+
+    <!--File-Uploads Js-->
+    <script src="../assets/plugins/fancyuploder/jquery.ui.widget.js"></script>
+    <script src="../assets/plugins/fancyuploder/jquery.fileupload.js"></script>
+    <script src="../assets/plugins/fancyuploder/jquery.iframe-transport.js"></script>
+    <script src="../assets/plugins/fancyuploder/jquery.fancy-fileupload.js"></script>
+    <script src="../assets/plugins/fancyuploder/fancy-uploader.js"></script>
+
+    <!-- p-scroll bar Js-->
+    <script src="../assets/plugins/perfect-scrollbar/perfect-scrollbar.js"></script>
+
+    <!-- sticky Js-->
+    <script src="../assets/js/sticky.js"></script>
+
+    <!-- Vertical scroll bar Js-->
+    <script src="../assets/plugins/vertical-scroll/jquery.bootstrap.newsbox.js"></script>
+    <script src="../assets/plugins/vertical-scroll/vertical-scroll.js"></script>
+
+    <!-- Swipe Js-->
+    <script src="../assets/js/swipe.js"></script>
+
+    <!-- Scripts Js-->
+    <script src="../assets/js/scripts2.js"></script>
+
+    <!-- Custom Js-->
+    <script src="../assets/js/themeColors.js"></script>
+    <script type="module" src="../assets/js/custom.js"></script>
+
+    <!--Axios -->
+    <script src="../assets/js/vendors/axios.min.js"></script>
+
+    <script type="module" src="../assets/js/modules/store/auth.js"></script>
+
+    <script type="module" src="../assets/js/modules/store/listing-store.js"></script>
+
+    <script type="module" src="../assets/js/services/listings-service.js"></script>
+
+    <script type="module" src="../assets/js/services/user-service.js"></script>
+
+
+    <!-- <script type="module" src="../assets/js/pages/addListing/ad-list.js"></script> -->
+
+    <script>
+        document.getElementById("categorySel").addEventListener("change", (e) => {
+            const val = e.target.value
+            if (val === "Online Meeting") {
+                document.getElementById("meetingLink").style.display = "block"
+                document.getElementById("zipCode").style.display = "none"
+            } else if (val === "Physical Address") {
+                document.getElementById("meetingLink").style.display = "none"
+                document.getElementById("zipCode").style.display = "block"
+            }
+        })
+
+        document.getElementById("addEvent").addEventListener("submit", async (e) => {
+            e.preventDefault()
+            document.getElementById("submitBtn").innerHTML = "Loading..."
+            const form = new FormData()
+            form.append("userID", "642e3b811d2b9c9e59ad650a")
+            form.append("eventName", e.target.eventName.value)
+            form.append("locationType", e.target.locationType.value)
+            if (e.target.zipCode.value) {
+                form.append("zipcode", e.target.zipCode.value)
+            }
+            if (e.target.meetingLink.value) {
+                form.append("website", e.target.meetingLink.value)
+            }
+            form.append("phoneNumber", e.target.phoneNumber.value)
+            form.append("cost", e.target.cost.value)
+            form.append("dateOfEvent", e.target.startingDate.value)
+            form.append("dateOfEvent", e.target.endingDate.value)
+            form.append("timeOfEvent", e.target.startingTime.value)
+            form.append("timeOfEvent", e.target.closingTime.value)
+            form.append("description", e.target.description.value)
+            form.append("email", e.target.email.value)
+            if (e.target.eventImage.files[0]) {
+                form.append("image", e.target.eventImage.files[0], 'image')
+            }
+            const res = await fetch("http://localhost:5000/event/create", {
+                method: "POST",
+                body: form,
+            })
+            if (res.status === 200) {
+                window.location.replace("/event.html")
+            } else {
+                document.getElementById("submitBtn").innerHTML = "Submit"
+            }
+        })
+    </script>
+
+</body>
+
+</html>

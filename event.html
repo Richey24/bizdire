@@ -220,27 +220,7 @@
 											<option value="ZW">Zimbabwe</option>
 										</select>
 									</li>
-									<li class="dropdown me-5">
-										<a href="javascript:void(0)" class="text-dark" data-bs-toggle="dropdown"><span>
-												Language <i class="fa fa-caret-down text-muted"></i></span> </a>
-										<div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-											<a href="javascript:void(0)" class="dropdown-item">
-												English
-											</a>
-											<a class="dropdown-item" href="javascript:void(0)">
-												Arabic
-											</a>
-											<a class="dropdown-item" href="javascript:void(0)">
-												German
-											</a>
-											<a href="javascript:void(0)" class="dropdown-item">
-												Greek
-											</a>
-											<a href="javascript:void(0)" class="dropdown-item">
-												Spanish
-											</a>
-										</div>
-									</li>
+
 
 								</ul>
 							</div>
@@ -309,11 +289,9 @@
 						<li><a href="javascript:void(0)">Pages <span class="fa fa-caret-down m-0"></span></a>
 							<ul class="sub-menu">
 								<li><a href="event.html">Events List</a></li>
-								<li><a href="categories.html">Categories</a></li>
 								<li><a href="mydash.html">My Dashboard</a></li>
 								<li><a href="mylistings.html">Listings</a></li>
-								<li><a href="myfavorite.html">Favorite Listings</a></li>
-								<li><a href="manged.html">Manged Listings</a></li>
+
 							</ul>
 						</li>
 
@@ -356,13 +334,13 @@
 								<h1 class=""><span id="noOfList" class="font-weight-bold">16,25,365</span> Events
 									Available</h1>
 							</div>
-							<div class="search-background px-4 py-3 mt-4">
+							<div style="width: 600px; margin: 0 auto;" class="search-background px-4 py-3 mt-4">
 								<div class="form row row-sm">
-									<div class="form-group  col-xl-6 col-lg-5 col-md-12 mb-0">
+									<div class="form-group  col-xl-10 col-lg-5 col-md-12 mb-0">
 										<input type="text" class="form-control input-lg border-white" id="text"
 											placeholder="Search Events">
 									</div>
-									<div class="form-group col-xl-4 col-lg-4 select2-lg  col-md-12 mb-0 border-white">
+									<!-- <div class="form-group col-xl-4 col-lg-4 select2-lg  col-md-12 mb-0 border-white">
 										<select class="form-control select2-show-search w-100"
 											data-placeholder="Select">
 											<optgroup id="optGroup" label="Location">
@@ -379,7 +357,7 @@
 												<option value="10">Constructions</option>
 											</optgroup>
 										</select>
-									</div>
+									</div> -->
 									<div class="col-xl-2 col-lg-3 col-md-12 mb-0">
 										<a href="javascript:void(0)"
 											class="btn btn-lg btn-block btn-secondary">Search</a>
@@ -424,23 +402,39 @@
 										<ul class="nav item2-gl-menu ms-auto mt-1">
 											<li class=""><a href="#tab-11" class="active show" data-bs-toggle="tab"
 													title="List style"><i class="fa fa-list"></i></a></li>
-											<li><a href="#tab-12" data-bs-toggle="tab" class="" title="Grid"><i
-														class="fa fa-th"></i></a></li>
+											<!-- <li><a href="#tab-12" data-bs-toggle="tab" class="" title="Grid"><i
+														class="fa fa-th"></i></a></li> -->
 										</ul>
 										<div class="d-sm-flex">
 											<label class="me-2 mt-2 mb-sm-1 sort-label">Sort By:</label>
 											<div class="selectgroup">
 												<label class="selectgroup-item mb-md-0">
 													<input type="radio" name="value" value="Distance"
-														class="selectgroup-input">
-													<span class="selectgroup-button">All</span>
+														class="selectgroup-input" checked="">
+													<span id="allEvent" class="selectgroup-button">All</span>
 												</label>
 												<label class="selectgroup-item mb-md-0">
-													<input type="radio" name="value" value="All"
-														class="selectgroup-input" checked="">
+													<!-- <input type="radio" name="value" value="All"
+														class="selectgroup-input">
 													<span class="selectgroup-button d-md-flex">Events near me<i
-															class="fa fa-sort ms-2 mt-1"></i></span>
+															class="fa fa-sort ms-2 mt-1"></i></span> -->
+
 												</label>
+												<select
+													style="width: 150px; border: 1px solid #FF8819; color: #FF8819; padding-left: 5px;"
+													id="nearMe">
+													<option value="25">Event near me</option>
+													<option value="25">25 Miles</option>
+													<option value="50">50 Miles</option>
+													<option value="100">100 Miles</option>
+													<option value="150">150 Miles</option>
+													<option value="200">200 Miles</option>
+													<option value="250">250 Miles</option>
+													<option value="300">300 Miles</option>
+													<option value="350">350 Miles</option>
+													<option value="400">400 Miles</option>
+													<option value="500">500 Miles</option>
+												</select>
 												<!-- <label class="selectgroup-item mb-1">
 													<input type="radio" name="value" value="Latest"
 														class="selectgroup-input">
@@ -2003,27 +1997,27 @@
 	<script src="../assets/js/custom.js"></script>
 
 	<script>
-
-		const insertDiv = (arr) => {
+		let page = 0
+		const insertDiv = (arr, paging) => {
 			const tab11 = document.getElementById("tab-11")
 			tab11.innerHTML = ""
-			arr.forEach((re) => {
+			arr.slice(paging, paging + 10).forEach((re) => {
 				tab11.innerHTML += `
 									<div class="card overflow-hidden">
 											<div style="display: flex;">
 												<div class="item-card9-img">
 													<div class="item-card9-imgs">
-														<a href="business.html"></a>
+														<a href="event-description.html?id=${re._id}"></a>
 														<img src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/h4.jpg"}" alt="img"
 															class="cover-image">
 													</div>
-													<div class="item-cardreview-absolute bg-secondary">${re.category}</div>
+													<div class="item-cardreview-absolute bg-secondary">${re.locationType}</div>
 												</div>
 												<div class="card border-0 mb-0">
 													<div class="card-body h-100">
 														<div class="item-card9">
-															<a href="business.html?id=${re._id}" class="text-dark">
-																<h4 class="font-weight-semibold mt-1 mb-1">${re.title}<i
+															<a href="event-description.html?id=${re._id}" class="text-dark">
+																<h4 class="font-weight-semibold mt-1 mb-1">${re.eventName}<i
 																		class="fa fa-exclamation-circle text-warning ms-1"
 																		data-bs-toggle="tooltip" data-bs-placement="top"
 																		title=""
@@ -2032,14 +2026,14 @@
 															<div class="mt-2 mb-2">
 																<a href="javascript:void(0)"
 																	class="mt-1 mb-1 me-3 text-dark"><i
-																		class="fa fa-globe me-1"></i> ${re.state}</a>
-																<a href="javascript:void(0)"
-																	class="mt-1 mb-1 me-1 text-muted"><i
-																		class="fa fa-map-marker me-1"></i>${re.city}</a>
+																		class="fa fa-globe me-1"></i> ${re.location ? re.location : "Online"}</a>
 															</div>
 															<p class="mb-0 leading-tight"><span
-																	class="font-weight-semibold text-dark"> Timings :
-																</span> ${re.openingTime} - ${re.closingTime}</p>
+																	class="font-weight-semibold text-dark"> Date Of Event :
+																</span> ${re.dateOfEvent[0]} - ${re.dateOfEvent[1]}</p>
+															<p class="mb-0 leading-tight"><span
+																	class="font-weight-semibold text-dark"> Time Of Event :
+																</span> ${re.timeOfEvent[0]} - ${re.timeOfEvent[1]}</p>
 														</div>
 													</div>
 													<div class="card-footer pt-2 pb-2">
@@ -2047,27 +2041,17 @@
 															<div class="item-card9-cost">
 																<div
 																	class="text-dark font-weight-normal mb-0 mt-0 item-card2-desc">
-																	<a class="" href="mailto:${re.email}"
-																		data-bs-toggle="modal"
-																		data-bs-target="#contact"><i
+																	<a class="" href="mailto:${re.email}"><i
 																			class="fa fa-envelope"></i></a>
 																	<a class="" href="${re.phoneNumber}"
 																		data-bs-toggle="tooltip" data-bs-placement="top"
 																		title="" data-bs-original-title="458-965-856"><i
 																			class="fa fa-phone"></i></a>
-																	<a class="" href="${re.website}"
+																	<a class="" href="${re.website?.includes("http") ? re.website : `https://${re.website}`}"
 																		data-bs-toggle="tooltip" data-bs-placement="top"
 																		title=""
-																		data-bs-original-title="${re.website}"><i
+																		data-bs-original-title="${re.website?.includes("http") ? re.website : `https://${re.website}`}"><i
 																			class="fa fa-globe"></i></a>
-																</div>
-															</div>
-															<div class="ms-auto mt-3 mt-sm-0">
-																<div
-																	class="text-dark font-weight-normal mb-0 mt-0 item-card2-desc">
-																	<a href="javascript:void(0)"><i
-																			class="fa fa-map-signs"></i> Get
-																		Directions</a>
 																</div>
 															</div>
 														</div>
@@ -2084,40 +2068,52 @@
 			const noOfList = document.getElementById("noOfList")
 			const entries = document.getElementById("entries")
 			const pagination = document.getElementById("pagination")
-			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/all")
+			const res = await fetch("https://bizdire.azurewebsites.net/event/get/all")
 			const rep = await res.json()
 			noOfList.innerHTML = rep.length
 			entries.innerHTML = `Showing 1 to 10 of ${rep.length} entries`
-			insertDiv(rep)
+			insertDiv(rep, page)
 			pagination.innerHTML = `<li class="page-item page-prev disabled">
 										<a class="page-link" href="javascript:void(0)" tabindex="-1">Prev</a>
-									</li>`
-			for (let i = 0; i < array.length; i++) {
+									</li>
+										<li class="page-item page-next ${rep.length < 10 && "disabled"}">
+										<a class="page-link" href="javascript:void(0)">Next</a>
+									</li>
+									`
 
-			}
-			console.log(Math.ceil(rep.length / 10));
-		}
-		const getCategory = async () => {
-			const optGroup = document.getElementById("optGroup")
-			const checkBox = document.getElementById("checkBox")
-			const res = await fetch("https://bizdire.azurewebsites.net/category/get/all")
-			const rep = await res.json()
-			optGroup.innerHTML = `<option>Select</option>`
-			checkBox.innerHTML = ""
-			rep.forEach((re, i) => {
-				optGroup.innerHTML += `<option value="${re.category}">${re.category}</option>`
-				checkBox.innerHTML += `
-						<label class="custom-control form-checkbox mb-3">
-							<input type="checkbox" class="custom-control-input" name="checkbox${i + 1}" value="${re.category}">
-								<span class="custom-control-label">
-										<a href="javascript:void(0)" class="text-dark">${re.category}<span class="label label-primary float-end">${re.noOfListings || 0}</span></a>
-								</span>
-						</label>
-				`
+			document.getElementById("allEvent").addEventListener("click", () => {
+				insertDiv(rep, page)
+
 			})
+
+			// calculate distance with lat and long
+
+			function calcDistance(lat1, lon1, lat2, lon2) {
+				const R = 6371; // Radius of the earth in km
+				const dLat = deg2rad(lat2 - lat1);  // deg2rad below
+				const dLon = deg2rad(lon2 - lon1);
+				const a =
+					Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+					Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+					Math.sin(dLon / 2) * Math.sin(dLon / 2);
+				const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+				const d = R * c; // Distance in km
+				return d;
+			}
+
+			function deg2rad(deg) {
+				return deg * (Math.PI / 180);
+			}
+
+			const physicalEvent = rep.filter((re) => re.locationType === "physical")
+			document.getElementById("nearMe").addEventListener("change", (e) => {
+				const milesToKM = e.target.value * 1.609
+				const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, "36.07940000", "-118.45510000") < milesToKM)
+				insertDiv(nearToMe, page)
+			})
+
 		}
-		// getCategory()
-		// getAllListing()
+		getAllListing()
 	</script>
 
 </body>
