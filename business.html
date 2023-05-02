@@ -245,11 +245,11 @@
 					<div class="col-xl-5 col-lg-5 col-sm-8 col-5">
 						<div class="top-bar-right">
 							<ul class="custom ">
-								<li>
+								<li id="theReg">
 									<a href="register.html" class="text-dark"><i class="fa fa-user me-1"></i>
 										<span>Register</span></a>
 								</li>
-								<li>
+								<li id="theLog">
 									<a href="login.html" class="text-dark"><i class="fa fa-sign-in me-1"></i>
 										<span>Login</span></a>
 								</li>
@@ -348,7 +348,8 @@
 					<div class="row">
 						<div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
 							<div class="text-center text-white ">
-								<h1 class="mb-2"><span id="listTitle" class="font-weight-semibold">Bizdire
+								<h1 style="text-transform: capitalize;" class="mb-2"><span id="listTitle"
+										class="font-weight-semibold">Bizdire
 										University</span></h1>
 								<!-- <div class="mx-auto mb-2 mt-3 d-flex banner-ratings">
 									<div class="rating-star sm my-rating-5" data-rating="4.5">
@@ -460,7 +461,8 @@
 								<div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel"
 									data-bs-loop="false" data-bs-thumb="true" data-bs-dots="false">
 									<!-- <div class="arrow-ribbon2 bg-primary">$539</div> -->
-									<img id="listimage" src="../assets/images/products/products/ed1.jpg" alt="img">
+									<img style="width: 100%; height: 500px;" id="listimage"
+										src="../assets/images/products/products/ed1.jpg" alt="img">
 									<!-- <div class="carousel-inner slide-show-image" id=full-gallery>
 										<div class="carousel-item active"> <img
 												src="../assets/images/products/products/ed1.jpg" alt="img"></div>
@@ -548,6 +550,14 @@
 											<td class="font-weight-semibold px-0">Payment Methods</td>
 											<td id="paymentMethod" class="px-0">VISA, Mastercard, Discover, American
 												Express</td>
+										</tr>
+										<tr>
+											<td class="font-weight-semibold px-0">Opening days</td>
+											<td id="openingDays" class="px-0"></td>
+										</tr>
+										<tr>
+											<td class="font-weight-semibold px-0">Opening time</td>
+											<td id="openingTime" class="px-0"></td>
 										</tr>
 										<!-- <tr>
 											<td class="font-weight-semibold px-0">Fax</td>
@@ -1789,6 +1799,8 @@
 	<!-- Custom Js-->
 	<script src="../assets/js/themeColors.js"></script>
 	<script src="../assets/js/custom.js"></script>
+	<script type="module" src="../assets/js/pages/header.js"></script>
+
 	<script>
 		const id = window.location.search.split("=")[1]
 		if (!id) {
@@ -1797,6 +1809,7 @@
 		const getList = async () => {
 			const res = await fetch(`https://bizdire.azurewebsites.net/listing/get/one/${id}`)
 			const rep = await res.json()
+			console.log(rep);
 			document.getElementById("listTitle").innerHTML = rep.title
 			document.getElementById("secondTitle").innerHTML = rep.title
 			document.getElementById("listDesc").innerHTML = rep.description || ""
@@ -1822,8 +1835,10 @@
 			document.getElementById("establishedYear").innerHTML = rep.establishedYear
 			document.getElementById("listService").innerHTML = rep.category
 			document.getElementById("paymentMethod").innerHTML = rep.paymentMethod.join(", ")
+			document.getElementById("openingDays").innerHTML = rep.openingDays.join(", ")
+			document.getElementById("openingTime").innerHTML = `${rep.openingTime} - ${rep.closingTime}`
 			document.getElementById("businessID").innerHTML = `Business ID : #${rep._id}`
-			document.getElementById("userImage").innerHTML = rep.userImage ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${rep.userImage}` : "../assets/images/faces/female/13.jpg"
+			document.getElementById("userImage").src = rep.userImage ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${rep.userImage}` : "../assets/images/faces/female/13.jpg"
 			document.getElementById("userName").innerHTML = rep.userName || ""
 			document.getElementById("userNumber").href = rep.userNumber ? `tel:${rep.userNumber}` : "javascript:void(0)"
 			document.getElementById("seeAll").href = `personal-blog.html?id=${rep._id}`

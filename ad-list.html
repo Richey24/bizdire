@@ -248,11 +248,11 @@
 					<div class="col-xl-5 col-lg-5 col-sm-8 col-5">
 						<div class="top-bar-right">
 							<ul class="custom ">
-								<li>
+								<li id="theReg">
 									<a href="register.html" class="text-dark"><i class="fa fa-user me-1"></i>
 										<span>Register</span></a>
 								</li>
-								<li>
+								<li id="theLog">
 									<a href="login.html" class="text-dark"><i class="fa fa-sign-in me-1"></i>
 										<span>Login</span></a>
 								</li>
@@ -349,11 +349,11 @@
 			<div class="header-text mb-0">
 				<div class="container">
 					<div class="text-center text-white">
-						<h1>Ad Listing</h1>
+						<h1>Add Listing</h1>
 						<ol class="breadcrumb text-center">
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
-							<li class="breadcrumb-item active text-white" aria-current="page">Ad Listing</li>
+							<li class="breadcrumb-item active text-white" aria-current="page">Add Listing</li>
 						</ol>
 					</div>
 				</div>
@@ -415,6 +415,15 @@
 								</h5>
 							</div>
 							<div class="form-group">
+								<label class="form-label text-dark">Email Address</label>
+								<input id="email" type="email" class="form-control"
+									placeholder="Add List Email Address">
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Website</label>
+								<input id="website" type="url" class="form-control" placeholder="Add List Website">
+							</div>
+							<div class="form-group">
 								<label class="form-label text-dark">Opening Days</label>
 								<select id="daySelect" class="form-control select2" data-placeholder="Choose Day"
 									multiple>
@@ -437,30 +446,30 @@
 										<label class="form-label text-dark">Opening Time</label>
 										<select id="openTimeSelect" class="form-control select2-show-search"
 											data-placeholder="Choose Time">
-											<option value="12">12am</option>
-											<option value="1">1am</option>
-											<option value="2">2am</option>
-											<option value="3">4am</option>
-											<option value="4">4am</option>
-											<option value="5">5am</option>
-											<option value="6">6am</option>
-											<option value="7">7am</option>
-											<option value="8">8am</option>
-											<option value="9">9am</option>
-											<option value="10">10am</option>
-											<option value="11">11am</option>
-											<option value="13">12pm</option>
-											<option value="14">1pm</option>
-											<option value="15">2pm</option>
-											<option value="16">3pm</option>
-											<option value="17">4pm</option>
-											<option value="18">5pm</option>
-											<option value="19">6pm</option>
-											<option value="20">7pm</option>
-											<option value="21">8pm</option>
-											<option value="22">9pm</option>
-											<option value="23">10pm</option>
-											<option value="24">11pm</option>
+											<option value="12am">12am</option>
+											<option value="1am">1am</option>
+											<option value="2am">2am</option>
+											<option value="3am">4am</option>
+											<option value="4am">4am</option>
+											<option value="5am">5am</option>
+											<option value="6am">6am</option>
+											<option value="7am">7am</option>
+											<option value="8am">8am</option>
+											<option value="9am">9am</option>
+											<option value="10am">10am</option>
+											<option value="11am">11am</option>
+											<option value="12pm">12pm</option>
+											<option value="1pm">1pm</option>
+											<option value="2pm">2pm</option>
+											<option value="3pm">3pm</option>
+											<option value="4pm">4pm</option>
+											<option value="5pm">5pm</option>
+											<option value="6pm">6pm</option>
+											<option value="7pm">7pm</option>
+											<option value="8pm">8pm</option>
+											<option value="9pm">9pm</option>
+											<option value="10pm">10pm</option>
+											<option value="11pm">11pm</option>
 										</select>
 									</div>
 								</div>
@@ -469,30 +478,30 @@
 										<label class="form-label text-dark">Closing Time</label>
 										<select id="closeTimeSelect" class="form-control select2-show-search"
 											data-placeholder="Choose Time">
-											<option value="12">12am</option>
-											<option value="1">1am</option>
-											<option value="2">2am</option>
-											<option value="3">4am</option>
-											<option value="4">4am</option>
-											<option value="5">5am</option>
-											<option value="6">6am</option>
-											<option value="7">7am</option>
-											<option value="8">8am</option>
-											<option value="9">9am</option>
-											<option value="10">10am</option>
-											<option value="11">11am</option>
-											<option value="13">12pm</option>
-											<option value="14">1pm</option>
-											<option value="15">2pm</option>
-											<option value="16">3pm</option>
-											<option value="17">4pm</option>
-											<option value="18">5pm</option>
-											<option value="19">6pm</option>
-											<option value="20">7pm</option>
-											<option value="21">8pm</option>
-											<option value="22">9pm</option>
-											<option value="23">10pm</option>
-											<option value="24">11pm</option>
+											<option value="12am">12am</option>
+											<option value="1am">1am</option>
+											<option value="2am">2am</option>
+											<option value="3am">4am</option>
+											<option value="4am">4am</option>
+											<option value="5am">5am</option>
+											<option value="6am">6am</option>
+											<option value="7am">7am</option>
+											<option value="8am">8am</option>
+											<option value="9am">9am</option>
+											<option value="10am">10am</option>
+											<option value="11am">11am</option>
+											<option value="12pm">12pm</option>
+											<option value="1pm">1pm</option>
+											<option value="2pm">2pm</option>
+											<option value="3pm">3pm</option>
+											<option value="4pm">4pm</option>
+											<option value="5pm">5pm</option>
+											<option value="6pm">6pm</option>
+											<option value="7pm">7pm</option>
+											<option value="8pm">8pm</option>
+											<option value="9pm">9pm</option>
+											<option value="10pm">10pm</option>
+											<option value="11pm">11pm</option>
 										</select>
 									</div>
 								</div>
@@ -507,7 +516,7 @@
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Image Upload</label>
-								<input id="demo" type="file" name="files" accept=".jpg, .png, image/jpeg, image/png"
+								<input id="demox" type="file" name="files" accept=".jpg, .png, image/jpeg, image/png"
 									multiple>
 							</div>
 						</div>
@@ -932,7 +941,7 @@
 						<a id="submit" class="btn btn-lg btn-success">Submit Now</a>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-12">
+				<!-- <div class="col-lg-4 col-md-12">
 					<div class="card">
 						<div class="card-header">
 							<h3 class="card-title">Terms And Conditions</h3>
@@ -1000,7 +1009,7 @@
 							</ul>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>
@@ -1214,7 +1223,27 @@
 
 	<script type="module" src="../assets/js/pages/addListing/ad-list.js"></script>
 
+	<script type="module" src="../assets/js/pages/header.js"></script>
 
+	<script>
+		const getCategory = async () => {
+			const res = await fetch("https://bizdire.azurewebsites.net/category/get/all")
+			const rep = await res.json()
+			document.getElementById("categorySel").innerHTML = ""
+			const opt = document.createElement("option")
+			opt.value = ""
+			opt.innerHTML = ""
+			document.getElementById("categorySel").appendChild(opt)
+
+			rep.forEach((re, i) => {
+				const opt = document.createElement("option")
+				opt.value = re.category
+				opt.innerHTML = re.category
+				document.getElementById("categorySel").appendChild(opt)
+			})
+		}
+		getCategory()
+	</script>
 
 </body>
 

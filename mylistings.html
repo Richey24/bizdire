@@ -228,11 +228,11 @@
 					<div class="col-xl-5 col-lg-5 col-sm-8 col-5">
 						<div class="top-bar-right">
 							<ul class="custom ">
-								<li>
+								<li id="theReg">
 									<a href="register.html" class="text-dark"><i class="fa fa-user me-1"></i>
 										<span>Register</span></a>
 								</li>
-								<li>
+								<li id="theLog">
 									<a href="login.html" class="text-dark"><i class="fa fa-sign-in me-1"></i>
 										<span>Login</span></a>
 								</li>
@@ -354,10 +354,11 @@
 								<div class="profile-pic-img">
 									<span class="bg-success dots" data-bs-toggle="tooltip" data-bs-placement="top"
 										title="online"></span>
-									<img src="../assets/images/faces/male/25.jpg" class="brround" alt="user">
+									<img id="userImage" src="../assets/images/faces/male/25.jpg" class="brround"
+										alt="user">
 								</div>
 								<a href="userprofile.html" class="text-dark">
-									<h4 class="mt-3 mb-0 font-weight-semibold">Robert McLean</h4>
+									<h4 class="mt-3 mb-0 font-weight-semibold" id="userName">Robert McLean</h4>
 								</a>
 							</div>
 						</div>
@@ -369,142 +370,19 @@
 												class="typcn typcn-edit fs-20"></i><span
 												class="side-menu__label ms-2">Edit Profile</span></a>
 									</li>
-									<li class="slide">
-										<a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
-												class="typcn typcn-heart-outline fs-20"></i><span
-												class="side-menu__label ms-2">My Favorite</span><i
-												class="angle fa fa-angle-right"></i></a>
-										<ul class="slide-menu">
-											<li><a class="slide-item" href="myfavorite.html"><i
-														class="fa fa-angle-right me-2"></i>Favorite1</a></li>
-											<li><a class="slide-item" href="myfavorite-2.html"><i
-														class="fa fa-angle-right me-2"></i>Favorite2</a></li>
-										</ul>
-									</li>
-									<li class="slide">
-										<a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
-												class="typcn typcn-briefcase fs-20"></i><span
-												class="side-menu__label ms-2">My Listings</span><i
-												class="angle fa fa-angle-right"></i></a>
-										<ul class="slide-menu">
-											<li><a class="slide-item" href="mylistings.html"><i
-														class="fa fa-angle-right me-2"></i>My-Listing 01</a></li>
-											<li><a class="slide-item" href="mylistings-2.html"><i
-														class="fa fa-angle-right me-2"></i>My-Listing 02</a></li>
-										</ul>
-									</li>
-									<li class="slide">
-										<a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
-												class="typcn typcn-folder fs-20"></i><span
-												class="side-menu__label ms-2">Managed Listings</span><i
-												class="angle fa fa-angle-right"></i></a>
-										<ul class="slide-menu">
-											<li><a class="slide-item" href="manged.html"><i
-														class="fa fa-angle-right me-2"></i></i>Managed Listing 01</a>
-											</li>
-											<li><a class="slide-item" href="manged-2.html"><i
-														class="fa fa-angle-right me-2"></i></i>Managed Listing 02</a>
-											</li>
-											<li class="sub-slide">
-												<a class="side-menu__item border-top-0 slide-item"
-													href="javascript:void(0)" data-bs-toggle="sub-slide"><span
-														class="side-menu__label"><i
-															class="fa fa-angle-right me-2"></i>Listings</span> <i
-														class="sub-angle fa fa-angle-right"></i></a>
-												<ul class="child-sub-menu ">
-													<li><a class="slide-item" href="javascript:void(0)"><i
-																class="fa fa-angle-right me-2 text-muted"></i>Managed
-															Listing </a></li>
-												</ul>
-											</li>
-										</ul>
-									</li>
 									<li>
-										<a class="side-menu__item" href="payments.html"><i
-												class="typcn typcn-credit-card fs-20"></i><span
-												class="side-menu__label ms-2">Payments</span></a>
-									</li>
-									<li>
-										<a class="side-menu__item" href="orders.html"><i
-												class="typcn typcn-shopping-cart fs-20"></i><span
-												class="side-menu__label ms-2">Orders</span></a>
-									</li>
-									<li>
-										<a class="side-menu__item" href="tips.html"><i
-												class="typcn typcn-flag-outline fs-20"></i><span
-												class="side-menu__label ms-2">Safety Tips</span></a>
+										<a class="side-menu__item" href="mylistings.html"><i
+												class="typcn typcn-edit fs-20"></i><span
+												class="side-menu__label ms-2">My Listings</span></a>
 									</li>
 									<li>
 										<a class="side-menu__item" href="settings.html"><i
 												class="typcn typcn-cog-outline fs-20"></i><span
 												class="side-menu__label ms-2">Settings </span></a>
 									</li>
-									<li>
-										<a class="side-menu__item" href="login.html"><i
-												class="typcn typcn-power-outline fs-20"></i><span
-												class="side-menu__label ms-2">Logout</span></a>
-									</li>
 								</ul>
 							</div>
 						</aside>
-					</div>
-					<div class="card my-select">
-						<div class="card-header">
-							<h3 class="card-title">Search Ads</h3>
-						</div>
-						<div class="card-body">
-							<div class="form-group">
-								<input type="text" class="form-control keywords-input" id="text"
-									placeholder="What are you looking for?">
-							</div>
-							<div class="form-group">
-								<select name="country" id="select-countries"
-									class="form-control form-select select2-show-search">
-									<option value="1" selected="">All Categories</option>
-									<option value="2">RealEstate</option>
-									<option value="3">Restaurant</option>
-									<option value="4">Beauty</option>
-									<option value="5">Jobs</option>
-									<option value="6">Services</option>
-									<option value="7">AutoMobile</option>
-									<option value="8">Education</option>
-									<option value="9">Electronics</option>
-									<option value="10">Pets &amp; Animals</option>
-									<option value="11">Computer</option>
-									<option value="12">Mobile</option>
-									<option value="13">Events</option>
-									<option value="14">Travel</option>
-									<option value="15">Clothing</option>
-								</select>
-							</div>
-							<div class="">
-								<a href="javascript:void(0)" class="btn btn-block btn-secondary">Search</a>
-							</div>
-						</div>
-					</div>
-					<div class="card mb-xl-0">
-						<div class="card-header">
-							<h3 class="card-title">Safety Tips For Buyers</h3>
-						</div>
-						<div class="card-body p-0">
-							<ul class="list-unstyled widget-spec  mb-0">
-								<li class="">
-									<i class="fa fa-check text-success" aria-hidden="true"></i> Meet Seller at public
-									Place
-								</li>
-								<li class="">
-									<i class="fa fa-check text-success" aria-hidden="true"></i> Check item before you
-									buy
-								</li>
-								<li class="">
-									<i class="fa fa-check text-success" aria-hidden="true"></i> Pay only after
-									collecting item
-								</li>
-								<li class="ms-5 mb-0">
-									<a href="tips.html"> View more..</a>
-								</li>
-							</ul>
-						</div>
 					</div>
 				</div>
 				<div class="col-xl-9 col-lg-12 col-md-12">
@@ -517,11 +395,12 @@
 								<div class="tabs-menus">
 									<!-- Tabs -->
 									<ul class="nav panel-tabs">
-										<li class=""><a href="#tab1" class="active" data-bs-toggle="tab">All Ads
-												(14)</a></li>
-										<li><a href="#tab2" data-bs-toggle="tab">Published (08)</a></li>
+										<li class=""><a href="#tab1" class="active" id="allList"
+												data-bs-toggle="tab">All List
+												(0)</a></li>
+										<!-- <li><a href="#tab2" data-bs-toggle="tab">Published (08)</a></li>
 										<li><a href="#tab3" data-bs-toggle="tab">Featured (05)</a></li>
-										<li><a href="#tab4" data-bs-toggle="tab">Expired (01)</a></li>
+										<li><a href="#tab4" data-bs-toggle="tab">Expired (01)</a></li> -->
 									</ul>
 								</div>
 								<div class="tab-content">
@@ -2089,6 +1968,104 @@
 	<!-- Custom Js-->
 	<script src="../assets/js/themeColors.js"></script>
 	<script src="../assets/js/custom.js"></script>
+	<script type="module" src="../assets/js/pages/header.js"></script>
+
+	<script>
+		const getUser = async () => {
+			const res = await fetch(`https://bizdire.azurewebsites.net/user/get/${JSON.parse(localStorage.getItem("user"))._id}`, {
+				headers: {
+					"Authorization": `Bearer ${JSON.parse(localStorage.getItem("user")).mainToken}`,
+				}
+			})
+			const rep = await res.json()
+			document.getElementById("userName").innerHTML = rep.name || ""
+			if (rep.image) {
+				document.getElementById("userImage").src = `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${rep.image}`
+			}
+		}
+
+		const getUserList = async () => {
+			const tab1 = document.getElementById("tab1")
+			const body = {
+				userID: JSON.parse(localStorage.getItem("user"))._id
+			}
+			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/params", {
+				method: "POST",
+				body: JSON.stringify(body),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				}
+			})
+			const rep = await res.json()
+			document.getElementById("allList").innerHTML = `All List (${rep.length})`
+			tab1.innerHTML = ""
+			rep.forEach((re, i) => {
+				tab1.innerHTML += `
+						<div class="card overflow-hidden card-absolute">
+											<div class="edit-buttons-absolute">
+												<a class="btn btn-success btn-sm text-white" href="edit-list.html?id=${re._id}"
+													data-bs-toggle="tooltip" data-bs-original-title="Edit"><i
+														class="fa fa-pencil"></i></a>
+												<a class="btn btn-danger btn-sm text-white" data-bs-toggle="tooltip"
+													data-bs-original-title="Delete"><i class="fa fa-trash-o"></i></a>
+											</div>
+											<div class="d-md-flex">
+												<div class="item-card9-img">
+													<div class="item-card9-imgs">
+														<a href="business.html"></a>
+														<img style="width: 400px; height: 230px;" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/h4.png"}" alt="img"
+															class="cover-image">
+													</div>
+												</div>
+												<div class="card border-0 mb-0">
+													<div class="card-body py-4">
+														<div class="item-card9">
+															<div class="d-flex">
+																<a href="business.html?id=${re._id}">${re.category}</a>
+															</div>
+															<a href="business.html?id=${re._id}" class="text-dark">
+																<h4 style="text-transform: capitalize;" class="font-weight-semibold mt-0">${re.title}<i
+																		class="ion-checkmark-circled text-success ms-1"></i>
+																</h4>
+															</a>
+															<div class="item-card2-desc mt-3">
+																<div class="item-card2-desc-cost">
+																	<h6 id="deleteList${i + 1}" class="text-dark font-weight-normal mb-0 mt-0">
+																		<i class="fa fa-map-marker me-1"></i>${re.city}, ${re.state}
+																	</h6>
+																	<h6 class="text-dark font-weight-normal mb-0 mt-2">
+																		<i class="fa fa-phone me-1"></i> <a
+																			href="tel:${re.phoneNumber}">${re.phoneNumber}
+																	</h6>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="card-footer py-3">
+														<div class="row">
+															<div class="col">
+																<a href="javascript:void(0)" class="mt-1 mb-1 me-1"><i
+																		class="fa fa-clock-o"></i>
+																	<b>${re.openingTime}-${re.closingTime}</b></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+				`
+				const del = document.getElementById(`deleteList${i + 1}`)
+				console.log(del);
+				document.getElementById(`deleteList${i + 1}`).addEventListener("click", () => {
+					console.log(re._id);
+				})
+			})
+		}
+
+		getUser()
+		getUserList()
+	</script>
+
 </body>
 
 </html>

@@ -1,10 +1,10 @@
 import userHelper from "../../services/userHelper.js";
 
-$(function(){
+$(function () {
 
 
     //maybe validate if button says register
-    $('.submit').click(()=>{
+    $('.submit').click(() => {
         registerBtnSubmit()
     })
 
@@ -21,12 +21,11 @@ function registerBtnSubmit() {
 
 
     userHelper.registerUser(name, email, password)
-        .then((data)=>{
+        .then((data) => {
             clearInput()
-            console.log(data)
-            alert("registration success")
+            window.location.replace("/index.html")
         })
-        .catch((error)=>{
+        .catch((error) => {
             alert(error.message)
         })
 
@@ -35,7 +34,7 @@ function registerBtnSubmit() {
 }
 
 
-function clearInput(){
+function clearInput() {
     $('input[type=email]').val("")
     $('input[type=password]').val("")
     $('input[type=text]').val("")

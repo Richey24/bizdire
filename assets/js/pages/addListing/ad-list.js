@@ -1,7 +1,7 @@
 import listingsService from "../../services/listings-service.js";
 import listingStore from "../../modules/store/listing-store.js";
 
-$(function(){
+$(function () {
 
     //check if user logged in
 
@@ -25,7 +25,7 @@ $(function(){
         validatePhone();
     });
 
-  //onkey phoneValidation
+    //onkey phoneValidation
     $("#zipcodeCheck").hide();
     $("#zipCode").keyup(function () {
         validateZipCode();
@@ -57,13 +57,13 @@ $(function(){
     let paymentError = true;
 
     listingsService.getAll()
-        .then((response)=>{
+        .then((response) => {
             return response.data
         })
-        .then((data)=>{
+        .then((data) => {
             console.log(data)
         })
-        .catch((error)=>{
+        .catch((error) => {
             console.log(error)
         })
 
@@ -71,22 +71,22 @@ $(function(){
 
 
     //save user input
-    $('#submit').on('click', (e)=>{
+    $('#submit').on('click', (e) => {
         e.preventDefault()
         console.log(validateOnSubmit());
-        if(validateOnSubmit) {
-            let body= getUserInput()
+        if (validateOnSubmit) {
+            let body = getUserInput()
             listingsService.createList(body)
-                .then((response)=>{
+                .then((response) => {
                     return response.data
                 })
-                .then((data)=>{
+                .then((data) => {
                     console.log(data)
-                    if(data.message === 'Created Successfully') {
-                        $(location).prop('href', 'http://localhost:63342/bizdire/index.html')
+                    if (data.message === 'Created Successfully') {
+                        $(location).prop('href', '/index.html')
                     }
                 })
-                .catch((error)=>{
+                .catch((error) => {
                     console.log(error)
                 })
         }
@@ -100,49 +100,51 @@ $(function(){
 })
 
 
-function getUserInput (){
+function getUserInput() {
     let title = $('#listingTitle')
     let categorySel = $('#categorySel')
     let zipCode = $('#zipCode')
     let phone = $('#phone')
+    let email = $('#email')
+    let website = $('#website')
     let daySelect = $('#daySelect')
     let openTimeSelect = $('#openTimeSelect')
     let closeTimeSelect = $('#closeTimeSelect')
     let description = $('#description')
-    let image = $('#demo')
+    let image = $('#demox')
     let facebookUrl = $('#facebookUrl')
     let twitterURL = $('#twitterURL')
-    let googleURL= $('#googleURL')
+    let googleURL = $('#googleURL')
     let googleMapUrl = $('#googleMapUrl')
     let yearSelect = $('#yearSelect')
     let paymentSelect = $('#paymentSelect')
 
-
-    let body ={
-        title: title.val(),
-        category: categorySel.val(),
-        zipCode: zipCode.val(),
-        phoneNumber: phone.val(),
-        openingDays: daySelect.val(),
-        openingTime: openTimeSelect.val(),
-        closingTime: closeTimeSelect.val(),
-        description: description.val(),
-        image: image.val(),
-        facebookUrl: facebookUrl.val(),
-        twitterUrl: twitterURL.val(),
-        googlePlusUrl: googleURL.val(),
-        googleMapUrl: googleMapUrl.val(),
-        establishedYear: yearSelect.val(),
-        paymentMethod: paymentSelect.val(),
-        userID:"6424f914a23ccef0ec4c74a4",
-        publish:true
+    let body = new FormData()
+    body.append('title', title.val())
+    body.append('category', categorySel.val())
+    body.append('zipcode', zipCode.val())
+    body.append('phoneNumber', phone.val())
+    body.append('email', email.val())
+    body.append('website', website.val())
+    body.append('openingDays', daySelect.val())
+    body.append('openingTime', openTimeSelect.val())
+    body.append('closingTime', closeTimeSelect.val())
+    body.append('description', description.val())
+    if (image.prop('files')[0]) {
+        body.append('image', image.prop('files')[0], 'image')
     }
-    console.log(body)
-
+    body.append('facebookUrl', facebookUrl.val())
+    body.append('twitterUrl', twitterURL.val())
+    body.append('googlePlusUrl', googleURL.val())
+    body.append('googleMapUrl', googleMapUrl.val())
+    body.append('establishedYear', yearSelect.val())
+    body.append('paymentMethod', paymentSelect.val())
+    body.append('userID', JSON.parse(localStorage.getItem("user"))._id)
+    body.append('publish', true)
     return body;
 }
 
-function validateOnSubmit(){
+function validateOnSubmit() {
     let titleError = validateTitle()
     let paymentError = validatePaymentType()
     let phoneError = validatePhone()
@@ -151,7 +153,7 @@ function validateOnSubmit(){
     let zipCodeError = validateZipCode()
     let categoryError = validateCategory()
 
-    let count = titleError + phoneError + descriptionError  + zipCodeError+ paymentError + dayError + categoryError
+    let count = titleError + phoneError + descriptionError + zipCodeError + paymentError + dayError + categoryError
 
     return count === 7
 }
