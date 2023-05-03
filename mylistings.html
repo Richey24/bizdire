@@ -376,6 +376,11 @@
 												class="side-menu__label ms-2">My Listings</span></a>
 									</li>
 									<li>
+										<a class="side-menu__item" href="myevents.html"><i
+												class="typcn typcn-edit fs-20"></i><span
+												class="side-menu__label ms-2">My Events </span></a>
+									</li>
+									<li>
 										<a class="side-menu__item" href="settings.html"><i
 												class="typcn typcn-cog-outline fs-20"></i><span
 												class="side-menu__label ms-2">Settings </span></a>
@@ -2006,14 +2011,14 @@
 												<a class="btn btn-success btn-sm text-white" href="edit-list.html?id=${re._id}"
 													data-bs-toggle="tooltip" data-bs-original-title="Edit"><i
 														class="fa fa-pencil"></i></a>
-												<a class="btn btn-danger btn-sm text-white" data-bs-toggle="tooltip"
+												<a id="deleteList${i + 1}" class="btn btn-danger btn-sm text-white" data-bs-toggle="tooltip"
 													data-bs-original-title="Delete"><i class="fa fa-trash-o"></i></a>
 											</div>
 											<div class="d-md-flex">
 												<div class="item-card9-img">
 													<div class="item-card9-imgs">
 														<a href="business.html"></a>
-														<img style="width: 400px; height: 230px;" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/h4.png"}" alt="img"
+														<img style="width: 400px; height: 230px;" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/h4.jpg"}" alt="img"
 															class="cover-image">
 													</div>
 												</div>
@@ -2030,7 +2035,7 @@
 															</a>
 															<div class="item-card2-desc mt-3">
 																<div class="item-card2-desc-cost">
-																	<h6 id="deleteList${i + 1}" class="text-dark font-weight-normal mb-0 mt-0">
+																	<h6 class="text-dark font-weight-normal mb-0 mt-0">
 																		<i class="fa fa-map-marker me-1"></i>${re.city}, ${re.state}
 																	</h6>
 																	<h6 class="text-dark font-weight-normal mb-0 mt-2">
@@ -2054,13 +2059,20 @@
 											</div>
 										</div>
 				`
+			})
+
+			rep.forEach((re, i) => {
 				const del = document.getElementById(`deleteList${i + 1}`)
-				console.log(del);
-				document.getElementById(`deleteList${i + 1}`).addEventListener("click", () => {
-					console.log(re._id);
+				del.addEventListener("click", async () => {
+					const res = await fetch(`https://bizdire.azurewebsites.net/listing/delete/${re._id}`, {
+						method: "DELETE"
+					})
+					window.location.reload()
 				})
 			})
 		}
+
+
 
 		getUser()
 		getUserList()

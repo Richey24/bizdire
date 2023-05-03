@@ -330,11 +330,11 @@
 			<div class="header-text mb-0">
 				<div class="container">
 					<div class="text-center text-white">
-						<h1>Ad Edit Listing</h1>
+						<h1>Edit Listing</h1>
 						<ol class="breadcrumb text-center">
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
-							<li class="breadcrumb-item active text-white" aria-current="page">Ad Edit Listing</li>
+							<li class="breadcrumb-item active text-white" aria-current="page">Edit Listing</li>
 						</ol>
 					</div>
 				</div>
@@ -355,12 +355,12 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label class="form-label text-dark">Listing Title</label>
-								<input type="text" class="form-control" placeholder="Add List Name"
-									value="BHK RealEstates Consultancy ">
+								<input id="listingTitle" type="text" class="form-control" placeholder="Add List Name"
+									value="">
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Category</label>
-								<select class="form-control form-select select2-show-search">
+								<select id="categorySel" class="form-control form-select select2-show-search">
 									<option value="0">Select Category</option>
 									<option value="1" selected>RealEstate</option>
 									<option value="2">Restaurant</option>
@@ -379,18 +379,29 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label class="form-label text-dark">Your Address</label>
-								<input type="text" class="form-control" placeholder="Add List Address"
-									value="buges  1st Block 1st Cross, Rammurthy nagar, Bangalore-560016">
+								<label class="form-label text-dark">Your Zip Code</label>
+								<input id="zipCode" type="text" class="form-control" placeholder="Add Zip Code"
+									value="">
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Phone Number</label>
-								<input type="text" class="form-control" placeholder="Add List Phone Number"
+								<input id="phone" type="text" class="form-control" placeholder="Add List Phone Number"
 									value="9932178369">
 							</div>
 							<div class="form-group">
+								<label class="form-label text-dark">Email Address</label>
+								<input id="email" type="text" class="form-control" placeholder="Add List Email Address"
+									value="">
+							</div>
+							<div class="form-group">
+								<label class="form-label text-dark">Website</label>
+								<input id="website" type="text" class="form-control" placeholder="Add List Website"
+									value="">
+							</div>
+							<div class="form-group">
 								<label class="form-label text-dark">Opening Days</label>
-								<select class="form-control select2" data-placeholder="Choose Day" multiple>
+								<select id="daySelect" class="form-control select2" data-placeholder="Choose Day"
+									multiple>
 									<option value="AllDays" selected>All Days</option>
 									<option value="Sunday">Sunday</option>
 									<option value="Monday">Monday</option>
@@ -405,111 +416,76 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="form-label text-dark">Opening Time</label>
-										<select class="form-control select2-show-search" data-placeholder="Choose Time">
-											<option value="12">12am</option>
-											<option value="1">1am</option>
-											<option value="2">2am</option>
-											<option value="3">4am</option>
-											<option value="4">4am</option>
-											<option value="5">5am</option>
-											<option value="6">6am</option>
-											<option value="7" selected>7am</option>
-											<option value="8">8am</option>
-											<option value="9">9am</option>
-											<option value="10">10am</option>
-											<option value="11">11am</option>
-											<option value="13">12pm</option>
-											<option value="14">1pm</option>
-											<option value="15">2pm</option>
-											<option value="16">3pm</option>
-											<option value="17">4pm</option>
-											<option value="18">5pm</option>
-											<option value="19">6pm</option>
-											<option value="20">7pm</option>
-											<option value="21">8pm</option>
-											<option value="22">9pm</option>
-											<option value="23">10pm</option>
-											<option value="24">11pm</option>
+										<select id="openTimeSelect" class="form-control select2-show-search"
+											data-placeholder="Choose Time">
+											<option value="12am">12am</option>
+											<option value="1am">1am</option>
+											<option value="2am">2am</option>
+											<option value="3am">4am</option>
+											<option value="4am">4am</option>
+											<option value="5am">5am</option>
+											<option value="6am">6am</option>
+											<option value="7am">7am</option>
+											<option value="8am">8am</option>
+											<option value="9am">9am</option>
+											<option value="10am">10am</option>
+											<option value="11am">11am</option>
+											<option value="12pm">12pm</option>
+											<option value="1pm">1pm</option>
+											<option value="2pm">2pm</option>
+											<option value="3pm">3pm</option>
+											<option value="4pm">4pm</option>
+											<option value="5pm">5pm</option>
+											<option value="6pm">6pm</option>
+											<option value="7pm">7pm</option>
+											<option value="8pm">8pm</option>
+											<option value="9pm">9pm</option>
+											<option value="10pm">10pm</option>
+											<option value="11pm">11pm</option>
 										</select>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label class="form-label text-dark">Closing Time</label>
-										<select class="form-control select2-show-search" data-placeholder="Choose Time">
-											<option value="12">12am</option>
-											<option value="1">1am</option>
-											<option value="2">2am</option>
-											<option value="3">4am</option>
-											<option value="4">4am</option>
-											<option value="5">5am</option>
-											<option value="6">6am</option>
-											<option value="7">7am</option>
-											<option value="8">8am</option>
-											<option value="9">9am</option>
-											<option value="10">10am</option>
-											<option value="11">11am</option>
-											<option value="13">12pm</option>
-											<option value="14">1pm</option>
-											<option value="15">2pm</option>
-											<option value="16">3pm</option>
-											<option value="17">4pm</option>
-											<option value="18">5pm</option>
-											<option value="19">6pm</option>
-											<option value="20">7pm</option>
-											<option value="21" selected>8pm</option>
-											<option value="22">9pm</option>
-											<option value="23">10pm</option>
-											<option value="24">11pm</option>
+										<select id="closeTimeSelect" class="form-control select2-show-search"
+											data-placeholder="Choose Time">
+											<option value="12am">12am</option>
+											<option value="1am">1am</option>
+											<option value="2am">2am</option>
+											<option value="3am">4am</option>
+											<option value="4am">4am</option>
+											<option value="5am">5am</option>
+											<option value="6am">6am</option>
+											<option value="7am">7am</option>
+											<option value="8am">8am</option>
+											<option value="9am">9am</option>
+											<option value="10am">10am</option>
+											<option value="11am">11am</option>
+											<option value="12pm">12pm</option>
+											<option value="1pm">1pm</option>
+											<option value="2pm">2pm</option>
+											<option value="3pm">3pm</option>
+											<option value="4pm">4pm</option>
+											<option value="5pm">5pm</option>
+											<option value="6pm">6pm</option>
+											<option value="7pm">7pm</option>
+											<option value="8pm">8pm</option>
+											<option value="9pm">9pm</option>
+											<option value="10pm">10pm</option>
+											<option value="11pm">11pm</option>
 										</select>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Description</label>
-								<textarea class="form-control" name="example-textarea-input" rows="6"
-									placeholder="text here..">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</textarea>
+								<textarea id="description" class="form-control" name="example-textarea-input" rows="6"
+									placeholder="text here.."></textarea>
 							</div>
 							<div class="form-group">
 								<label class="form-label text-dark">Image Upload</label>
-								<input id="demo" type="file" name="files" accept=".jpg, .png, image/jpeg, image/png"
-									multiple>
-							</div>
-						</div>
-					</div>
-					<div class="card ">
-						<div class="card-header">
-							<h3 class="card-title">Personal Information</h3>
-						</div>
-						<div class="card-body">
-							<div class="row">
-								<div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<label class="form-label">Name</label>
-										<input type="text" class="form-control" placeholder="Name" value="Aida Bugg">
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-6">
-									<div class="form-group">
-										<label class="form-label">Email</label>
-										<input type="email" class="form-control" placeholder="Email Address"
-											value="aida@123">
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-6">
-									<div class="form-group mb-0">
-										<label class="form-label">Phone Number</label>
-										<input type="number" class="form-control" placeholder="Number"
-											value="9932178369">
-									</div>
-								</div>
-								<div class="col-sm-6 col-md-6">
-									<div class="form-group mb-0">
-										<label class="form-label">Address</label>
-										<input type="text" class="form-control" placeholder="Address"
-											value="buges  1st Block 1st Cross, Rammurthy nagar, Bangalore-560016">
-									</div>
-								</div>
+								<input id="demox" type="file" name="files" accept=".jpg, .png, image/jpeg, image/png">
 							</div>
 						</div>
 					</div>
@@ -524,8 +500,8 @@
 										<i class="fa fa-facebook tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div><!-- input-group-text -->
-								<input class="form-control" placeholder="Facebook URL" type="text"
-									value="https://facebook.com/">
+								<input id="facebookUrl" class="form-control" placeholder="Facebook URL" type="text"
+									value="">
 							</div>
 							<div class="input-group mb-4">
 								<div class="input-group-text">
@@ -533,8 +509,8 @@
 										<i class="fa fa-twitter tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div><!-- input-group-text -->
-								<input class="form-control" placeholder="Twitter URL" type="text"
-									value="https://twitter.com/">
+								<input id="twitterURL" class="form-control" placeholder="Twitter URL" type="text"
+									value="">
 							</div>
 							<div class="input-group mb-4">
 								<div class="input-group-text">
@@ -542,8 +518,8 @@
 										<i class="fa fa-google-plus tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div>
-								<input class="form-control" placeholder="GooglePlus URL" type="text"
-									value="https://google.com/">
+								<input id="googleURL" class="form-control" placeholder="GooglePlus URL" type="text"
+									value="">
 							</div>
 							<div class="input-group mb-4">
 								<div class="input-group-text">
@@ -551,8 +527,8 @@
 										<i class="fa fa-map-marker tx-16 lh-0 op-6 text-center mx-auto"></i>
 									</div>
 								</div>
-								<input class="form-control" placeholder="GoogleMap Location URL" type="text"
-									value="https://googlemap.com/">
+								<input id="googleMapUrl" class="form-control" placeholder="GoogleMap Location URL"
+									type="text" value="">
 							</div>
 						</div>
 					</div>
@@ -563,7 +539,7 @@
 						<div class="card-body">
 							<div class="form-group">
 								<label class="form-label">Company Established year</label>
-								<select name="user[year]" class="form-control select2">
+								<select id="yearSelect" name="user[year]" class="form-control select2">
 									<option value="">Year</option>
 									<option value="2020">2020</option>
 									<option value="2019">2019</option>
@@ -692,284 +668,26 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<label class="form-label text-dark">Services</label>
-								<select class="form-control select2" data-placeholder="Choose Services" multiple>
-									<option>Select Category</option>
-									<option value="0" selected>All Categories</option>
-									<option value="1">Hotels</option>
-									<option value="2">Restaurant</option>
-									<option value="3">Events</option>
-									<option value="4">Cinema</option>
-									<option value="5">Gym</option>
-									<option value="6">Shop & Store</option>
-									<option value="7">Tours & Travels</option>
-									<option value="8">Cafe</option>
-									<option value="9">Mobile Store</option>
-									<option value="10">College</option>
-								</select>
-							</div>
-							<div class="form-group">
 								<label class="form-label text-dark">Payment Methods</label>
-								<select class="form-control select2" data-placeholder="Choose Payment" multiple>
+								<select id="paymentSelect" class="form-control select2"
+									data-placeholder="Choose Payment" multiple>
 									<option value="Cash" Selected>Cash</option>
-									<option value="Net Banking" selected>Net Banking</option>
-									<option value="Visa" selected>Visa</option>
-									<option value="Master Card" selected>Master Card</option>
-									<option value="Discover" selected>Discover</option>
-									<option value="Americal Express" selected>Americal Express</option>
-									<option value="Online Transaction" selected>Online Transaction</option>
+									<option value="Net Banking">Net Banking</option>
+									<option value="Visa">Visa</option>
+									<option value="Master Card">Master Card</option>
+									<option value="Discover">Discover</option>
+									<option value="Americal Express">Americal Express</option>
+									<option value="Online Transaction">Online Transaction</option>
 								</select>
-							</div>
-							<div class="form-group">
-								<label class="form-label">Fax</label>
-								<input type="number" class="form-control" placeholder="Fax Number" value="7427762543">
-							</div>
-							<div class="form-group">
-								<label class="form-label">Toll Free</label>
-								<input type="number" class="form-control" placeholder="Toll Free Number"
-									value="8829662543">
-							</div>
-							<div class="form-group">
-								<label class="form-label text-dark">Certification</label>
-								<select class="form-control select2" data-placeholder="Choose Certification" multiple>
-									<option value="Iso Certified" Selected>Iso Certified</option>
-									<option value="Government">Government</option>
-								</select>
-							</div>
-						</div>
-					</div>
-					<div class="card">
-						<div class="card-header">
-							<h3 class="card-title">Package</h3>
-						</div>
-						<div class="card-body">
-							<div class="control-group form-group">
-								<label class="form-label text-dark">Ad Post Package</label>
-								<div class="d-md-flex ad-post-details">
-									<label class="custom-control custom-radio mb-2 me-4">
-										<input type="radio" class="custom-control-input" name="radios1" value="option1"
-											checked="">
-										<span class="custom-control-label"><a class="text-muted">30 Days Free</a></span>
-									</label>
-									<label class="custom-control custom-radio  mb-2 me-4">
-										<input type="radio" class="custom-control-input" name="radios1" value="option2">
-										<span class="custom-control-label"><a class="text-muted">60 days /
-												20$</a></span>
-									</label>
-									<label class="custom-control custom-radio  mb-2 me-4">
-										<input type="radio" class="custom-control-input" name="radios1" value="option3">
-										<span class="custom-control-label"><a class="text-muted">6months /
-												50$</a></span>
-									</label>
-									<label class="custom-control custom-radio  mb-2">
-										<input type="radio" class="custom-control-input" name="radios1" value="option4">
-										<span class="custom-control-label"><a class="text-muted">1 year / 80$</a></span>
-									</label>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="card">
-						<div class="card-header">
-							<h3 class="card-title">Payments</h3>
-						</div>
-						<div class="card-body">
-							<div class="tab-content card-body border mb-0 b-0">
-								<div class="panel panel-secondary">
-									<div class=" tab-menu-heading border-0 ps-0 pe-0 pt-0">
-										<div class="tabs-menu1 ">
-											<!-- Tabs -->
-											<ul class="nav panel-tabs">
-												<li><a href="#tab5" class="active" data-bs-toggle="tab">Credit/ Debit
-														Card</a></li>
-												<li><a href="#tab6" data-bs-toggle="tab">Pay-pal</a></li>
-												<li><a href="#tab7" data-bs-toggle="tab">Net Banking</a></li>
-												<li><a href="#tab8" data-bs-toggle="tab">Gift Voucher</a></li>
-											</ul>
-										</div>
-									</div>
-									<div class="panel-body tabs-menu-body ps-0 pe-0 border-0">
-										<div class="tab-content">
-											<div class="tab-pane active " id="tab5">
-												<div class="form-group">
-													<label class="form-label">CardHolder Name</label>
-													<input type="text" class="form-control" id="name1"
-														placeholder="First Name" value="Aida Bugg">
-												</div>
-												<div class="form-group">
-													<label class="form-label">Card number</label>
-													<div class="input-group">
-														<input type="text" class="form-control"
-															placeholder="Search for..." value="43210543211177">
-														<span class="input-group-text p-0 border-0">
-															<button class="btn btn-info" type="button"><i
-																	class="fa fa-cc-visa"></i> &nbsp; <i
-																	class="fa fa-cc-amex"></i> &nbsp;
-																<i class="fa fa-cc-mastercard"></i></button>
-														</span>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-sm-8">
-														<div class="form-group mb-sm-0">
-															<label class="form-label">Expiration</label>
-															<div class="input-group">
-																<input type="number" class="form-control"
-																	placeholder="MM" name="expiremonth" value="05">
-																<input type="number" class="form-control"
-																	placeholder="YY" name="expireyear" value="1999">
-															</div>
-														</div>
-													</div>
-													<div class="col-sm-4 ">
-														<div class="form-group mb-0">
-															<label class="form-label">CVV <i
-																	class="fa fa-question-circle"></i></label>
-															<input type="number" class="form-control" required=""
-																value="877">
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="tab-pane " id="tab6">
-												<h6 class="font-weight-semibold">Paypal is easiest way to pay online
-												</h6>
-												<p><a href="javascript:void(0)" class="btn btn-secondary"><i
-															class="fa fa-paypal"></i> Log in my Paypal</a></p>
-												<p class="mb-0"><strong>Note:</strong> Nemo enim ipsam voluptatem quia
-													voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-													magni dolores eos qui ratione voluptatem sequi nesciunt. </p>
-											</div>
-											<div class="tab-pane " id="tab7">
-												<div class="control-group form-group">
-													<div class="form-group">
-														<label class="form-label text-dark">All Banks</label>
-														<select
-															class="form-control form-select required category select2-no-search">
-															<option value="0">Select Bank</option>
-															<option value="1">Credit Agricole Group</option>
-															<option value="2">Bank of America</option>
-															<option value="3">Mitsubishi UFJ Financial Group</option>
-															<option value="4">BNP Paribas</option>
-															<option value="5">JPMorgan Chase & Co.</option>
-															<option value="6">HSBC Holdings</option>
-															<option value="7">Bank of China</option>
-															<option value="8">Agricultural Bank of China</option>
-															<option value="9">China Construction Bank Corp.</option>
-															<option value="10">Industrial & Commercial Bank of China, or
-																ICBC</option>
-														</select>
-													</div>
-												</div>
-												<p><a href="javascript:void(0)" class="btn btn-secondary">Log in
-														Bank</a></p>
-											</div>
-											<div class="tab-pane " id="tab8">
-												<div class="form-group">
-													<label class="form-label">Gift Voucher</label>
-													<div class="input-group">
-														<input type="text" class="form-control"
-															placeholder="Enter Your Gv Number">
-														<span class="input-group-text p-0 border-0">
-															<button class="btn btn-info" type="button">
-																Apply</button>
-														</span>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="form-group row clearfix">
-									<div class="col-lg-12">
-										<div class="checkbox checkbox-info">
-											<label class="custom-control mt-4 form-checkbox">
-												<input type="checkbox" class="custom-control-input" checked />
-												<span class="custom-control-label text-dark">I agree with the Terms and
-													Conditions.</span>
-											</label>
-										</div>
-									</div>
-									<ul class=" mb-b-4 ">
-										<li class="float-end"><a href="javascript:void(0)"
-												class="btn btn-secondary  mb-0 me-2">Continue</a></li>
-									</ul>
-								</div>
 							</div>
 						</div>
 					</div>
 					<div class="float-end mb-5 mb-lg-0">
-						<a href="javascript:void(0)" class="btn btn-lg btn-success">Submit Now</a>
+						<a id="submit" href="javascript:void(0)" class="btn btn-lg btn-success">Submit Now</a>
 					</div>
 				</div>
 				<div class="col-lg-4 col-md-12">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="card-title">Terms And Conditions</h3>
-						</div>
-						<div class="card-body p-0">
-							<ul class="list-unstyled widget-spec mb-0">
-								<li>
-									<i class="fa fa-check text-success" aria-hidden="true"></i>Money Not Refundable
-								</li>
-								<li>
-									<i class="fa fa-check text-success" aria-hidden="true"></i>You can renew your
-									Premium ad after experted.
-								</li>
-								<li>
-									<i class="fa fa-check text-success" aria-hidden="true"></i>Premium listings are
-									active for depend on package.
-								</li>
-								<li class="ms-5 mb-0">
-									<a href="tips.html"> View more..</a>
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="card">
-						<div class="card-header">
-							<h3 class="card-title">Benefits Of Premium Ad</h3>
-						</div>
-						<div class="card-body p-0">
-							<ul class="list-unstyled widget-spec mb-0">
-								<li>
-									<i class="fa fa-check text-success" aria-hidden="true"></i>Premium listings Active
-								</li>
-								<li>
-									<i class="fa fa-check text-success" aria-hidden="true"></i>Premium listings are
-									displayed on top
-								</li>
-								<li>
-									<i class="fa fa-check text-success" aria-hidden="true"></i>Premium listings will be
-									Show in Google results
-								</li>
-							</ul>
-						</div>
-					</div>
-					<div class="card mb-0 overflow-hidden">
-						<div class="card-header">
-							<h3 class="card-title">Safety Tips For Buyers</h3>
-						</div>
-						<div class="card-body p-0">
-							<ul class="list-unstyled widget-spec  mb-0">
-								<li>
-									<i class="fa fa-check text-success" aria-hidden="true"></i> Meet Seller at public
-									Place
-								</li>
-								<li>
-									<i class="fa fa-check text-success" aria-hidden="true"></i> Check item before you
-									buy
-								</li>
-								<li>
-									<i class="fa fa-check text-success" aria-hidden="true"></i> Pay only after
-									collecting item
-								</li>
-								<li class="ms-5 mb-0">
-									<a href="tips.html"> View more..</a>
-								</li>
-							</ul>
-						</div>
-					</div>
+
 				</div>
 			</div>
 		</div>
@@ -1168,9 +886,73 @@
 
 	<!-- Custom Js-->
 	<script src="../assets/js/themeColors.js"></script>
-	<script src="../assets/js/custom.js"></script>
+	<script type="module" src="../assets/js/custom.js"></script>
+
+	<!--Axios -->
+	<script src="../assets/js/vendors/axios.min.js"></script>
+
+	<script type="module" src="../assets/js/modules/store/auth.js"></script>
+
+	<script type="module" src="../assets/js/modules/store/listing-store.js"></script>
+
+	<script type="module" src="../assets/js/services/listings-service.js"></script>
+
+	<script type="module" src="../assets/js/services/user-service.js"></script>
+
+
+	<script type="module" src="../assets/js/pages/addListing/edit-list.js"></script>
+
 	<script type="module" src="../assets/js/pages/header.js"></script>
 
+	<script>
+		const id = window.location.search.split("=")[1]
+		if (!id) {
+			window.location.href = "/mylistings.html"
+		}
+		const getCategory = async () => {
+			const res = await fetch("https://bizdire.azurewebsites.net/category/get/all")
+			const rep = await res.json()
+			document.getElementById("categorySel").innerHTML = ""
+			const opt = document.createElement("option")
+			opt.value = ""
+			opt.innerHTML = ""
+			document.getElementById("categorySel").appendChild(opt)
+
+			rep.forEach((re, i) => {
+				const opt = document.createElement("option")
+				opt.value = re.category
+				opt.innerHTML = re.category
+				document.getElementById("categorySel").appendChild(opt)
+			})
+		}
+		getCategory()
+
+		const getList = async () => {
+			const res = await fetch(`https://bizdire.azurewebsites.net/listing/get/one/${id}`)
+			const rep = await res.json()
+			console.log(rep);
+
+			document.getElementById("listingTitle").defaultValue = rep.title
+			document.getElementById("categorySel").value = rep.category
+			document.getElementById("zipCode").defaultValue = rep.zipcode
+			document.getElementById("phone").defaultValue = rep.phoneNumber
+			document.getElementById("email").defaultValue = rep.email
+			document.getElementById("website").defaultValue = rep.website
+			document.getElementById("daySelect").value = rep.openingDays[0].split(",")[0]
+			document.getElementById("openTimeSelect").value = rep.openingTime
+			document.getElementById("closeTimeSelect").value = rep.closingTime
+			document.getElementById("description").defaultValue = rep.description
+			document.getElementById("facebookUrl").defaultValue = rep.facebookUrl
+			document.getElementById("twitterURL").defaultValue = rep.twitterUrl
+			document.getElementById("googleURL").defaultValue = rep.googlePlusUrl
+			document.getElementById("googleMapUrl").defaultValue = rep.googleMapUrl
+			document.getElementById("yearSelect").value = rep.establishedYear
+			document.getElementById("paymentSelect").value = rep.paymentMethod
+
+
+		}
+		getList()
+	</script>
 </body>
 
 </html>
