@@ -332,7 +332,8 @@
                     <div class="row">
                         <div class="col-xl-8 col-lg-12 col-md-12 d-block mx-auto">
                             <div class="text-center text-white ">
-                                <h1 class="mb-2"><span id="listTitle" class="font-weight-semibold">Bizdire
+                                <h1 class="mb-2"><span id="listTitle" style="text-transform: capitalize;"
+                                        class="font-weight-semibold">Bizdire
                                         University</span></h1>
                                 <!-- <div class="mx-auto mb-2 mt-3 d-flex banner-ratings">
 									<div class="rating-star sm my-rating-5" data-rating="4.5">
@@ -392,7 +393,7 @@
                         <div class="card-body">
                             <div class="item-det mb-4">
                                 <a href="javascript:void(0)" class="text-dark">
-                                    <h3 id="secondTitle">Bizdire University</h3>
+                                    <h3 style="text-transform: capitalize;" id="secondTitle">Bizdire University</h3>
                                 </a>
                                 <div class=" d-md-flex">
                                     <ul class="d-md-flex mb-0">
@@ -462,7 +463,8 @@
                         </div>
                         <div class="card-body">
                             <div class="mb-0">
-                                <p id="listDesc">At vero eos et accusamus et iusto odio dignissimos ducimus qui
+                                <p style="text-transform: capitalize;" id="listDesc">At vero eos et accusamus et iusto
+                                    odio dignissimos ducimus qui
                                     blanditiis praesentium
                                     voluptatum deleniti atcorrupti quos dolores et quas molestias excepturi sint
                                     occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt
@@ -476,6 +478,9 @@
                                                     class="fa fa-map me-3 mb-2"></i></span><a id="secondLoc"
                                                 href="javascript:void(0)" class="text-body"></a></h6>
                                         <h6 class="font-weight-normal"><span><i
+                                                    class="fa fa-map me-3 mb-2"></i></span><a id="eventDate"
+                                                href="javascript:void(0)" class="text-body"></a></h6>
+                                        <h6 class="font-weight-normal"><span><i
                                                     class="fa fa-envelope me-3 mb-2"></i></span><a id="listMail"
                                                 href="javascript:void(0)" class="text-body">spruko123@gmail.com</a></h6>
                                     </div>
@@ -484,6 +489,9 @@
                                                     class="fa fa-phone me-3  mb-2"></i></span><a id="listNum"
                                                 href="javascript:void(0)" class="text-secondary"> 0-235-657-24587</a>
                                         </h6>
+                                        <h6 class="font-weight-normal"><span><i
+                                                    class="fa fa-map me-3 mb-2"></i></span><a id="eventTime"
+                                                href="javascript:void(0)" class="text-body"></a></h6>
                                         <h6 class="font-weight-normal"><span><i class="fa fa-link me-3 "></i></span><a
                                                 id="listWeb" href="javascript:void(0)"
                                                 class="text-secondary">https://spruko.com/</a>
@@ -1399,6 +1407,8 @@
             document.getElementById("secondLoc").innerHTML = `${rep.location ? rep.location : "online"}`
             document.getElementById("listMail").innerHTML = rep.email || ""
             document.getElementById("listMail").href = `mailto:${rep.email}`
+            document.getElementById("eventDate").innerHTML = `${rep.dateOfEvent[0]} - ${rep.dateOfEvent[1]}` || ""
+            document.getElementById("eventTime").innerHTML = `${rep.timeOfEvent[0]} - ${rep.timeOfEvent[1]}` || ""
             document.getElementById("listNum").innerHTML = rep.phoneNumber || ""
             document.getElementById("listNum").href = `tel:${rep.phoneNumber}`
             document.getElementById("listWeb").innerHTML = rep.website || ""
