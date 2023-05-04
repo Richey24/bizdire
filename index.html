@@ -3433,11 +3433,20 @@
 			const allEvent = document.getElementById("allEvent")
 			const eventNearMe = document.getElementById("eventNearMe")
 			const res = await fetch("https://bizdire.azurewebsites.net/event/get/all")
-			const rep = await res.json()
+			const result = await res.json()
+			const rep = result.filter((re) => new Date(re.dateOfEvent[1]).getTime() > Date.now())
+			const res1 = await fetch(`https://bizdire.azurewebsites.net/user/get/${JSON.parse(localStorage.getItem("user"))._id}`, {
+				headers: {
+					"Authorization": `Bearer ${JSON.parse(localStorage.getItem("user")).mainToken}`,
+				}
+			})
+			const rep1 = await res1.json()
+			const resp = await fetch(`https://zip-api.eu/api/v1/info/US-${rep1.zipcode}`)
+			const loca = await resp.json()
 			allEvent.innerHTML = ""
 			eventNearMe.innerHTML = ""
 			const physicalEvent = rep.filter((re) => re.locationType === "physical")
-			const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, "36.07940000", "-118.45510000") < 2000)
+			const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, loca.lat, loca.lng) < 1000)
 			rep.slice(0, 3).forEach((re) => {
 				allEvent.innerHTML += `
 					<div style="cursor: pointer;" class="col-xl-4 col-lg-4 col-md-12">

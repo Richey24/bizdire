@@ -328,11 +328,11 @@
         <div class="bannerimg cover-image bg-background3" data-bs-image-src="../assets/images/banners/banner2.jpg">
             <div class="header-text mb-0">
                 <div class="text-center text-white">
-                    <h1 class="">My Listings</h1>
+                    <h1 class="">My Events</h1>
                     <ol class="breadcrumb text-center">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                         <li class="breadcrumb-item"><a href="javascript:void(0)">My Dashboard </a></li>
-                        <li class="breadcrumb-item active text-white" aria-current="page">My Listings </li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">My Events </li>
                     </ol>
                 </div>
             </div>
@@ -377,7 +377,7 @@
                                     </li>
                                     <li>
                                         <a class="side-menu__item" href="myevents.html"><i
-                                                class="typcn typcn-cog-outline fs-20"></i><span
+                                                class="typcn typcn-edit fs-20"></i><span
                                                 class="side-menu__label ms-2">My Events </span></a>
                                     </li>
                                     <li>
@@ -393,7 +393,7 @@
                 <div class="col-xl-9 col-lg-12 col-md-12">
                     <div class="card mb-0 overflow-hidden">
                         <div class="card-header">
-                            <h3 class="card-title">My Ads</h3>
+                            <h3 class="card-title">My Events</h3>
                         </div>
                         <div class="card-body">
                             <div class="ads-tabs">
@@ -401,7 +401,7 @@
                                     <!-- Tabs -->
                                     <ul class="nav panel-tabs">
                                         <li class=""><a href="#tab1" class="active" id="allList"
-                                                data-bs-toggle="tab">All List
+                                                data-bs-toggle="tab">All Events
                                                 (0)</a></li>
                                         <!-- <li><a href="#tab2" data-bs-toggle="tab">Published (08)</a></li>
 										<li><a href="#tab3" data-bs-toggle="tab">Featured (05)</a></li>
@@ -1994,7 +1994,7 @@
             const body = {
                 userID: JSON.parse(localStorage.getItem("user"))._id
             }
-            const res = await fetch("https://bizdire.azurewebsites.net/listing/get/params", {
+            const res = await fetch("https://bizdire.azurewebsites.net/event/search", {
                 method: "POST",
                 body: JSON.stringify(body),
                 headers: {
@@ -2002,16 +2002,17 @@
                 }
             })
             const rep = await res.json()
-            document.getElementById("allList").innerHTML = `All List (${rep.length})`
+            console.log(rep);
+            document.getElementById("allList").innerHTML = `All Events (${rep.length})`
             tab1.innerHTML = ""
             rep.forEach((re, i) => {
                 tab1.innerHTML += `
 						<div class="card overflow-hidden card-absolute">
 											<div class="edit-buttons-absolute">
-												<a class="btn btn-success btn-sm text-white" href="edit-list.html?id=${re._id}"
+												<a class="btn btn-success btn-sm text-white" href="edit-event.html?id=${re._id}"
 													data-bs-toggle="tooltip" data-bs-original-title="Edit"><i
 														class="fa fa-pencil"></i></a>
-												<a class="btn btn-danger btn-sm text-white" data-bs-toggle="tooltip"
+												<a id="deleteList${i + 1}" class="btn btn-danger btn-sm text-white" data-bs-toggle="tooltip"
 													data-bs-original-title="Delete"><i class="fa fa-trash-o"></i></a>
 											</div>
 											<div class="d-md-flex">
@@ -2026,17 +2027,17 @@
 													<div class="card-body py-4">
 														<div class="item-card9">
 															<div class="d-flex">
-																<a href="business.html?id=${re._id}">${re.category}</a>
+																<a href="event-description.html?id=${re._id}">${re.locationType}</a>
 															</div>
-															<a href="business.html?id=${re._id}" class="text-dark">
-																<h4 style="text-transform: capitalize;" class="font-weight-semibold mt-0">${re.title}<i
+															<a href="event-description.html?id=${re._id}" class="text-dark">
+																<h4 style="text-transform: capitalize;" class="font-weight-semibold mt-0">${re.eventName}<i
 																		class="ion-checkmark-circled text-success ms-1"></i>
 																</h4>
 															</a>
 															<div class="item-card2-desc mt-3">
 																<div class="item-card2-desc-cost">
-																	<h6 id="deleteList${i + 1}" class="text-dark font-weight-normal mb-0 mt-0">
-																		<i class="fa fa-map-marker me-1"></i>${re.city}, ${re.state}
+																	<h6 class="text-dark font-weight-normal mb-0 mt-0">
+																		<i class="fa fa-map-marker me-1"></i>${re.location || re.website}
 																	</h6>
 																	<h6 class="text-dark font-weight-normal mb-0 mt-2">
 																		<i class="fa fa-phone me-1"></i> <a
@@ -2051,7 +2052,7 @@
 															<div class="col">
 																<a href="javascript:void(0)" class="mt-1 mb-1 me-1"><i
 																		class="fa fa-clock-o"></i>
-																	<b>${re.openingTime}-${re.closingTime}</b></a>
+																	<b>${re.dateOfEvent[0]} - ${re.dateOfEvent[1]}</b></a>
 															</div>
 														</div>
 													</div>
@@ -2060,9 +2061,11 @@
 										</div>
 				`
                 const del = document.getElementById(`deleteList${i + 1}`)
-                console.log(del);
-                document.getElementById(`deleteList${i + 1}`).addEventListener("click", () => {
-                    console.log(re._id);
+                document.getElementById(`deleteList${i + 1}`).addEventListener("click", async () => {
+                    const res = await fetch(`https://bizdire.azurewebsites.net/event/delete/${re._id}`, {
+                        method: "DELETE"
+                    })
+                    window.location.reload()
                 })
             })
         }

@@ -348,11 +348,11 @@
             <div class="header-text mb-0">
                 <div class="container">
                     <div class="text-center text-white">
-                        <h1>Add Event</h1>
+                        <h1>Edit Event</h1>
                         <ol class="breadcrumb text-center">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
-                            <li class="breadcrumb-item active text-white" aria-current="page">Add Event</li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Edit Event</li>
                         </ol>
                     </div>
                 </div>
@@ -368,7 +368,7 @@
                 <div class="col-lg-8 col-md-12">
                     <div class="card ">
                         <div class="card-header ">
-                            <h3 class="card-title">Add Event</h3>
+                            <h3 class="card-title">Edit Event</h3>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
@@ -386,12 +386,12 @@
                             </div>
                             <div id="zipCode" class="form-group">
                                 <label class="form-label text-dark">Your Zip Code</label>
-                                <input id="zipCode" name="zipCode" type="text" class="form-control"
+                                <input id="zipCodeInput" name="zipCode" type="text" class="form-control"
                                     placeholder="Add Zip Code">
                             </div>
                             <div style="display: none;" id="meetingLink" class="form-group">
                                 <label class="form-label text-dark">Meeting Link</label>
-                                <input id="meetingLink" name="meetingLink" type="text" class="form-control"
+                                <input id="meetingLinkInput" name="meetingLink" type="text" class="form-control"
                                     placeholder="Add Meeting Link">
                             </div>
                             <div class="form-group">
@@ -401,7 +401,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label text-dark">Email</label>
-                                <input id="phone" name="email" type="text" class="form-control"
+                                <input id="email" name="email" type="text" class="form-control"
                                     placeholder="Add Event Email Address">
                             </div>
                             <div class="form-group">
@@ -421,7 +421,7 @@
                                     <div class="form-group">
                                         <label class="form-label text-dark">Ending Day</label>
                                         <input style="width: 100%; height: 40px; padding-left: 10px;" type="date"
-                                            name="endingDate" id="openingDate">
+                                            name="endingDate" id="endingDate">
                                     </div>
                                 </div>
                             </div>
@@ -430,7 +430,7 @@
                                     <div class="form-group">
                                         <label class="form-label text-dark">Starting Time</label>
                                         <select id="openTimeSelect" name="startingTime"
-                                            class="form-control select2-show-search" data-placeholder="Choose Time">
+                                            style="width: 100%; height: 40px; padding: 0 10px;">
                                             <option value="12am">12am</option>
                                             <option value="1am">1am</option>
                                             <option value="2am">2am</option>
@@ -462,7 +462,7 @@
                                     <div class="form-group">
                                         <label class="form-label text-dark">Closing Time</label>
                                         <select id="closeTimeSelect" name="closingTime"
-                                            class="form-control select2-show-search" data-placeholder="Choose Time">
+                                            style="width: 100%; height: 40px; padding: 0 10px;">
                                             <option value="12am">12am</option>
                                             <option value="1am">1am</option>
                                             <option value="2am">2am</option>
@@ -724,6 +724,39 @@
     <!-- <script type="module" src="../assets/js/pages/addListing/ad-list.js"></script> -->
 
     <script>
+
+        const id = window.location.search.split("=")[1]
+        if (!id) {
+            window.location.href = "/mylistings.html"
+        }
+
+        const getEvent = async () => {
+            const res = await fetch(`https://bizdire.azurewebsites.net/event/get/one/${id}`)
+            const rep = await res.json()
+            document.getElementById("listingTitle").defaultValue = rep.eventName
+            document.getElementById("phone").defaultValue = rep.phoneNumber
+            document.getElementById("email").defaultValue = rep.email
+            document.getElementById("cost").defaultValue = rep.cost
+            document.getElementById("openingDate").defaultValue = rep.dateOfEvent[0]
+            document.getElementById("endingDate").defaultValue = rep.dateOfEvent[1]
+            document.getElementById("openTimeSelect").value = rep.timeOfEvent[0]
+            document.getElementById("closeTimeSelect").value = rep.timeOfEvent[1]
+            document.getElementById("description").defaultValue = rep.description
+
+            if (rep.website) {
+                document.getElementById("meetingLink").style.display = "block"
+                document.getElementById("zipCode").style.display = "none"
+                document.getElementById("categorySel").value = "Online Meeting"
+                document.getElementById("meetingLinkInput").defaultValue = rep.website
+            } else {
+                document.getElementById("meetingLink").style.display = "none"
+                document.getElementById("zipCode").style.display = "block"
+                document.getElementById("zipCodeInput").defaultValue = rep.zipcode
+                document.getElementById("categorySel").value = "Physical Address"
+            }
+
+        }
+
         document.getElementById("categorySel").addEventListener("change", (e) => {
             const val = e.target.value
             if (val === "Online Meeting") {
@@ -759,8 +792,11 @@
             if (e.target.eventImage.files[0]) {
                 form.append("image", e.target.eventImage.files[0], 'image')
             }
-            const res = await fetch("https://bizdire.azurewebsites.net/event/create", {
-                method: "POST",
+            form.forEach((fo) => {
+                console.log(fo);
+            })
+            const res = await fetch(`https://bizdire.azurewebsites.net/event/update/${id}`, {
+                method: "PUT",
                 body: form,
             })
             if (res.status === 200) {
@@ -769,6 +805,8 @@
                 document.getElementById("submitBtn").innerHTML = "Submit"
             }
         })
+
+        getEvent()
     </script>
 
 </body>
