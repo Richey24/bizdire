@@ -1,5 +1,5 @@
-//import api from 'assets/js/services/api'
-//const API_URL = `${process.env.EXPRESS_SERVER_URL}/listing`
+// import api from 'assets/js/services/api'
+// const API_URL = `${process.env.EXPRESS_SERVER_URL}/listing`
 
 
 const API_URL = `/listing`
@@ -43,7 +43,11 @@ class ListingsService {
 
 
     updateList(id, body) {
-        return api.put(`${API_URL}/update/`, { params: { id: id, }, body: body })
+        return api.put(`${API_URL}/update/${id}`, body, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
     }
 
 }
