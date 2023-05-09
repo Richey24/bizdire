@@ -329,11 +329,11 @@
 			<div class="header-text mb-0">
 				<div class="container">
 					<div class="text-center text-white ">
-						<h1 class="">Personal-Blog</h1>
+						<h1 class="">Personal Details</h1>
 						<ol class="breadcrumb text-center">
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
 							<li class="breadcrumb-item"><a href="javascript:void(0)">Pages</a></li>
-							<li class="breadcrumb-item active text-white" aria-current="page"> Personal Blog</li>
+							<li class="breadcrumb-item active text-white" aria-current="page"> Personal Details</li>
 						</ol>
 					</div>
 				</div>
@@ -362,11 +362,12 @@
 										class="mt-1 mb-3 font-weight-semibold">JACOB SMITH <i
 											class="ion-checkmark-circled text-success"></i></h4>
 								</a>
-								<h6 class="mt-2 mb-0"><a href="javascript:void(0)" class="btn btn-warning btn-sm">50
+								<h6 class="mt-2 mb-0"><a href="javascript:void(0)" id="noOfList"
+										class="btn btn-warning btn-sm">50
 										Listings</a></h6>
 							</div>
 						</div>
-						<div class="card-body item-user">
+						<!-- <div class="card-body item-user">
 							<h4 class="mb-4">Social Share</h4>
 							<div class=" item-user-icons mt-4">
 								<a href="javascript:void(0)" class="mt-0 bg-light border"><i
@@ -378,7 +379,7 @@
 								<a href="javascript:void(0)" class="mt-0 bg-light border"><i
 										class="fa fa-dribbble"></i></a>
 							</div>
-						</div>
+						</div> -->
 						<div class="card-footer bg-light-50">
 							<div class="text-start">
 								<a href="javascript:void(0)" class="btn btn-light" data-bs-toggle="modal"
@@ -410,18 +411,16 @@
 												<h3 class="card-title mb-3 font-weight-semibold">Personal Details</h3>
 											</div>
 											<ul class="usertab-list mb-0">
-												<li><a href="javascript:void(0)" class="text-dark"><span
+												<li><a id="theName" href="javascript:void(0)" class="text-dark"><span
 															class="font-weight-semibold">Full Name :</span> Rubin
 														Carmody</a></li>
-												<li><a href="javascript:void(0)" class="text-dark"><span
-															class="font-weight-semibold">Location :</span> USA</a></li>
-												<li><a href="javascript:void(0)" class="text-dark"><span
-															class="font-weight-semibold">Website :</span>Bizdire.com</a>
-												</li>
-												<li><a href="javascript:void(0)" class="text-dark"><span
+												<li><a id="userLocation" href="javascript:void(0)"
+														class="text-dark"><span class="font-weight-semibold">Location
+															:</span> USA</a></li>
+												<li><a id="userEmail" href="javascript:void(0)" class="text-dark"><span
 															class="font-weight-semibold">Email :</span>
 														georgemestayer@Bizdire.com</a></li>
-												<li><a href="javascript:void(0)" class="text-dark"><span
+												<li><a id="userPhone" href="javascript:void(0)" class="text-dark"><span
 															class="font-weight-semibold">Phone :</span> +125 254 3562
 													</a></li>
 											</ul>
@@ -430,7 +429,8 @@
 													<div class="media-heading">
 														<h3 class="card-title mb-3 font-weight-semibold">Biography</h3>
 													</div>
-													<p>Nam libero tempore, cum soluta nobis est eligendi optio cumque
+													<p id="userDesc">Nam libero tempore, cum soluta nobis est eligendi
+														optio cumque
 														nihil impedit quo minus id quod maxime placeat facere possimus,
 														omnis voluptas assumenda est, omnis dolor repellendus how to
 														pursue pleasure rationally encounter but because those who do
@@ -838,24 +838,26 @@
 										</div>
 									</div>
 
-									<div class="tab-pane userprof-tab" id="tab-8">
+									<form class="tab-pane userprof-tab" id="tab-8">
 										<h4>Review</h4>
 										<div class="mt-2">
 											<div class="form-group">
-												<input type="text" class="form-control" id="name1"
+												<input name="name" type="text" class="form-control" id="name1"
 													placeholder="Your Name">
 											</div>
 											<div class="form-group">
-												<input type="email" class="form-control" id="email"
+												<input name="email" type="email" class="form-control" id="email"
 													placeholder="Email Address">
 											</div>
 											<div class="form-group">
-												<textarea class="form-control" name="example-textarea-input" rows="6"
+												<textarea class="form-control" name="message" rows="6"
 													placeholder="Write Review"></textarea>
 											</div>
-											<a href="javascript:void(0)" class="btn btn-secondary">Send Reply</a>
+											<button id="reviewBtn" href="javascript:void(0)"
+												class="btn btn-secondary">Send
+												Reply</button>
 										</div>
-									</div>
+									</form>
 								</div>
 							</div>
 						</div>
@@ -993,7 +995,7 @@
 	<!-- Message Modal -->
 	<div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog" role="document">
-			<div class="modal-content">
+			<form id="modalForm" class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="exampleModalLongTitle">Send Message</h5>
 					<button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
@@ -1002,21 +1004,21 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<input type="text" class="form-control" placeholder="Your Name">
+						<input name="name" type="text" class="form-control" placeholder="Your Name">
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control" placeholder="Email Address">
+						<input name="email" type="email" class="form-control" placeholder="Email Address">
 					</div>
 					<div class="form-group mb-0">
-						<textarea class="form-control" name="example-textarea-input" rows="6"
+						<textarea name="message" class="form-control" name="example-textarea-input" rows="6"
 							placeholder="Message"></textarea>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-					<button type="button" class="btn btn-success">Send</button>
+					<button id="modalBtn" type="submit" class="btn btn-success">Send</button>
 				</div>
-			</div>
+			</form>
 		</div>
 	</div>
 	<!-- Message Modal -->
@@ -1151,10 +1153,123 @@
 				}
 			})
 			const rep = await res.json()
+			const body = {
+				userID: JSON.parse(localStorage.getItem("user"))._id
+			}
+			const res1 = await fetch("https://bizdire.azurewebsites.net/listing/get/params", {
+				method: "POST",
+				body: JSON.stringify(body),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				}
+			})
+			const rep1 = await res1.json()
 			document.getElementById("userImage").src = rep.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${rep.image}` : "../assets/images/products/products/profile1.jpg"
 			document.getElementById("userName").innerHTML = `${rep.name} <i class="ion-checkmark-circled text-success">`
+			document.getElementById("noOfList").innerHTML = `${rep1.length} Listing`
+			document.getElementById("theName").innerHTML = `<span class="font-weight-semibold">Full Name :</span> ${rep.name}`
+			document.getElementById("userLocation").innerHTML = `<span class="font-weight-semibold">Location :</span> ${rep.city}, ${rep.state}`
+			document.getElementById("userEmail").innerHTML = `<span class="font-weight-semibold">Email :</span> ${rep.email}`
+			document.getElementById("userPhone").innerHTML = `<span class="font-weight-semibold">Phone :</span> ${rep.phoneNumber}`
+			document.getElementById("userDesc").innerHTML = rep.description
 			console.log(rep);
+
+			const tab6 = document.getElementById("tab-6")
+			tab6.innerHTML = ""
+			rep1.forEach((re) => {
+				tab6.innerHTML += `
+						<div class="card overflow-hidden card-absolute">
+											<div class="d-md-flex">
+												<div class="item-card9-img">
+													<div class="item-card9-imgs">
+														<a href="business.html"></a>
+														<img style="width: 400px; height: 230px;" src="${re.image ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${re.image}` : "../assets/images/products/products/h4.jpg"}" alt="img"
+															class="cover-image">
+													</div>
+												</div>
+												<div class="card border-0 mb-0">
+													<div class="card-body py-4">
+														<div class="item-card9">
+															<div class="d-flex">
+																<a href="business.html?id=${re._id}">${re.category}</a>
+															</div>
+															<a href="business.html?id=${re._id}" class="text-dark">
+																<h4 style="text-transform: capitalize;" class="font-weight-semibold mt-0">${re.title}<i
+																		class="ion-checkmark-circled text-success ms-1"></i>
+																</h4>
+															</a>
+															<div class="item-card2-desc mt-3">
+																<div class="item-card2-desc-cost">
+																	<h6 class="text-dark font-weight-normal mb-0 mt-0">
+																		<i class="fa fa-map-marker me-1"></i>${re.city}, ${re.state}
+																	</h6>
+																	<h6 class="text-dark font-weight-normal mb-0 mt-2">
+																		<i class="fa fa-phone me-1"></i> <a
+																			href="tel:${re.phoneNumber}">${re.phoneNumber}
+																	</h6>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="card-footer py-3">
+														<div class="row">
+															<div class="col">
+																<a href="javascript:void(0)" class="mt-1 mb-1 me-1"><i
+																		class="fa fa-clock-o"></i>
+																	<b>${re.openingTime}-${re.closingTime}</b></a>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+				`
+			})
 		}
+
+		document.getElementById("modalForm").addEventListener("submit", async (e) => {
+			e.preventDefault()
+			document.getElementById("modalBtn").innerHTML = "Loading..."
+			const body = {
+				name: e.target.name.value,
+				senderEmail: e.target.email.value,
+				message: e.target.message.value,
+				userEmail: JSON.parse(localStorage.getItem("user")).email
+			}
+			const res = await fetch("https://bizdire.azurewebsites.net/send/mail", {
+				method: "POST",
+				body: JSON.stringify(body),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				}
+			})
+			document.getElementById("modalBtn").innerHTML = "Message Sent"
+			setTimeout(() => {
+				document.getElementById("modalBtn").innerHTML = "Send"
+			}, 3000)
+		})
+		document.getElementById("tab-8").addEventListener("submit", async (e) => {
+			e.preventDefault()
+			document.getElementById("reviewBtn").innerHTML = "Loading..."
+			const body = {
+				name: e.target.name.value,
+				senderEmail: e.target.email.value,
+				message: e.target.message.value,
+				userEmail: JSON.parse(localStorage.getItem("user")).email
+			}
+			const res = await fetch("https://bizdire.azurewebsites.net/send/mail", {
+				method: "POST",
+				body: JSON.stringify(body),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				}
+			})
+			document.getElementById("reviewBtn").innerHTML = "Message Sent"
+			setTimeout(() => {
+				document.getElementById("reviewBtn").innerHTML = "Send"
+			}, 3000)
+		})
+
 		getUser()
 	</script>
 
