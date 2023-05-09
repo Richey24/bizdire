@@ -25,6 +25,9 @@
     <!-- Font-awesome  Css -->
     <link href="../assets/css/icons.css" rel="stylesheet" />
 
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
 </head>
 
 <body>
@@ -700,16 +703,17 @@
 
                     <div id="eventLocation" class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Listing location</h3>
+                            <h3 class="card-title">Event location</h3>
                         </div>
                         <div class="card-body">
                             <div class="map-header">
-                                <div class="map-header-layer" id="map2"></div>
+                                <div class="map-header-layer" id="newMap"></div>
                             </div>
-                            <div class="item-user mt-5">
+                            <div class=" item-user mt-5">
                                 <div>
                                     <h6><span class="font-weight-semibold"><i class="fa fa-map me-3 mb-0"></i></span><a
-                                            href="javascript:void(0)" class="text-body"> Mp-214, New York, NY 10012,
+                                            href="javascript:void(0)" id="mapAddress" class="text-body"> Mp-214, New
+                                            York, NY 10012,
                                             US-52014</a></h6>
                                 </div>
                             </div>
@@ -1420,6 +1424,23 @@
             document.getElementById("businessID").innerHTML = `Business ID : #${rep._id}`
             document.getElementById("postedBy").innerHTML = `Posted By <a class="mb-0 font-weight-bold">${rep.userName || ""}</a> / ${new Date(rep.createdAt).toLocaleDateString()}`
             if (rep.locationType === "online") {
+                document.getElementById("eventLocation").style.display = "none"
+            }
+
+            if (rep.locationType === "Physical Address") {
+                document.getElementById("mapAddress").innerHTML = `${rep.location} US-${rep.zipcode}`
+
+                const resp = await fetch(`https://zip-api.eu/api/v1/info/US-${rep.zipcode}`)
+                const loca = await resp.json()
+
+                mapboxgl.accessToken = 'pk.eyJ1IjoicmljaGV5MjQiLCJhIjoiY2xoOXRuOG9yMDVwbjNycGM3MmFiNXZnNiJ9.B5v8KsYBsdkTKCM2V-lnZA';
+                var map = new mapboxgl.Map({
+                    container: 'newMap',
+                    style: 'mapbox://styles/mapbox/streets-v11',
+                    center: [loca.lng, loca.lat],
+                    zoom: 14
+                });
+            } else if (rep.locationType === "Online Meeting") {
                 document.getElementById("eventLocation").style.display = "none"
             }
         }

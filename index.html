@@ -3435,9 +3435,9 @@
 			const res = await fetch("https://bizdire.azurewebsites.net/event/get/all")
 			const result = await res.json()
 			const rep = result.filter((re) => new Date(re.dateOfEvent[1]).getTime() > Date.now())
-			const res1 = await fetch(`https://bizdire.azurewebsites.net/user/get/${JSON.parse(localStorage.getItem("user"))._id}`, {
+			const res1 = await fetch(`https://bizdire.azurewebsites.net/user/get/${JSON.parse(localStorage.getItem("user"))?._id}`, {
 				headers: {
-					"Authorization": `Bearer ${JSON.parse(localStorage.getItem("user")).mainToken}`,
+					"Authorization": `Bearer ${JSON.parse(localStorage.getItem("user"))?.mainToken}`,
 				}
 			})
 			const rep1 = await res1.json()
@@ -3445,8 +3445,8 @@
 			const loca = await resp.json()
 			allEvent.innerHTML = ""
 			eventNearMe.innerHTML = ""
-			const physicalEvent = rep.filter((re) => re.locationType === "physical")
-			const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, loca.lat, loca.lng) < 1000)
+			const physicalEvent = rep.filter((re) => re.locationType === "Physical Address")
+			const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, loca.lat, loca.lng) < 500)
 			rep.slice(0, 3).forEach((re) => {
 				allEvent.innerHTML += `
 					<div style="cursor: pointer;" class="col-xl-4 col-lg-4 col-md-12">
@@ -3463,8 +3463,8 @@
 												<div class="item-card8-desc">
 													<p class="text-muted mb-2">${re.dateOfEvent[0]} - ${re.dateOfEvent[1]}</p>
 													<p class="text-muted mb-2">${re.timeOfEvent[0]} - ${re.timeOfEvent[1]}</p>
-													<h4 class="font-weight-semibold">${re.eventName}</h4>
-													<p class="mb-0 popularDesc">${re.description}</p>
+													<h4 style="text-transform: capitalize;" class="font-weight-semibold">${re.eventName}</h4>
+													<p style="text-transform: capitalize;" class="mb-0 popularDesc">${re.description}</p>
 												</div>
 											</div>
 											<div class="card-footer">
