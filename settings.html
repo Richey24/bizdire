@@ -355,10 +355,11 @@
 								<div class="profile-pic-img">
 									<span class="bg-success dots" data-bs-toggle="tooltip" data-bs-placement="top"
 										title="online"></span>
-									<img src="../assets/images/faces/male/25.jpg" class="brround" alt="user">
+									<img id="userImage" src="../assets/images/faces/male/25.jpg" class="brround"
+										alt="user">
 								</div>
 								<a href="userprofile.html" class="text-dark">
-									<h4 class="mt-3 mb-0 font-weight-semibold">Robert McLean</h4>
+									<h4 id="userName" class="mt-3 mb-0 font-weight-semibold">Robert McLean</h4>
 								</a>
 							</div>
 						</div>
@@ -370,77 +371,22 @@
 												class="typcn typcn-edit fs-20"></i><span
 												class="side-menu__label ms-2">Edit Profile</span></a>
 									</li>
-									<li class="slide">
-										<a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
-												class="typcn typcn-heart-outline fs-20"></i><span
-												class="side-menu__label ms-2">My Favorite</span><i
-												class="angle fa fa-angle-right"></i></a>
-										<ul class="slide-menu">
-											<li><a class="slide-item" href="myfavorite.html"><i
-														class="fa fa-angle-right me-2"></i>Favorite1</a></li>
-											<li><a class="slide-item" href="myfavorite-2.html"><i
-														class="fa fa-angle-right me-2"></i>Favorite2</a></li>
-										</ul>
-									</li>
-									<li class="slide">
-										<a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
-												class="typcn typcn-briefcase fs-20"></i><span
-												class="side-menu__label ms-2">My Listings</span><i
-												class="angle fa fa-angle-right"></i></a>
-										<ul class="slide-menu">
-											<li><a class="slide-item" href="mylistings.html"><i
-														class="fa fa-angle-right me-2"></i>My-Listing 01</a></li>
-											<li><a class="slide-item" href="mylistings-2.html"><i
-														class="fa fa-angle-right me-2"></i>My-Listing 02</a></li>
-										</ul>
-									</li>
-									<li class="slide">
-										<a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)"><i
-												class="typcn typcn-folder fs-20"></i><span
-												class="side-menu__label ms-2">Managed Listings</span><i
-												class="angle fa fa-angle-right"></i></a>
-										<ul class="slide-menu">
-											<li><a class="slide-item" href="manged.html"><i
-														class="fa fa-angle-right me-2"></i></i>Managed Listing 01</a>
-											</li>
-											<li><a class="slide-item" href="manged-2.html"><i
-														class="fa fa-angle-right me-2"></i></i>Managed Listing 02</a>
-											</li>
-											<li class="sub-slide">
-												<a class="side-menu__item border-top-0 slide-item"
-													href="javascript:void(0)" data-bs-toggle="sub-slide"><span
-														class="side-menu__label"><i
-															class="fa fa-angle-right me-2"></i>Listings</span> <i
-														class="sub-angle fa fa-angle-right"></i></a>
-												<ul class="child-sub-menu ">
-													<li><a class="slide-item" href="javascript:void(0)"><i
-																class="fa fa-angle-right me-2 text-muted"></i>Managed
-															Listing </a></li>
-												</ul>
-											</li>
-										</ul>
+									<li>
+										<a class="side-menu__item" href="mylistings.html"><i
+												class="typcn typcn-edit fs-20"></i><span
+												class="side-menu__label ms-2">My Listings</span></a>
 									</li>
 									<li>
-										<a class="side-menu__item" href="payments.html"><i
-												class="typcn typcn-credit-card fs-20"></i><span
-												class="side-menu__label ms-2">Payments</span></a>
-									</li>
-									<li>
-										<a class="side-menu__item" href="orders.html"><i
-												class="typcn typcn-shopping-cart fs-20"></i><span
-												class="side-menu__label ms-2">Orders</span></a>
-									</li>
-									<li>
-										<a class="side-menu__item" href="tips.html"><i
-												class="typcn typcn-flag-outline fs-20"></i><span
-												class="side-menu__label ms-2">Safety Tips</span></a>
+										<a class="side-menu__item" href="myevents.html"><i
+												class="typcn typcn-edit fs-20"></i><span
+												class="side-menu__label ms-2">My Events</span></a>
 									</li>
 									<li>
 										<a class="side-menu__item" href="settings.html"><i
 												class="typcn typcn-cog-outline fs-20"></i><span
 												class="side-menu__label ms-2">Settings </span></a>
 									</li>
-									<li>
+									<li id="logOut">
 										<a class="side-menu__item" href="../login.html"><i
 												class="typcn typcn-power-outline fs-20"></i><span
 												class="side-menu__label ms-2">Logout</span></a>
@@ -458,12 +404,13 @@
 						<div class="card-body">
 							<div class="settings-tab">
 								<ul class="tabs-menu nav">
-									<li class=""><a href="#tab1" class="active" data-bs-toggle="tab"><i
-												class="icon icon-speedometer"></i> General</a></li>
-									<li><a href="#tab2" data-bs-toggle="tab" class=""><i class="icon icon-bubble"></i>
+									<li style="width: 100%;" class=""><a href="#tab1" class="active"
+											data-bs-toggle="tab"><i class="icon icon-speedometer"></i> Change
+											Password</a></li>
+									<!-- <li><a href="#tab2" data-bs-toggle="tab" class=""><i class="icon icon-bubble"></i>
 											Chat</a></li>
 									<li><a href="#tab3" data-bs-toggle="tab" class=""><i class="icon icon-settings"></i>
-											Advanced</a></li>
+											Advanced</a></li> -->
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active show" id="tab1">
@@ -471,150 +418,32 @@
 											<div class="form-group ">
 												<div class="row">
 													<div class="col-md-3">
-														<label class="form-label"
-															id="examplenameInputname2">Currency</label>
+														<label class="form-label" id="examplenameInputname2">Current
+															Password</label>
 													</div>
 													<div class="col-md-9">
-														<select data-placeholder="Choose a Language..."
-															class="form-control select2-show-search form-select languages">
-															<option value="0">Choose currency</option>
-															<option value="1">USD</option>
-															<option value="2">INR</option>
-															<option value="3">EUR</option>
-															<option value="4">GBP</option>
-														</select>
+														<input required name="currentPassword" type="text"
+															class="form-control" placeholder="Current Password">
 													</div>
 												</div>
-											</div>
-											<div class="form-group ">
-												<div class="row">
+												<div style="margin-top: 20px;" class="row">
 													<div class="col-md-3">
-														<label class="form-label"
-															id="examplenameInputname3">Langague:</label>
+														<label class="form-label" id="examplenameInputname2">New
+															Password</label>
 													</div>
 													<div class="col-md-9">
-														<select data-placeholder="Choose a Language..."
-															class="form-control select2-show-search form-select languages">
-															<option value="0">Choose Language</option>
-															<option value="AF">Afrikanns</option>
-															<option value="SQ">Albanian</option>
-															<option value="AR">Arabic</option>
-															<option value="HY">Armenian</option>
-															<option value="EU">Basque</option>
-															<option value="BN">Bengali</option>
-															<option value="BG">Bulgarian</option>
-															<option value="CA">Catalan</option>
-															<option value="KM">Cambodian</option>
-															<option value="ZH">Chinese (Mandarin)</option>
-															<option value="HR">Croation</option>
-															<option value="CS">Czech</option>
-															<option value="DA">Danish</option>
-															<option value="NL">Dutch</option>
-															<option value="EN">English</option>
-															<option value="ET">Estonian</option>
-															<option value="FJ">Fiji</option>
-															<option value="FI">Finnish</option>
-															<option value="FR">French</option>
-															<option value="KA">Georgian</option>
-															<option value="DE">German</option>
-															<option value="EL">Greek</option>
-															<option value="GU">Gujarati</option>
-															<option value="HE">Hebrew</option>
-															<option value="HI">Hindi</option>
-															<option value="HU">Hungarian</option>
-															<option value="IS">Icelandic</option>
-															<option value="ID">Indonesian</option>
-															<option value="GA">Irish</option>
-															<option value="IT">Italian</option>
-															<option value="JA">Japanese</option>
-															<option value="JW">Javanese</option>
-															<option value="KO">Korean</option>
-															<option value="LA">Latin</option>
-															<option value="LV">Latvian</option>
-															<option value="LT">Lithuanian</option>
-															<option value="MK">Macedonian</option>
-															<option value="MS">Malay</option>
-															<option value="ML">Malayalam</option>
-															<option value="MT">Maltese</option>
-															<option value="MI">Maori</option>
-															<option value="MR">Marathi</option>
-															<option value="MN">Mongolian</option>
-															<option value="NE">Nepali</option>
-															<option value="NO">Norwegian</option>
-															<option value="FA">Persian</option>
-															<option value="PL">Polish</option>
-															<option value="PT">Portuguese</option>
-															<option value="PA">Punjabi</option>
-															<option value="QU">Quechua</option>
-															<option value="RO">Romanian</option>
-															<option value="RU">Russian</option>
-															<option value="SM">Samoan</option>
-															<option value="SR">Serbian</option>
-															<option value="SK">Slovak</option>
-															<option value="SL">Slovenian</option>
-															<option value="ES">Spanish</option>
-															<option value="SW">Swahili</option>
-															<option value="SV">Swedish </option>
-															<option value="TA">Tamil</option>
-															<option value="TT">Tatar</option>
-															<option value="TE">Telugu</option>
-															<option value="TH">Thai</option>
-															<option value="BO">Tibetan</option>
-															<option value="TO">Tonga</option>
-															<option value="TR">Turkish</option>
-															<option value="UK">Ukranian</option>
-															<option value="UR">Urdu</option>
-															<option value="UZ">Uzbek</option>
-															<option value="VI">Vietnamese</option>
-															<option value="CY">Welsh</option>
-															<option value="XH">Xhosa</option>
-														</select>
+														<input required name="newPassword" type="text"
+															class="form-control" placeholder="New Password">
 													</div>
 												</div>
-											</div>
-											<div class="form-group ">
-												<div class="row">
+												<div style="margin-top: 20px;" class="row">
 													<div class="col-md-3">
-														<label class="form-label">Phone Number:</label>
+														<label class="form-label" id="examplenameInputname2">Confirm New
+															Password</label>
 													</div>
 													<div class="col-md-9">
-														<div class="custom-controls-stacked d-md-flex">
-															<label class="custom-control custom-radio me-4">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios3" value="option1" checked>
-																<span class="custom-control-label">Visible to
-																	everyone</span>
-															</label>
-															<label class="custom-control custom-radio">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios3" value="option2">
-																<span class="custom-control-label">Visible to only my
-																	Customers</span>
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="form-group mb-0">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label" id="inputPassword5">Profile:</label>
-													</div>
-													<div class="col-md-9">
-														<div class="custom-controls-stacked d-md-flex">
-															<label class="custom-control custom-radio me-4">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios4" value="option1" checked>
-																<span class="custom-control-label">Visible to
-																	everyone</span>
-															</label>
-															<label class="custom-control custom-radio">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios4" value="option2">
-																<span class="custom-control-label">Visible to only my
-																	Customers</span>
-															</label>
-														</div>
+														<input required name="confirmPassword" type="text"
+															class="form-control" placeholder="Confirm New Password">
 													</div>
 												</div>
 											</div>
@@ -1090,6 +919,29 @@
 	<!-- Custom Js-->
 	<script src="../assets/js/themeColors.js"></script>
 	<script src="../assets/js/custom.js"></script>
+	<script type="module" src="../assets/js/pages/header.js"></script>
+
+	<script>
+		const getUser = async () => {
+			const res = await fetch(`https://bizdire.azurewebsites.net/user/get/${JSON.parse(localStorage.getItem("user"))._id}`, {
+				headers: {
+					"Authorization": `Bearer ${JSON.parse(localStorage.getItem("user")).mainToken}`,
+				}
+			})
+			const rep = await res.json()
+			document.getElementById("userName").innerHTML = rep.name || ""
+			if (rep.image) {
+				document.getElementById("userImage").src = `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${rep.image}`
+			}
+		}
+		getUser()
+
+		document.getElementById("logOut").addEventListener("click", () => {
+			localStorage.clear()
+			window.location.replace("/login.html")
+		})
+	</script>
+
 </body>
 
 </html>
