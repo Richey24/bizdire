@@ -2045,7 +2045,7 @@
 																	class="text-dark font-weight-normal mb-0 mt-0 item-card2-desc">
 																	<a class="" href="mailto:${re.email}"><i
 																			class="fa fa-envelope"></i></a>
-																	<a class="" href="${re.phoneNumber}"
+																	<a class="" href="tel:${re.phoneNumber}"
 																		data-bs-toggle="tooltip" data-bs-placement="top"
 																		title="" data-bs-original-title="458-965-856"><i
 																			class="fa fa-phone"></i></a>
@@ -2071,7 +2071,8 @@
 			const entries = document.getElementById("entries")
 			const pagination = document.getElementById("pagination")
 			const res = await fetch("https://bizdire.azurewebsites.net/event/get/all")
-			const rep = await res.json()
+			const result = await res.json()
+			const rep = result.filter((re) => new Date(re.dateOfEvent[1]).getTime() > Date.now())
 			noOfList.innerHTML = rep.length
 			entries.innerHTML = `Showing 1 to 10 of ${rep.length} entries`
 			insertDiv(rep, page)
@@ -2107,10 +2108,20 @@
 				return deg * (Math.PI / 180);
 			}
 
-			const physicalEvent = rep.filter((re) => re.locationType === "physical")
+
+			const res1 = await fetch(`https://bizdire.azurewebsites.net/user/get/${JSON.parse(localStorage.getItem("user"))?._id}`, {
+				headers: {
+					"Authorization": `Bearer ${JSON.parse(localStorage.getItem("user"))?.mainToken}`,
+				}
+			})
+			const rep1 = await res1.json()
+			const resp = await fetch(`https://zip-api.eu/api/v1/info/US-${rep1.zipcode}`)
+			const loca = await resp.json()
+
+			const physicalEvent = rep.filter((re) => re.locationType === "Physical Address")
 			document.getElementById("nearMe").addEventListener("change", (e) => {
 				const milesToKM = e.target.value * 1.609
-				const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, "36.07940000", "-118.45510000") < milesToKM)
+				const nearToMe = physicalEvent.filter((near) => calcDistance(near.lat, near.long, loca.lat, loca.lng) < milesToKM)
 				insertDiv(nearToMe, page)
 			})
 

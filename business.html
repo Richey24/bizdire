@@ -25,6 +25,10 @@
 	<!-- Font-awesome  Css -->
 	<link href="../assets/css/icons.css" rel="stylesheet" />
 
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css' rel='stylesheet' />
+
+
 	<style>
 		.relatedDiv {
 			display: flex;
@@ -439,8 +443,6 @@
 													class="icon icon-briefcase text-muted me-1"></i> Education</a></li>
 										<li class="me-5"><a id="listLoc" href="javascript:void(0)" class="icons"><i
 													class="icon icon-location-pin text-muted me-1"></i> USA</a></li>
-										<li class="me-5"><a id="listTime" href="javascript:void(0)" class="icons"><i
-													class="icon icon-calendar text-muted me-1"></i> 5 hours ago</a></li>
 										<li class="me-5"><a id="listView" href="javascript:void(0)" class="icons"><i
 													class="icon icon-eye text-muted me-1"></i> 765</a></li>
 									</ul>
@@ -1097,12 +1099,13 @@
 						</div>
 						<div class="card-body">
 							<div class="map-header">
-								<div class="map-header-layer" id="map2"></div>
+								<div class="map-header-layer" id="newMap"></div>
 							</div>
 							<div class="item-user mt-5">
 								<div>
 									<h6><span class="font-weight-semibold"><i class="fa fa-map me-3 mb-0"></i></span><a
-											href="javascript:void(0)" class="text-body"> Mp-214, New York, NY 10012,
+											href="javascript:void(0)" id="mapAddress" class="text-body"> Mp-214, New
+											York, NY 10012,
 											US-52014</a></h6>
 								</div>
 							</div>
@@ -1841,8 +1844,22 @@
 			document.getElementById("userImage").src = rep.userImage ? `https://absa7kzimnaf.blob.core.windows.net/newcontainer/${rep.userImage}` : "../assets/images/faces/female/13.jpg"
 			document.getElementById("userName").innerHTML = rep.userName || ""
 			document.getElementById("userNumber").href = rep.userNumber ? `tel:${rep.userNumber}` : "javascript:void(0)"
-			document.getElementById("seeAll").href = `personal-blog.html?id=${rep._id}`
+			document.getElementById("seeAll").href = `personal-blog.html?id=${rep.userID}`
 			document.getElementById("postedBy").innerHTML = `Posted By <a class="mb-0 font-weight-bold">${rep.userName || ""}</a> / ${new Date(rep.createdAt).toLocaleDateString()}`
+			document.getElementById("mapAddress").innerHTML = `${rep.city}, ${rep.state} US-${rep.zipcode}`
+
+			const resp = await fetch(`https://zip-api.eu/api/v1/info/US-${rep.zipcode}`)
+			const loca = await resp.json()
+
+
+			mapboxgl.accessToken = 'pk.eyJ1IjoicmljaGV5MjQiLCJhIjoiY2xoOXRuOG9yMDVwbjNycGM3MmFiNXZnNiJ9.B5v8KsYBsdkTKCM2V-lnZA';
+			var map = new mapboxgl.Map({
+				container: 'newMap',
+				style: 'mapbox://styles/mapbox/streets-v11',
+				center: [loca.lng, loca.lat],
+				zoom: 14
+			});
+
 
 			const res1 = await fetch("https://bizdire.azurewebsites.net/listing/get/all")
 			const rep1 = await res1.json()
