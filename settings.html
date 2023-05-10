@@ -397,7 +397,7 @@
 					</div>
 				</div>
 				<div class="col-lg-9 col-md-12">
-					<div class="card mb-0 overflow-hidden">
+					<form id="passwordForm" class="card mb-0 overflow-hidden">
 						<div class="card-header">
 							<h3 class="card-title">Settings</h3>
 						</div>
@@ -414,7 +414,11 @@
 								</ul>
 								<div class="tab-content">
 									<div class="tab-pane active show" id="tab1">
-										<form class="form-horizontal">
+										<h5 id="errorMsg" style="color: red; margin-bottom: 20px; visibility: hidden;">
+											Confirm
+											password does not match
+											with new password</h5>
+										<div class="form-horizontal">
 											<div class="form-group ">
 												<div class="row">
 													<div class="col-md-3">
@@ -447,288 +451,16 @@
 													</div>
 												</div>
 											</div>
-										</form>
-									</div>
-									<div class="tab-pane" id="tab2">
-										<div class="form-group ">
-											<div class="row">
-												<div class="col-md-3">
-													<label class="form-label">Font-size:</label>
-												</div>
-												<div class="col-md-9">
-													<div class="custom-controls-stacked d-sm-flex">
-														<label class="custom-control custom-radio me-4">
-															<input type="radio" class="custom-control-input"
-																name="example-radios3" value="option1" checked>
-															<span class="custom-control-label">Small</span>
-														</label>
-														<label class="custom-control custom-radio me-4">
-															<input type="radio" class="custom-control-input"
-																name="example-radios3" value="option2">
-															<span class="custom-control-label">Medium</span>
-														</label>
-														<label class="custom-control custom-radio">
-															<input type="radio" class="custom-control-input"
-																name="example-radios3" value="option2">
-															<span class="custom-control-label">Large</span>
-														</label>
-													</div>
-												</div>
-											</div>
 										</div>
-										<div class="form-group ">
-											<div class="row">
-												<div class="col-md-3">
-													<label class="form-label">Chat:</label>
-												</div>
-												<div class="col-md-9">
-													<label class="form-switch">
-														<input type="checkbox" name="form-switch-checkbox"
-															class="form-switch-input">
-														<span class="form-switch-indicator"></span>
-														<span class="form-switch-description">On/Off</span>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="form-group ">
-											<div class="row">
-												<div class="col-md-3">
-													<label class="form-label">Chat Type:</label>
-												</div>
-												<div class="col-md-9">
-													<div class="custom-controls-stacked d-md-flex">
-														<label class="custom-control custom-radio me-4">
-															<input type="radio" class="custom-control-input"
-																name="example-radios4" value="option1" checked>
-															<span class="custom-control-label">Public Chat</span>
-														</label>
-														<label class="custom-control custom-radio">
-															<input type="radio" class="custom-control-input"
-																name="example-radios4" value="option2">
-															<span class="custom-control-label">Private Chat</span>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="form-group ">
-											<div class="row">
-												<div class="col-md-3">
-													<label class="form-label">Enable Email Notifications:</label>
-												</div>
-												<div class="col-md-9">
-													<label class="form-switch">
-														<input type="checkbox" name="form-switch-checkbox"
-															class="form-switch-input">
-														<span class="form-switch-indicator"></span>
-														<span class="form-switch-description">On/Off</span>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="form-group ">
-											<div class="row">
-												<div class="col-md-3">
-													<label class="form-label">Back Up Chat:</label>
-												</div>
-												<div class="col-md-9">
-													<label class="form-switch">
-														<input type="checkbox" name="form-switch-checkbox"
-															class="form-switch-input">
-														<span class="form-switch-indicator"></span>
-														<span class="form-switch-description">On/Off</span>
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="form-group mb-0">
-											<div class="row">
-												<div class="col-md-3">
-													<label class="form-label">Delete Chat:</label>
-												</div>
-												<div class="col-md-9">
-													<div class="custom-controls-stacked d-md-flex">
-														<label class="custom-control custom-radio me-4">
-															<input type="radio" class="custom-control-input"
-																name="example-radios5" value="option1" checked>
-															<span class="custom-control-label">Delete Read Chat</span>
-														</label>
-														<label class="custom-control custom-radio">
-															<input type="radio" class="custom-control-input"
-																name="example-radios5" value="option2">
-															<span class="custom-control-label">Delete All</span>
-														</label>
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="tab-pane" id="tab3">
-										<form class="form-horizontal">
-											<div class="form-group ">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label">Auto-Advance:</label>
-													</div>
-													<div class="col-md-9">
-														<label class="form-switch">
-															<input type="checkbox" name="form-switch-checkbox"
-																class="form-switch-input">
-															<span class="form-switch-indicator"></span>
-															<span class="form-switch-description">Enable/Disable</span>
-														</label>
-													</div>
-												</div>
-											</div>
-											<div class="form-group ">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label" id="inputEmail4">Color Theme:</label>
-													</div>
-													<div class="col-md-9">
-														<div class="custom-controls-stacked d-flex">
-															<label class="custom-control custom-radio me-4">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios" value="option1" checked>
-																<span class="custom-control-label">Light</span>
-															</label>
-															<label class="custom-control custom-radio">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios" value="option2">
-																<span class="custom-control-label">Dark</span>
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="form-group ">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label">Dashboard Theme:</label>
-													</div>
-													<div class="col-md-9">
-														<select data-placeholder="Choose a Language..."
-															class="form-control w-100 form-select languages select2-no-search">
-															<option value="0">Choose Theme</option>
-															<option value="1">Default Theme</option>
-															<option value="2">Light Theme</option>
-															<option value="3">Dark Theme</option>
-															<option value="4">Sidebar light Theme</option>
-															<option value="5">Sidebar Dark Theme</option>
-															<option value="6">RTL</option>
-														</select>
-													</div>
-												</div>
-											</div>
-											<div class="form-group ">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label" id="inputEmail5">Posted ADs:</label>
-													</div>
-													<div class="col-md-9">
-														<div class="custom-controls-stacked d-md-flex">
-															<label class="custom-control custom-radio me-4">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios1" value="option1" checked>
-																<span class="custom-control-label">Directly</span>
-															</label>
-															<label class="custom-control custom-radio">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios1" value="option2">
-																<span class="custom-control-label">By Admin
-																	Conformation</span>
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="form-group ">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label">Comments Visible:</label>
-													</div>
-													<div class="col-md-9">
-														<div class="custom-controls-stacked d-md-flex">
-															<label class="custom-control custom-radio me-4">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios2" value="option1" checked>
-																<span class="custom-control-label">Directly</span>
-															</label>
-															<label class="custom-control custom-radio">
-																<input type="radio" class="custom-control-input"
-																	name="example-radios2" value="option2">
-																<span class="custom-control-label">By Admin
-																	Conformation</span>
-															</label>
-														</div>
-													</div>
-												</div>
-											</div>
-											<div class="form-group ">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label">System Notification:</label>
-													</div>
-													<div class="col-md-9">
-														<label class="form-switch d-inline-block me-5">
-															<input type="checkbox" name="form-switch-checkbox"
-																class="form-switch-input">
-															<span class="form-switch-indicator"></span>
-															<span class="form-switch-description">On/Off</span>
-														</label>
-														<label class="form-switch d-inline-block"><a
-																href="javascript:void(0)" class="btn-link">Add Another
-																Settings</a></label>
-													</div>
-												</div>
-											</div>
-											<div class="form-group ">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label">Mail Notification:</label>
-													</div>
-													<div class="col-md-9">
-														<label class="form-switch d-inline-block me-5">
-															<input type="checkbox" name="form-switch-checkbox"
-																class="form-switch-input">
-															<span class="form-switch-indicator"></span>
-															<span class="form-switch-description">On/Off</span>
-														</label>
-														<label class="form-switch d-inline-block"><a
-																href="javascript:void(0)" class="btn-link">Add Another
-																Settings</a></label>
-													</div>
-												</div>
-											</div>
-											<div class="form-group mb-0">
-												<div class="row">
-													<div class="col-md-3">
-														<label class="form-label">Auto Watch Comments:</label>
-													</div>
-													<div class="col-md-9">
-														<label class="form-switch d-inline-block me-5">
-															<input type="checkbox" name="form-switch-checkbox"
-																class="form-switch-input">
-															<span class="form-switch-indicator"></span>
-															<span class="form-switch-description">On/Off</span>
-														</label>
-														<label class="form-switch d-inline-block"><a
-																href="javascript:void(0)" class="btn-link">Add Another
-																Settings</a></label>
-													</div>
-												</div>
-											</div>
-										</form>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="card-footer">
-							<a href="javascript:void(0)" class="btn btn-secondary">Save Changes</a>
-							<a href="javascript:void(0)" class="btn btn-primary">Cancel</a>
+							<button id="submitBtn" type="submit" class="btn btn-secondary">Save Changes</button>
+							<a class="btn btn-primary">Cancel</a>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -939,6 +671,41 @@
 		document.getElementById("logOut").addEventListener("click", () => {
 			localStorage.clear()
 			window.location.replace("/login.html")
+		})
+
+		document.getElementById("passwordForm").addEventListener("submit", async (e) => {
+			e.preventDefault()
+			document.getElementById("errorMsg").style.visibility = "hidden"
+			document.getElementById("submitBtn").innerHTML = "Loading..."
+			const body = {
+				currentPassword: e.target.currentPassword.value,
+				newPassword: e.target.newPassword.value,
+				confirmPassword: e.target.confirmPassword.value,
+				id: JSON.parse(localStorage.getItem("user"))._id
+			}
+			if (body.newPassword !== body.confirmPassword) {
+				document.getElementById("errorMsg").innerHTML = "Confirm password does not match with new password"
+				document.getElementById("errorMsg").style.visibility = "visible"
+				document.getElementById("submitBtn").innerHTML = "Save Changes"
+				return
+			}
+			const res = await fetch("https://bizdire.azurewebsites.net/user/change/password", {
+				method: "POST",
+				body: JSON.stringify(body),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				}
+			})
+			if (res.status === 401) {
+				document.getElementById("errorMsg").innerHTML = "Current password is incorrect"
+				document.getElementById("errorMsg").style.visibility = "visible"
+				document.getElementById("submitBtn").innerHTML = "Save Changes"
+				return
+			}
+			document.getElementById("submitBtn").innerHTML = "Saved"
+			setTimeout(() => {
+				document.getElementById("submitBtn").innerHTML = "Save Changes"
+			}, 3000)
 		})
 	</script>
 
