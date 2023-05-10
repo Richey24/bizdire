@@ -247,7 +247,7 @@
 										<a href="settings.html" class="dropdown-item">
 											<i class="dropdown-icon  icon icon-settings"></i> Account Settings
 										</a>
-										<a class="dropdown-item" href="../login.html">
+										<a id="logOut" class="dropdown-item" href="../login.html">
 											<i class="dropdown-icon icon icon-power"></i> Log out
 										</a>
 									</div>
@@ -1145,6 +1145,11 @@
 		if (!id) {
 			window.location.href = "/"
 		}
+
+		document.getElementById("logOut").addEventListener("click", () => {
+			localStorage.clear()
+			window.location.replace("/login.html")
+		})
 
 		const getUser = async () => {
 			const res = await fetch(`https://bizdire.azurewebsites.net/user/get/${JSON.parse(localStorage.getItem("user"))?._id}`, {

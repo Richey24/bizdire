@@ -351,14 +351,18 @@
 				<div class="col-lg-5 col-xl-4 col-md-6 d-block mx-auto">
 					<div class="single-page w-100 p-0">
 						<div class="wrapper wrapper2">
-							<form id="forgotpsd" class="card-body">
-								<h3 class="pb-2">Forgot password</h3>
+							<form id="forgotPassword" class="card-body">
+								<h3 class="pb-0">Forgot password</h3>
+								<h5 id="feedBack" style="color: green; visibility: hidden;">Check your mail for a link
+									to reset your
+									password</h5>
 								<div class="mail">
-									<input type="email" name="mail">
-									<label>Mail or Username</label>
+									<input required type="email" name="email">
+									<label>Mail</label>
 								</div>
 								<div class="submit">
-									<a class="btn btn-secondary btn-block" href="index.html">Send</a>
+									<button id="submitBtn" type="submit" class="btn btn-secondary btn-block"
+										href="index.html">Send</button>
 								</div>
 								<div class="text-center text-dark mb-0">
 									Forget it, <a href="../login.html">send me back</a> to the sign in.
@@ -554,6 +558,39 @@
 	<!-- Custom Js-->
 	<script src="../assets/js/themeColors.js"></script>
 	<script src="../assets/js/custom.js"></script>
+
+
+	<script>
+		document.getElementById("forgotPassword").addEventListener("submit", async (e) => {
+			e.preventDefault()
+			document.getElementById("feedBack").style.visibility = "hidden"
+			document.getElementById("submitBtn").innerHTML = "Loading..."
+			const body = {
+				email: e.target.email.value
+			}
+			const res = await fetch("http://localhost:5000/user/reset/send", {
+				method: "POST",
+				body: JSON.stringify(body),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				}
+			})
+			if (res.status === 404) {
+				document.getElementById("feedBack").innerHTML = "This email is not registered with any account"
+				document.getElementById("feedBack").style.visibility = "visible"
+				document.getElementById("submitBtn").innerHTML = "Send"
+				return
+			}
+			document.getElementById("feedBack").innerHTML = "Check your mail for a link to reset your password"
+			document.getElementById("feedBack").style.visibility = "visible"
+			document.getElementById("submitBtn").innerHTML = "Email Sent"
+			setTimeout(() => {
+				document.getElementById("submitBtn").innerHTML = "Send"
+			}, 3000)
+			console.log(body);
+		})
+	</script>
+
 </body>
 
 </html>

@@ -38,7 +38,7 @@ function logInButtonSubmit() {
         })
         .catch((error) => {
             console.log(error.message);
-            alert(error.message)
+            alert("Incorrect Password")
         })
 }
 
