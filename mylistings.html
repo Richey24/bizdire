@@ -393,7 +393,7 @@
 				<div class="col-xl-9 col-lg-12 col-md-12">
 					<div class="card mb-0 overflow-hidden">
 						<div class="card-header">
-							<h3 class="card-title">My Ads</h3>
+							<h3 id="intoView" class="card-title">My Ads</h3>
 						</div>
 						<div class="card-body">
 							<div class="ads-tabs">
@@ -1989,20 +1989,12 @@
 			}
 		}
 
-		const getUserList = async () => {
+		let page = 0
+		let arr = []
+
+		const insertResult = (rep, len) => {
 			const tab1 = document.getElementById("tab1")
-			const body = {
-				userID: JSON.parse(localStorage.getItem("user"))._id
-			}
-			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/params", {
-				method: "POST",
-				body: JSON.stringify(body),
-				headers: {
-					"Content-type": "application/json; charset=UTF-8",
-				}
-			})
-			const rep = await res.json()
-			document.getElementById("allList").innerHTML = `All List (${rep.length})`
+
 			tab1.innerHTML = ""
 			rep.forEach((re, i) => {
 				tab1.innerHTML += `
@@ -2061,6 +2053,41 @@
 				`
 			})
 
+			tab1.innerHTML += `
+			<div style="display: flex; justify-content: center;">
+					<ul id="pagination" class="pagination mb-5">
+						<li id="prevPage" class="page-item page-prev ${page < 10 && "disabled"}">
+										<a class="page-link" tabindex="-1">Prev</a>
+									</li>
+										<li id="nextPage" class="page-item page-next ${len < 10 && "disabled"}">
+										<a class="page-link">Next</a>
+									</li>
+						</ul>
+						</div>
+			`
+
+			document.getElementById("nextPage").addEventListener("click", async () => {
+				page += 10
+				if (page > len) {
+					page -= 10
+					return
+				}
+				const result = arr.slice(page, page + 10)
+				insertResult(result, len)
+				document.getElementById("intoView").scrollIntoView()
+			})
+
+			document.getElementById("prevPage").addEventListener("click", async () => {
+				page -= 10
+				if (page < 0) {
+					page += 10
+					return
+				}
+				const result = arr.slice(page, page + 10)
+				insertResult(result, len)
+				document.getElementById("intoView").scrollIntoView()
+			})
+
 			rep.forEach((re, i) => {
 				const del = document.getElementById(`deleteList${i + 1}`)
 				del.addEventListener("click", async () => {
@@ -2070,6 +2097,24 @@
 					window.location.reload()
 				})
 			})
+		}
+
+		const getUserList = async () => {
+			const body = {
+				userID: JSON.parse(localStorage.getItem("user"))._id
+			}
+			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/params", {
+				method: "POST",
+				body: JSON.stringify(body),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				}
+			})
+			const rep = await res.json()
+			arr = rep
+			document.getElementById("allList").innerHTML = `All List (${rep.length})`
+			const result = rep.slice(0, 10)
+			insertResult(result, rep.length)
 		}
 
 

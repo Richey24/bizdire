@@ -2000,10 +2000,11 @@
 
 	<script>
 		let page = 0
-		const insertDiv = (arr, paging) => {
+		let arr = []
+		const insertDiv = (rep, len) => {
 			const tab11 = document.getElementById("tab-11")
 			tab11.innerHTML = ""
-			arr.slice(paging, paging + 10).forEach((re) => {
+			rep.forEach((re) => {
 				tab11.innerHTML += `
 									<div class="card overflow-hidden">
 											<div style="display: flex;">
@@ -2064,6 +2065,38 @@
 									</div>
 				`
 			})
+
+
+			pagination.innerHTML = `<li id="prevPage" class="page-item page-prev ${page < 10 && "disabled"}">
+										<a class="page-link" tabindex="-1">Prev</a>
+									</li>
+										<li id="nextPage" class="page-item page-next ${len < 10 && "disabled"}">
+										<a class="page-link">Next</a>
+									</li>
+									`
+
+			document.getElementById("nextPage").addEventListener("click", async () => {
+				page += 10
+				if (page > len) {
+					page -= 10
+					return
+				}
+				const result = arr.slice(page, page + 10)
+				insertDiv(result, len)
+				document.getElementById("entries").scrollIntoView()
+			})
+
+			document.getElementById("prevPage").addEventListener("click", async () => {
+				page -= 10
+				if (page < 0) {
+					page += 10
+					return
+				}
+				const result = arr.slice(page, page + 10)
+				insertDiv(result, len)
+				document.getElementById("entries").scrollIntoView()
+			})
+
 		}
 
 		const getAllListing = async () => {
@@ -2072,20 +2105,13 @@
 			const pagination = document.getElementById("pagination")
 			const res = await fetch("https://bizdire.azurewebsites.net/event/get/all")
 			const result = await res.json()
-			const rep = result.filter((re) => new Date(re.dateOfEvent[1]).getTime() > Date.now())
+			arr = result.filter((re) => new Date(re.dateOfEvent[1]).getTime() > Date.now())
+			const rep = result.filter((re) => new Date(re.dateOfEvent[1]).getTime() > Date.now()).slice(0, 10)
 			noOfList.innerHTML = rep.length
-			entries.innerHTML = `Showing 1 to 10 of ${rep.length} entries`
-			insertDiv(rep, page)
-			pagination.innerHTML = `<li class="page-item page-prev disabled">
-										<a class="page-link" href="javascript:void(0)" tabindex="-1">Prev</a>
-									</li>
-										<li class="page-item page-next ${rep.length < 10 && "disabled"}">
-										<a class="page-link" href="javascript:void(0)">Next</a>
-									</li>
-									`
-
+			entries.innerHTML = `Showing 1 to 10 of ${result.filter((re) => new Date(re.dateOfEvent[1]).getTime() > Date.now()).length} entries`
+			insertDiv(rep, result.filter((re) => new Date(re.dateOfEvent[1]).getTime() > Date.now()).length)
 			document.getElementById("allEvent").addEventListener("click", () => {
-				insertDiv(rep, page)
+				insertDiv(rep, result.length)
 
 			})
 

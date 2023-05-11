@@ -3308,24 +3308,10 @@
 			});
 		}
 
-		// search listing
-		document.getElementById("searchForm").addEventListener("submit", async (e) => {
-			e.preventDefault()
-			const body = {
-				description: e.target.phrase.value,
-				state: e.target.location.value.split(", ").reverse()[0],
-				city: e.target.location.value.split(", ").reverse()[1],
-				category: e.target.category.value
-			}
-			console.log(body);
-			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/params", {
-				method: "POST",
-				body: JSON.stringify(body),
-				headers: {
-					"Content-type": "application/json; charset=UTF-8",
-				}
-			})
-			const rep = await res.json()
+		let page = 0
+		let arr = []
+
+		const insertResult = (rep, len) => {
 			if (rep.length < 1) {
 				document.getElementById("noList").innerHTML = `<h2>No business found, try to broaden your search</h2>`
 				document.getElementById("noList").style.display = "block"
@@ -3333,7 +3319,10 @@
 				return
 			}
 			document.getElementById("noList").style.display = "block"
-			document.getElementById("noList").innerHTML = `<h3> ${rep.length} Listing found </h3>`
+			document.getElementById("noList").innerHTML = `
+					<h3> ${len} Listing found </h3> 
+					<p>Showing 10 per page</p>
+			`
 			document.getElementById("scrollDiv").scrollIntoView()
 			document.getElementById("popularSection").style.display = "none"
 			document.getElementById("featSection").style.display = "none"
@@ -3405,7 +3394,61 @@
 					`
 				document.getElementById("noList").appendChild(div)
 			})
-			console.log(rep);
+			document.getElementById("noList").innerHTML += `
+			<div style="display: flex; justify-content: center;">
+					<ul id="pagination" class="pagination mb-5">
+						<li id="prevPage" class="page-item page-prev ${page < 10 && "disabled"}">
+										<a class="page-link" tabindex="-1">Prev</a>
+									</li>
+										<li id="nextPage" class="page-item page-next ${len < 10 && "disabled"}">
+										<a class="page-link">Next</a>
+									</li>
+						</ul>
+						</div>
+			`
+
+			document.getElementById("nextPage").addEventListener("click", async () => {
+				page += 10
+				if (page > len) {
+					page -= 10
+					return
+				}
+				const result = arr.slice(page, page + 10)
+				insertResult(result, len)
+			})
+
+			document.getElementById("prevPage").addEventListener("click", async () => {
+				page -= 10
+				if (page < 0) {
+					page += 10
+					return
+				}
+				const result = arr.slice(page, page + 10)
+				insertResult(result, len)
+			})
+
+		}
+
+		// search listing
+		document.getElementById("searchForm").addEventListener("submit", async (e) => {
+			e.preventDefault()
+			const body = {
+				description: e.target.phrase.value,
+				state: e.target.location.value.split(", ").reverse()[0],
+				city: e.target.location.value.split(", ").reverse()[1],
+				category: e.target.category.value
+			}
+			const res = await fetch("https://bizdire.azurewebsites.net/listing/get/params", {
+				method: "POST",
+				body: JSON.stringify(body),
+				headers: {
+					"Content-type": "application/json; charset=UTF-8",
+				}
+			})
+			const rep = await res.json()
+			arr = rep
+			const result = rep.slice(0, 10)
+			insertResult(result, rep.length)
 		})
 
 		// calculate distance with lat and long
