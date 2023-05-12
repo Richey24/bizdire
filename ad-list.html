@@ -226,18 +226,7 @@
 											<a href="javascript:void(0)" class="dropdown-item">
 												English
 											</a>
-											<a class="dropdown-item" href="javascript:void(0)">
-												Arabic
-											</a>
-											<a class="dropdown-item" href="javascript:void(0)">
-												German
-											</a>
-											<a href="javascript:void(0)" class="dropdown-item">
-												Greek
-											</a>
-											<a href="javascript:void(0)" class="dropdown-item">
-												Spanish
-											</a>
+
 										</div>
 									</li>
 
@@ -1225,6 +1214,11 @@
 	<script type="module" src="../assets/js/pages/header.js"></script>
 
 	<script>
+
+		if (!JSON.parse(localStorage.getItem("user"))) {
+			window.location.href = "/login.html"
+		}
+
 		const getCategory = async () => {
 			const res = await fetch("https://bizdire.azurewebsites.net/category/get/all")
 			const rep = await res.json()
